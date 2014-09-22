@@ -1,0 +1,5 @@
+site_name: Picovico - API Documentation
+theme: readthedocs
+pages:
+ - [index.md, Home]
+
