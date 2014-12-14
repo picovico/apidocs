@@ -2,4 +2,5 @@ site_name: Picovico - API Documentation
 theme: readthedocs
 pages:
  - [index.md, Home]
-
+ - [login-flow.md, Login Flow]
+ - [videos.md, Videos]
