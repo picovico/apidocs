@@ -4,13 +4,13 @@ authorization.
 
 ##Endpoints
 
-###GET `/musics/`
+###GET `/musics`
 * List of musics from Picovico Library
 
-###GET `/me/musics/`
+###GET `/me/musics`
 * List of user's uploaded musics.
 
-###PUT `/me/musics/`
+###PUT `/me/musics`
 * Upload music.
 
 [Music Detail](musics-info)

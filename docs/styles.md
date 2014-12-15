@@ -4,7 +4,7 @@ authorization.
 
 ##Endpoints
 
-###GET `/styles/`
+###GET `/styles`
 * List of styles
 
 ####Response

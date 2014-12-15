@@ -4,7 +4,7 @@ Following endpoints are valid for musics.
 
 ##Endpoints
 
-###GET `/me/musics/`
+###GET `/me/musics`
 
 * List of musics from Picovico Library
 
@@ -25,7 +25,7 @@ The response is a valid json with list of musics.
         ]
     }
     
-###PUT `/me/musics/`
+###PUT `/me/musics`
 
 * Upload music
 
