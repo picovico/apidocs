@@ -9,5 +9,7 @@ pages:
  - [login-flow.md, Login Flow]
  - [videos.md, Videos]
  - [photos.md, Photos]
+ - [photos/photo-details.md, Photo Details]
  - [musics.md, Musics & Audio Library]
+ - [musics/music-details.md, Music Details]
  - [styles.md, Styles]
