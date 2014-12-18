@@ -64,7 +64,7 @@ authorization.
 * Create a new video project, or get the last draft project
 
 #### Parameters
-* name      -   Name of video we are making
+* `name`      -   Name of video we are making
 
 #### Response
 
@@ -125,11 +125,11 @@ authorization.
 
 | Key                   |   Data Type   |   Description |
 | ----------------------|---------------|-------------- |
-| name      [optional]  |   String      |   name of video |
-| style     [optional]  |   String      |   set style |
-| credit    [optional]  |   Array of Array (eg. [["key1", "value1"],["key2", "value2"],["key3", "value3"]])      |   set credits at end of video | 
-| quality   [optional]  |   String (eg. 360)     |   set quality |
-| assets    [optional]  |   Array of frames object     |   set assets |
+| `name`      [optional]  |   String      |   name of video |
+| `style`     [optional]  |   String      |   set style |
+| `credit`    [optional]  |   Array of Array (eg. [["key1", "value1"],["key2", "value2"],["key3", "value3"]])      |   set credits at end of video | 
+| `quality`   [optional]  |   String (eg. 360)     |   set quality |
+| `assets`    [optional]  |   Array of frames object     |   set assets |
 
 #### Response
 Same as GET Video object

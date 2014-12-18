@@ -38,4 +38,5 @@ authorization.
             "thumbnail": "<some-thumbnail>",
             "name": "<some-name>"
         },
+        ...
     ]

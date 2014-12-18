@@ -22,6 +22,7 @@ The response is a valid json with list of musics.
                 "preview_url": "<some-preview_url>",
                 "id": "<some-id>"
             },
+            ...
         ]
     }
     
@@ -29,9 +30,11 @@ The response is a valid json with list of musics.
 
 * Upload music
 
-####Parameters
+#### Headers
  
-`url`
+* `Music-Title` - Music url
+* `Music-Artist` - Music artist
+
 
 ####Response
 

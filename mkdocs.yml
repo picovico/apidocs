@@ -6,11 +6,11 @@ site_favicon: http://www.picovico.com/app/assets/img/favicon.ico?v=102
 docs_dir: docs
 pages:
  - ['index.md', 'Picovico API', 'Home']
- - ['login/index.md', 'Login', 'Login Flow']
- - ['videos/index.md', 'Videos']
+ - ['login/index.md', 'Authentication', 'Login Flow']
+ - ['videos/index.md', 'Videos', 'Endpoints']
  - ['videos/details.md', 'Videos', 'Video Details']
- - ['photos/index.md', 'Photos']
+ - ['photos/index.md', 'Photos', 'Endpoints']
  - ['photos/details.md', 'Photos', 'Photo Details']
- - ['musics/index.md', 'Musics & Audio Library']
+ - ['musics/index.md', 'Musics & Audio Library', 'Endpoints']
  - ['musics/details.md', 'Musics & Audio Library', 'Music Details']
- - ['styles/index.md', 'Styles']
+ - ['styles/index.md', 'Styles', 'Endpoints']
