@@ -6,7 +6,9 @@ site_favicon: http://www.picovico.com/app/assets/img/favicon.ico?v=102
 docs_dir: docs
 pages:
  - ['index.md', 'Picovico API', 'Home']
- - ['login/index.md', 'Authentication', 'Login Flow']
+ - ['account/index.md', 'Account', 'Login Flow']
+ - ['account/profile.md', 'Account', 'Profile']
+ - ['account/password.md', 'Account', 'Change Password']
  - ['videos/index.md', 'Videos', 'Endpoints']
  - ['videos/details.md', 'Videos', 'Video Details']
  - ['photos/index.md', 'Photos', 'Endpoints']
