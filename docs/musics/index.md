@@ -13,4 +13,4 @@ authorization.
 ###PUT `/me/musics`
 * Upload music.
 
-[More Details](musics/music-details.md)
+[More Details](details.md)

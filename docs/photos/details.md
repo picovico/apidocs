@@ -27,7 +27,8 @@ Response is a valid JSON with following output
                         "url": "<some_url>",
                         "thumbnail_url": "<some_thumbnail_url>",
                         "id": "<some_id>"
-                    }
+                    },
+                    ...
                 ]
             },
             {
@@ -38,13 +39,10 @@ Response is a valid JSON with following output
                         "thumbnail_url": "<some_thumbnail_url>",
                         "id": "<some_id>"
                     },
-                    {
-                        "url": "<some_url>",
-                        "thumbnail_url": "<some_thumbnail_url>",
-                        "id": "<some_id>"
-                    }
+                    ...
                 ]
-            }
+            },
+            ...
         ]
     }
         
@@ -66,9 +64,9 @@ Response is a valid JSON with following output
 * external sources may be facebook, flickr or other web urls
 
 #### Parameters
-* url               : Original photo path
-* thumbnail_url     : thumbnail photo path
-* service           : Service name from which photo is uploaded
+* `url`               : Original photo path
+* `thumbnail_url`     : thumbnail photo path
+* `service`           : Service name from which photo is uploaded
 
 #### Response
 Response is a valid JSON with following output

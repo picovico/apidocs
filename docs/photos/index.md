@@ -17,4 +17,4 @@ authorization.
 ###  DELETE `/me/photos/<photo_id>`
 * Deleting the photo
 
-[More Details](photos/photo-details.md)
+[More Details](details.md)

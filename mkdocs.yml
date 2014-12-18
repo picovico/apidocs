@@ -5,11 +5,12 @@ site_author: Picovico Inc.
 site_favicon: http://www.picovico.com/app/assets/img/favicon.ico?v=102
 docs_dir: docs
 pages:
- - [index.md, Home]
- - [login-flow.md, Login Flow]
- - [videos.md, Videos]
- - [photos.md, Photos]
- - [photos/photo-details.md, Photo Details]
- - [musics.md, Musics & Audio Library]
- - [musics/music-details.md, Music Details]
- - [styles.md, Styles]
+ - ['index.md', 'Picovico API', 'Home']
+ - ['login/index.md', 'Authentication', 'Login Flow']
+ - ['videos/index.md', 'Videos', 'Endpoints']
+ - ['videos/details.md', 'Videos', 'Video Details']
+ - ['photos/index.md', 'Photos', 'Endpoints']
+ - ['photos/details.md', 'Photos', 'Photo Details']
+ - ['musics/index.md', 'Musics & Audio Library', 'Endpoints']
+ - ['musics/details.md', 'Musics & Audio Library', 'Music Details']
+ - ['styles/index.md', 'Styles', 'Endpoints']
