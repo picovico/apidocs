@@ -2,23 +2,26 @@
 Following endpoints are valid for videos. `X-Access-Key` and `X-Access-Token` required wherever the endpoint expects 
 authorization.
 ## Endpoints
-### GET `/v2.0/me/videos`
+### GET `/me/videos`
 * List of videos created or being created
 
-### GET `/v2.0/v/video-resource-id/video-name.mp4`
+### GET `/v/<video-id>/video-name.mp4`
 * Direct Link to video file after a video is created successfully.
 * Authorization is NOT required
 
-### POST `/v2.0/me/videos`
+### POST `/me/videos`
 * Create a new video project, or get the last draft project
 
-### POST `/v2.0/me/videos/video-resource-id`
-* Define or update a video content
-
-### GET `/v2.0/me/videos/video-resource-id`
+### GET `/me/videos/<video-id>`
 * Get the status, details of any video
 
-### POST `/v2.0/me/videos/video-resource-id/render`
+### POST `/me/videos/<video-id>`
+* Define or update a video content
+
+### DELETE `/me/videos/<video-id>`
+* Delete the video
+
+### POST `/me/videos/<video-id>/render`
 * Send the video rendering request to rendering engine
 
 
