@@ -1,13 +1,20 @@
-site_name: Picovico - API Documentation
+site_name: Picovico - API 2.0 Documentation
+dev_addr: localhost:5000
 theme: readthedocs
 repo_url: https://github.com/picovico/apidocs
 site_author: Picovico Inc.
 site_favicon: http://www.picovico.com/app/assets/img/favicon.ico?v=102
 docs_dir: docs
+markdown_extensions: [smartypants]
 pages:
- - [index.md, Home]
- - [login-flow.md, Login Flow]
- - [videos.md, Videos]
- - [photos.md, Photos]
- - [musics.md, Musics & Audio Library]
- - [styles.md, Styles]
+ - ['index.md', 'Picovico API', 'Home']
+ - ['account/index.md', 'Account', 'Login Flow']
+ - ['account/profile.md', 'Account', 'Profile']
+ - ['account/password.md', 'Account', 'Change Password']
+ - ['videos/index.md', 'Videos', 'Endpoints']
+ - ['videos/details.md', 'Videos', 'Video Details']
+ - ['photos/index.md', 'Photos', 'Endpoints']
+ - ['photos/details.md', 'Photos', 'Photo Details']
+ - ['musics/index.md', 'Musics & Audio Library', 'Endpoints']
+ - ['musics/details.md', 'Musics & Audio Library', 'Music Details']
+ - ['styles/index.md', 'Styles', 'Endpoints']

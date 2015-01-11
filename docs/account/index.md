@@ -4,7 +4,7 @@ user with the system. Upon successful login, access_key and access_token are pro
 
 ## Step 1
 
-###POST `/v2.0/login`  
+###POST `/login`  
 ###parameters
 * username
 * password
