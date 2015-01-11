@@ -1,0 +1,20 @@
+body{
+	background-color:#fcfcfc;
+}
+.wy-nav-content-wrap{
+	background-color:#fcfcfc;
+}
+
+.wy-side-nav-search{
+  background-color: #131313 !important;
+  background: url(http://www.picovico.com/logo/pv_logo__1_1.png) no-repeat -250px -65px;
+  box-sizing: border-box;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 300px;
+  padding-bottom: 10px;
+}
+
+.toctree-l1.current > ul{
+  display:none !important;
+}

@@ -6,6 +6,8 @@ site_author: Picovico Inc.
 site_favicon: http://www.picovico.com/app/assets/img/favicon.ico?v=102
 docs_dir: docs
 markdown_extensions: [smartypants]
+extra_css:
+ - extras/screen.css
 pages:
  - ['index.md', 'Picovico API', 'Home']
  - ['account/index.md', 'Account', 'Login Flow']
