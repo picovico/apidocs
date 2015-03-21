@@ -134,6 +134,15 @@ authorization.
 #### Response
 Same as GET Video object
 
+### POST `/me/videos/<video-id>/duplicate`
+* Duplicate any published video into current draft
+
+#### Parameters
+None
+
+#### Response
+Same as GET Video Object (Returns details for the duplicate copy)
+
 ### DELETE `/me/videos/<video-id>`
 * Delete the video
 
