@@ -18,6 +18,9 @@ authorization.
 ### POST `/me/videos/<video-id>`
 * Define or update a video content
 
+### POST `/me/videos/<video-id>/duplicate`
+* Copy any published video into the current draft.
+
 ### DELETE `/me/videos/<video-id>`
 * Delete the video
 
