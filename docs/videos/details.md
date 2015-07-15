@@ -131,6 +131,33 @@ authorization.
 | `quality`   [optional]  |   String (eg. 360)     |   set quality |
 | `assets`    [optional]  |   Array of frames object     |   set assets |
 
+The asset array contains array of objects of video / text assets.
+For example
+```
+{  
+   "assets":[  
+      {  
+         "start_time":0.0,
+         "end_time":5.0,
+         "asset_id":"____",
+         "name":"image",
+         "data":{  
+            "text":"some image caption"
+         }
+      },
+      {  
+         "start_time":5.0,
+         "end_time":10.0,
+         "name":"text",
+         "data":{  
+            "title":"heading",
+            "text":"some subheading"
+         }
+      }
+   ]
+}
+```
+
 #### Response
 Same as GET Video object
 
