@@ -157,9 +157,19 @@ For example
    ]
 }
 ```
-
 #### Response
 Same as GET Video object
+
+#### Defining music for a video
+Music for a video is defined in the asset array. Its contained in a asset block as
+```
+{  
+    "start_time":0.0,
+    "end_time":0.0,
+    "name":"music",
+    "asset_id": "some_music_id"
+}
+```
 
 ### DELETE `/me/videos/<video-id>`
 * Delete the video
