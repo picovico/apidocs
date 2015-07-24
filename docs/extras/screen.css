@@ -11,8 +11,10 @@ body{
   box-sizing: border-box;
   padding-left: 10px;
   padding-right: 10px;
-  padding-top: 300px;
+  padding-top: 200px;
   padding-bottom: 10px;
+  background-size:cover;
+  background-position: center center;
 }
 
 .toctree-l1.current > ul{
