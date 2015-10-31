@@ -3,9 +3,9 @@ import requests, json, sys
 
 picovico_api_endpoint = "https://uapi-f1.picovico.com/v2.1/"
 picovico_device_id = 'com.picovico.api.example'
-picovico_app_id = '0e04fcf0476136f6c3f01cd63dd0b0a78286835cf02770d3381bee14d4a188bb'
+picovico_app_id = 'some-app-id'
 # if login with app_secret instead of username / password
-picovico_app_secret ='1691e569d4c29ae71ee07cf227ee305e65d644e28d3697ec929c5c52d337fe3c'
+picovico_app_secret ='some-app-secret'
 # if login with username and password (App ID is mandatory for both cases)
 picovico_username = ''
 picovico_password = '' 
