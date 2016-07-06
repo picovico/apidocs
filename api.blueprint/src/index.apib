@@ -24,13 +24,16 @@ As of API Version 2.1, Login Flow has some modifications. Each login request mus
 # Login with username and password [/login]
 This endpoint is useful in case if you want to login with your username and password.
 
-+ Attributes
-
-    + app_id (string)
-    + username (string)
-    + password (string)
-
 ## Login with password [POST]
+
++ Request (application/x-www-form-urlencoded)
+
+    + Attributes
+
+        + app_id: Picovico Provided Application ID (string, required)
+        + username: Your Username (string, required)
+        + password: Your Password (string, required)
+
 
 + Response 200 (application/json) 
         
@@ -41,15 +44,18 @@ This endpoint is useful in case if you want to login with your username and pass
         }
 
 # Login with app_id and app_secret [/login/app]
+
 Create an app from your developer dashboard. Use the app_id and app_secret for the app created.
-
-+ Attributes
-
-    + app_id (string)
-    + app_secret (string)
 
 
 ## Login with app_secret [POST]
+
++ Request (application/x-www-form-urlencoded)
+
+    + Attributes
+
+        + app_id: Picovico Provided Application ID (string, required)
+        + app_secret: Picovico Provided Application Secret (string, required)
 
 + Response 200 (application/json) 
         
@@ -70,33 +76,34 @@ To create a video, its mandatory to specify a style. When your video is generate
 ## List All Styles [GET]
 Fetches the styles available in your account. If your account has some custom styles, you will receive those too.
 
-Each style has following attributes.
-
-- name
-Name of the style
-
-- category (string) - One of the available categories. eg. Premium, Stardard
-- is_featured (boolean) - True / False
-- machine_name (string) - Unique machine readable identifier
-- description (string) - Quick information about the style.
-- scope (string) - This style can be used in cases A, B, etc...
-- limits (object) - Style limitations for different quality levels, and others
-    - quality (array) - Limits for the different quality levels
-        - res (string) - One of the available resolutions (360, 480, 720)
-        - coins (integer) - Cost of rendering for the mentioned quality.
-    - title_length - Maximum length for TITLE parameter in text slides
-    - text_length - Maximum length for TEXT parameter in text slides
-- order (integer) - Numeric value to indicate ordering if required
-- sample_url (string) - URL for the sample video
-- thumbnail (string) - URL for the style thumbnail
-
-
 + Response 200 (application/json)
+    
+    + Attributes
+        + name (string) - Name of the style
+        + category (string) - One of the available style categories. eg. Premium, Stardard
+        + is_featured (boolean) - True / False
+        + machine_name (string) - Unique machine readable identifier
+        + description (string) - Quick information about the style.
+        + scope (string) - This style can be used in cases A, B, etc...
+        + order (number) - Numeric value to indicate ordering if required
+        + sample_url (string) - URL for the sample video
+        + thumbnail (string) - URL for the style thumbnail
+        + type (string) - type related to style such as "premium"
+        + youtube_url (string) - URL id for youtube link if available
+        + limits (object) - Style limitations for different quality levels, and others
+            + quality (array) - Limits for the different quality levels
+                + res (string) - One of the available resolutions (360, 480, 720)
+                + white_labeled (boolean) - Whether white label feature is allowed or not.
+                + coins (number) - Cost of rendering for the mentioned quality.
+            + title_length - Maximum length for TITLE parameter in text slides
+            + text_length - Maximum length for TEXT parameter in text slides
+    
+    + Body
 
         [
             {
                 "category": "Premium",
-                "is_featured": "true",
+                "is_featured": true,
                 "name": "Vanilla",
                 "machine_name": "vanilla",
                 "description": "Simply Elegant",
@@ -105,15 +112,18 @@ Name of the style
                     "quality": [
                         {
                             "res": 360,
-                            "credits": 50
+                            "white_labeled": false
+                            "coins": 50
                         },
                         {
                             "res": 480,
-                            "credits": 100
+                            "white_labeled": false
+                            "coins": 100
                         },
                         {
                             "res": 720
-                            "credits": 150
+                            "white_labeled": true
+                            "coins": 150
                         }
                     ],
                     "title_length": 50,
@@ -122,10 +132,12 @@ Name of the style
                 "order": 1,
                 "sample_url": "http://example.com/some-picovico-sample-video.mp4",
                 "thumbnail": "http://example.com/some-picovico-sample-thumbnail.jpg"
+                "type"" "premium",
+                "youtube_url": "vRrSZZ2wwYA"
             },
             {
                 "category": "Premium",
-                "is_featured": "true",
+                "is_featured": true,
                 "name": "Party",
                 "machine_name": "party_default",
                 "description": "Party description",
@@ -134,14 +146,17 @@ Name of the style
                     "quality": [
                         {
                             "res": 360,
-                            "credits": 50
+                            "white_labeled": false
+                            "coins": 50
                         },
                         {
                             "res": 480,
+                            "white_labeled": false
                             "credits": 100
                         },
                         {
                             "res": 720
+                            "white_labeled": false
                             "credits": 150
                         }
                     ],
@@ -150,163 +165,72 @@ Name of the style
                 },
                 "order": 1,
                 "sample_url": "http://example.com/some-picovico-sample-video.mp4",
-                "thumbnail": "http://example.com/some-picovico-sample-thumbnail.jpg"
+                "thumbnail": "http://example.com/some-picovico-sample-thumbnail.jpg",
+                "type"" "premium",
+                "youtube_url": "vRrSZZ2wwYA"
             }
         ]
 
 
-## Group Question
+## Group Musics
 
-Resources related to questions in the API.
+Resources related to musics in the API. Musics include both system provided and uploaded musics.
 
-## Question [/questions/{question_id}]
+# Musics API [/musics]
 
-A Question object has the following attributes:
+Inorder to append music to video, Picovico provides some music. You can upload your own music as well.
 
-+ question
-+ published_at - An ISO8601 date when the question was published.
-+ url
-+ choices - An array of Choice objects.
++ Model (application/json)
 
-+ Parameters
-    + question_id: 1 (required, number) - ID of the Question in form of an integer
+## List all system music [GET]
 
-### View a Questions Detail [GET]
+Fetches all musics provided by picovico.
 
-+ Response 200 (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "published_at": "2014-11-11T08:40:51.620Z",
-            "url": "/questions/1",
-            "choices": [
-                {
-                    "choice": "Swift",
-                    "url": "/questions/1/choices/1",
-                    "votes": 2048
-                }, {
-                    "choice": "Python",
-                    "url": "/questions/1/choices/2",
-                    "votes": 1024
-                }, {
-                    "choice": "Objective-C",
-                    "url": "/questions/1/choices/3",
-                    "votes": 512
-                }, {
-                    "choice": "Ruby",
-                    "url": "/questions/1/choices/4",
-                    "votes": 256
-                }
-            ]
-        }
-
-## Choice [/questions/{question_id}/choices/{choice_id}]
-
-+ Parameters
-    + question_id: 1 (required, number) - ID of the Question in form of an integer
-    + choice_id: 1 (required, number) - ID of the Choice in form of an integer
-
-### Vote on a Choice [POST]
-
-This action allows you to vote on a question's choice.
-
-+ Response 201
-
-    + Headers
-
-            Location: /questions/1
-
-## Questions Collection [/questions{?page}]
-
-+ Parameters
-    + page: 1 (optional, number) - The page of questions to return
-
-### List All Questions [GET]
++ Attributes
+    + category (string) - Music Category e.g. Christmas,
+    + is_featured (boolean) - Whether the music is featured or not.,
+    + artist (string) - Artist of music [Unknown if not available],
+    + title (string) - Title of music [Unknown if not available],
+    + preview_url (string) - Preview URL of music,
+    + duration (number) - Duration in seconds,
+    + id (string) - Unique identifier to the music object.
 
 + Response 200 (application/json)
-
-    + Headers
-
-            Link: </questions?page=2>; rel="next"
-
-    + Body
-
-            [
-                {
-                    "question": "Favourite programming language?",
-                    "published_at": "2014-11-11T08:40:51.620Z",
-                    "url": "/questions/1",
-                    "choices": [
-                        {
-                            "choice": "Swift",
-                            "url": "/questions/1/choices/1",
-                            "votes": 2048
-                        }, {
-                            "choice": "Python",
-                            "url": "/questions/1/choices/2",
-                            "votes": 1024
-                        }, {
-                            "choice": "Objective-C",
-                            "url": "/questions/1/choices/3",
-                            "votes": 512
-                        }, {
-                            "choice": "Ruby",
-                            "url": "/questions/1/choices/4",
-                            "votes": 256
-                        }
-                    ]
-                }
-            ]
-
-### Create a New Question [POST]
-
-You may create your own question using this action. It takes a JSON object containing a question and a collection of answers in the form of choices.
-
-+ question (string) - The question
-+ choices (array[string]) - A collection of choices.
-
-+ Request (application/json)
-
-        {
-            "question": "Favourite programming language?",
-            "choices": [
-                "Swift",
-                "Python",
-                "Objective-C",
-                "Ruby"
-            ]
-        }
-
-+ Response 201 (application/json)
-
-    + Headers
-
-            Location: /questions/2
-
-    + Body
-
+        
+        [
             {
-                "question": "Favourite programming language?",
-                "published_at": "2014-11-11T08:40:51.620Z",
-                "url": "/questions/2",
-                "choices": [
-                    {
-                        "choice": "Swift",
-                        "url": "/questions/2/choices/1",
-                        "votes": 0
-                    }, {
-                        "choice": "Python",
-                        "url": "/questions/2/choices/2",
-                        "votes": 0
-                    }, {
-                        "choice": "Objective-C",
-                        "url": "/questions/2/choices/3",
-                        "votes": 0
-                    }, {
-                        "choice": "Ruby",
-                        "url": "/questions/2/choices/4",
-                        "votes": 0
-                    }
-                ]
+                "category": "Musical",
+                "is_featured": false,
+                "artist": "Kevin MacLeod",
+                "title": "Waterford",
+                "preview_url": "https://s3-us-west-2.amazonaws.com/pv-audio-library/free-music/preview/Musical/Waterford.mp3",
+                "duration": 113,
+                "id": "NhLIg"
+            },
+            {
+                "category": "Musical",
+                "is_featured": false,
+                "artist": "Kevin MacLeod",
+                "title": "Wexford",
+                "preview_url": "https://s3-us-west-2.amazonaws.com/pv-audio-library/free-music/preview/Musical/Wexford.mp3",
+                "duration": 117,
+                "id": "NhLIe"
             }
+        ]
+
+# Personal Music API [/me/musics]
+
++ Model (application/json)
+
+## List all user uploaded music [GET]
+
+Fetches User uploaded music.
+
+Attributes and response similar to system musics.
+
+
++ Response 200 (application/json)
+    {
+        musics: []
+    }
 
