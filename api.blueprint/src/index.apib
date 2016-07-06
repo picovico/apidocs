@@ -65,7 +65,6 @@ Create an app from your developer dashboard. Use the app_id and app_secret for t
             "id": "nX02dY"
         }
 
-
 # Group Styles
 
 # Styles API [/styles]
@@ -220,17 +219,37 @@ Fetches all musics provided by picovico.
 
 # Personal Music API [/me/musics]
 
-+ Model (application/json)
+# Data Structures
+
+## Music (object)
+
++ artist: Someone
++ title: Some Title
++ preview_url: http://url.cm/mp3
++ url: http://url.com/mp3preview
++ duration: 20
++ id: helsGs
+
 
 ## List all user uploaded music [GET]
 
 Fetches User uploaded music.
 
-Attributes and response similar to system musics.
-
 
 + Response 200 (application/json)
-    {
-        musics: []
-    }
+    + Attributes (array[Music])
+
+## Upload Music [PUT]
+
++ Request
+    + Headers
+        Music-Title: (string, optional) Title of music.
+        Music-Artist: (string, optional) Artist of music.
+    
+    File(required)
+
++ Response 200 (application/json)
+    + Attributes (Music)
+    
+
 
