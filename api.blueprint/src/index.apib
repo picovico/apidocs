@@ -1,0 +1,312 @@
+FORMAT: 1A
+HOST: https://api.picovico.com/v2.1
+
+# Picovico API
+The Picovico API provides interface to access and integrate the video rendering functionality into your own platform. Our API is organized around REST, has resource-oriented URLs, and uses HTTP response codes to indicate errors. We support cross-origin resource sharing, allowing you to interact securely with our API from a client-side web application (though API Keys should never be exposed in any public website's client-side code). JSON is the standard for all API responses, including errors.
+
+
+| **Platform version**  |      2.0      |
+|--|--|
+| **Authentication** | Basic Auth |
+| **API Version** | 2.1 |
+| **API Root** | https://api.picovico.com/v2.1/ |
+| **SSL** | Yes |
+| **Response Type** | JSON |
+
+
+# Group Authentication
+Picovico API follows a simple login flow. Each account is provided with `username` and `password` for authentication. Upon successful login, `access_key` and `access_token` are provided in the response.
+
+*`X-Access-Key` and `X-Access-Token` headers are required for all authentication required requests.*
+
+As of API Version 2.1, Login Flow has some modifications. Each login request must provide `app_id` as a mandatory third parameter. Also there are two different login scnenarios and respective endpoints.
+
+# Login with username and password [/login]
+This endpoint is useful in case if you want to login with your username and password.
+
++ Attributes
+
+    + app_id (string)
+    + username (string)
+    + password (string)
+
+## Login with password [POST]
+
++ Response 200 (application/json) 
+        
+        {
+            "access_key": "a0sdfaosdfaksdflaksdfa0sdfasd",
+            "access_token": "adsfa0sdfasdfasdfasdasdfadsfa",
+            "id": "nX02dY"
+        }
+
+# Login with app_id and app_secret [/login/app]
+Create an app from your developer dashboard. Use the app_id and app_secret for the app created.
+
++ Attributes
+
+    + app_id (string)
+    + app_secret (string)
+
+
+## Login with app_secret [POST]
+
++ Response 200 (application/json) 
+        
+        {
+            "access_key": "a0sdfaosdfaksdflaksdfa0sdfasd",
+            "access_token": "adsfa0sdfasdfasdfasdasdfadsfa",
+            "id": "nX02dY"
+        }
+
+
+# Group Styles
+
+# Styles API [/styles]
+To create a video, its mandatory to specify a style. When your video is generated, its rendered as per the style selected and content specified.
+
++ Model (application/json)
+
+## List All Styles [GET]
+Fetches the styles available in your account. If your account has some custom styles, you will receive those too.
+
+Each style has following attributes.
+
+- name
+Name of the style
+
+- category (string) - One of the available categories. eg. Premium, Stardard
+- is_featured (boolean) - True / False
+- machine_name (string) - Unique machine readable identifier
+- description (string) - Quick information about the style.
+- scope (string) - This style can be used in cases A, B, etc...
+- limits (object) - Style limitations for different quality levels, and others
+    - quality (array) - Limits for the different quality levels
+        - res (string) - One of the available resolutions (360, 480, 720)
+        - coins (integer) - Cost of rendering for the mentioned quality.
+    - title_length - Maximum length for TITLE parameter in text slides
+    - text_length - Maximum length for TEXT parameter in text slides
+- order (integer) - Numeric value to indicate ordering if required
+- sample_url (string) - URL for the sample video
+- thumbnail (string) - URL for the style thumbnail
+
+
++ Response 200 (application/json)
+
+        [
+            {
+                "category": "Premium",
+                "is_featured": "true",
+                "name": "Vanilla",
+                "machine_name": "vanilla",
+                "description": "Simply Elegant",
+                "scope": "Use in simple presentations, elegant slideshows & realestate.",
+                "limits": {
+                    "quality": [
+                        {
+                            "res": 360,
+                            "credits": 50
+                        },
+                        {
+                            "res": 480,
+                            "credits": 100
+                        },
+                        {
+                            "res": 720
+                            "credits": 150
+                        }
+                    ],
+                    "title_length": 50,
+                    "text_length": 100
+                },
+                "order": 1,
+                "sample_url": "http://example.com/some-picovico-sample-video.mp4",
+                "thumbnail": "http://example.com/some-picovico-sample-thumbnail.jpg"
+            },
+            {
+                "category": "Premium",
+                "is_featured": "true",
+                "name": "Party",
+                "machine_name": "party_default",
+                "description": "Party description",
+                "scope": "for parties",
+                "limits": {
+                    "quality": [
+                        {
+                            "res": 360,
+                            "credits": 50
+                        },
+                        {
+                            "res": 480,
+                            "credits": 100
+                        },
+                        {
+                            "res": 720
+                            "credits": 150
+                        }
+                    ],
+                    "title_length": 50,
+                    "text_length": 100
+                },
+                "order": 1,
+                "sample_url": "http://example.com/some-picovico-sample-video.mp4",
+                "thumbnail": "http://example.com/some-picovico-sample-thumbnail.jpg"
+            }
+        ]
+
+
+## Group Question
+
+Resources related to questions in the API.
+
+## Question [/questions/{question_id}]
+
+A Question object has the following attributes:
+
++ question
++ published_at - An ISO8601 date when the question was published.
++ url
++ choices - An array of Choice objects.
+
++ Parameters
+    + question_id: 1 (required, number) - ID of the Question in form of an integer
+
+### View a Questions Detail [GET]
+
++ Response 200 (application/json)
+
+        {
+            "question": "Favourite programming language?",
+            "published_at": "2014-11-11T08:40:51.620Z",
+            "url": "/questions/1",
+            "choices": [
+                {
+                    "choice": "Swift",
+                    "url": "/questions/1/choices/1",
+                    "votes": 2048
+                }, {
+                    "choice": "Python",
+                    "url": "/questions/1/choices/2",
+                    "votes": 1024
+                }, {
+                    "choice": "Objective-C",
+                    "url": "/questions/1/choices/3",
+                    "votes": 512
+                }, {
+                    "choice": "Ruby",
+                    "url": "/questions/1/choices/4",
+                    "votes": 256
+                }
+            ]
+        }
+
+## Choice [/questions/{question_id}/choices/{choice_id}]
+
++ Parameters
+    + question_id: 1 (required, number) - ID of the Question in form of an integer
+    + choice_id: 1 (required, number) - ID of the Choice in form of an integer
+
+### Vote on a Choice [POST]
+
+This action allows you to vote on a question's choice.
+
++ Response 201
+
+    + Headers
+
+            Location: /questions/1
+
+## Questions Collection [/questions{?page}]
+
++ Parameters
+    + page: 1 (optional, number) - The page of questions to return
+
+### List All Questions [GET]
+
++ Response 200 (application/json)
+
+    + Headers
+
+            Link: </questions?page=2>; rel="next"
+
+    + Body
+
+            [
+                {
+                    "question": "Favourite programming language?",
+                    "published_at": "2014-11-11T08:40:51.620Z",
+                    "url": "/questions/1",
+                    "choices": [
+                        {
+                            "choice": "Swift",
+                            "url": "/questions/1/choices/1",
+                            "votes": 2048
+                        }, {
+                            "choice": "Python",
+                            "url": "/questions/1/choices/2",
+                            "votes": 1024
+                        }, {
+                            "choice": "Objective-C",
+                            "url": "/questions/1/choices/3",
+                            "votes": 512
+                        }, {
+                            "choice": "Ruby",
+                            "url": "/questions/1/choices/4",
+                            "votes": 256
+                        }
+                    ]
+                }
+            ]
+
+### Create a New Question [POST]
+
+You may create your own question using this action. It takes a JSON object containing a question and a collection of answers in the form of choices.
+
++ question (string) - The question
++ choices (array[string]) - A collection of choices.
+
++ Request (application/json)
+
+        {
+            "question": "Favourite programming language?",
+            "choices": [
+                "Swift",
+                "Python",
+                "Objective-C",
+                "Ruby"
+            ]
+        }
+
++ Response 201 (application/json)
+
+    + Headers
+
+            Location: /questions/2
+
+    + Body
+
+            {
+                "question": "Favourite programming language?",
+                "published_at": "2014-11-11T08:40:51.620Z",
+                "url": "/questions/2",
+                "choices": [
+                    {
+                        "choice": "Swift",
+                        "url": "/questions/2/choices/1",
+                        "votes": 0
+                    }, {
+                        "choice": "Python",
+                        "url": "/questions/2/choices/2",
+                        "votes": 0
+                    }, {
+                        "choice": "Objective-C",
+                        "url": "/questions/2/choices/3",
+                        "votes": 0
+                    }, {
+                        "choice": "Ruby",
+                        "url": "/questions/2/choices/4",
+                        "votes": 0
+                    }
+                ]
+            }
+
