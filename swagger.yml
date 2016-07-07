@@ -101,21 +101,97 @@ paths:
             items:
               $ref: '#/definitions/Style'
   /me/musics:
+    parameters:
+      - $ref: '#/parameters/AccessKey'
+      - $ref: '#/parameters/AccessToken'
     get:
-      summary: User Uploaded musics.
-      parameters:
-        - $ref: "#/parameters/AccessKey"
-        - $ref: "#/parameters/AccessToken"
+      summary: List User Uploaded musics.
       tags:
         - PersonalMusic
       responses:
         200:
           description: All user musics.
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/PersonalMusic'
-
+            type: object
+            properties:
+              musics:
+                type: array
+                items:
+                  $ref: '#/definitions/PersonalMusic'
+    put:
+      summary: Upload music.
+      parameters:
+        - name: Music-Title
+          in: header
+          description: Title of music to be uploaded.
+          required: false
+        - name: Music-Artist
+          in: header
+          description: Artist of music to be uploaded.
+          required: false
+        - in: body
+          description: Upload file content
+          required: true
+          schema:
+            type: file
+      consumes:
+        - application/octet-stream
+      tags:
+        - PersonalMusic
+      responses:
+        200:
+          description: Uploaded Music.
+          schema:
+            $ref: '#/definitions/PersonalMusic'
+  /me:
+    parameters:
+      - $ref: '#/parameters/AccessKey'
+      - $ref: '#/parameters/AccessToken'
+    get:
+      summary: User Profile Information
+      tags:
+        - User
+      responses:
+        200:
+          description: User Information
+          schema:
+            $ref: '#/definitions/User'
+  /me/photos:
+    parameters:
+      - $ref: '#/parameters/AccessKey'
+      - $ref: '#/parameters/AccessToken'
+    get:
+      summary: List user photos.
+      tags:
+        - Photo
+      responses:
+        200:
+          description: User Photo Album list
+          schema:
+            type: object
+            properties:
+              albums:
+                type: array
+                items:
+                  $ref: '#/definitions/PhotoAlbum'
+    put:
+      summary: User Photo Upload.
+      parameters:
+        - in: body
+          description: Upload image content
+          required: true
+          schema:
+            type: file
+      consumes:
+        - image/png
+        - image/jpg
+      tags:
+        - Photo
+      responses:
+        200:
+          description: Uploaded Photo.
+          schema:
+            $ref: '#/definitions/Photo'
 parameters:
   AccessKey:
     name: Access-Key
@@ -250,8 +326,29 @@ definitions:
           url:
             type: string
             description: URL of music.
-        
-        
+  
+  Photo:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Unique Identifier for photo.
+      url:
+        type: string
+        description: URL of photo.
+      thumbnail_url:
+        type: string
+        description: URL of thumbnail for photo.
+  PhotoAlbum:
+    type: object
+    properties:
+      album_name:
+        type: string
+        description: Name of Album
+      photos:
+        type: array
+        items:
+          $ref: '#/definitions/Photo'
   Error:
     type: object
     properties:
@@ -262,6 +359,3 @@ definitions:
         type: string
       fields:
         type: string
-      
-
-  
