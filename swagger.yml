@@ -1,0 +1,267 @@
+# this is an example of the Uber API
+# as a demonstration of an API spec in YAML
+swagger: '2.0'
+info:
+  title: Picovico API
+  description: The Picovico API provides interface to access and integrate the video rendering functionality into your own platform. Our API is organized around REST, has resource-oriented URLs, and uses HTTP response codes to indicate errors. We support cross-origin resource sharing, allowing you to interact securely with our API from a client-side web application (though API Keys should never be exposed in any public website's client-side code). JSON is the standard for all API responses, including errors.
+  version: "2.1"
+# the domain of the service
+host: api.picovico.com
+# array of all schemes that your API supports
+schemes:
+  - https
+# will be prefixed to all paths
+basePath: /v2.1
+produces:
+  - application/json
+paths:
+  /login:
+    post:
+      summary: Authenticate with Username/Password
+      description: |
+        The endpoint for login with username, password and app_id.
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - name: username
+          in: formData
+          description: Username of the user.
+          required: true
+          type: string
+        - name: password
+          in: formData
+          description: User password.
+          required: true
+          type: string
+        - name: app_id
+          in: formData
+          description: Picovico Provided Application Id.
+          required: true
+          type: string
+      tags:
+        - Authentication
+      responses:
+        200:
+          description: Access Key and Token for use in auth.
+          schema:
+            $ref: '#/definitions/Auth'
+  
+  /login/app:
+    post:
+      summary: Login with Application Id and Application Secret provided by Picovico.
+      description: |
+        The endpoint for login with Application Id and Application Secret provided in picovico developer dashboard.
+      consumes:
+        - application/x-www-form-urlencoded
+      parameters:
+        - name: app_id
+          in: formData
+          description: Application Id provided by picovico dashboard.
+          required: true
+          type: string
+        - name: app_secret
+          in: formData
+          description: Application Secret Provided by picovico secret.
+          required: true
+          type: string
+      tags:
+        - Authentication
+      responses:
+        200:
+          description: Access Key and Token for use in auth.
+          schema:
+            $ref: '#/definitions/Auth'
+
+  /musics:
+    get:
+      summary: Get all Picovico provided musics.
+      description: |
+        The endpoint gets music that are in picovico systems.
+      tags:
+        - SystemMusic
+      responses:
+        200:
+          description: All system related music
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SystemMusic'
+  /styles:
+    get:
+      summary: Get all Picovico provided styles.
+      description: |
+        The endpoint gets styles that are in picovico systems.
+      tags:
+        - Style
+      responses:
+        200:
+          description: All picovico styles
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Style'
+  /me/musics:
+    get:
+      summary: User Uploaded musics.
+      parameters:
+        - $ref: "#/parameters/AccessKey"
+        - $ref: "#/parameters/AccessToken"
+      tags:
+        - PersonalMusic
+      responses:
+        200:
+          description: All user musics.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PersonalMusic'
+
+parameters:
+  AccessKey:
+    name: Access-Key
+    in: header
+    description: Access Key provided once logged in.
+    required: true
+    type: string
+  AccessToken:
+    name: Access-Token
+    in: header
+    description: Access Token provided once logged in.
+    required: true
+    type: string
+    
+definitions:
+  User:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Unique Identifier associated with any authenticated user.
+  Auth:
+    type: object
+    properties:
+      access_key:
+        type: string
+        description: Access Key provided to application after authentication.
+      access_token:
+        type: string
+        description: Access Token provided to application after authentication.
+      id:
+        $ref: '#/definitions/User'
+  StyleQuality:
+    type: object
+    properties:
+      res:
+        type: integer
+        description: One of the available quality.
+      coins:
+        type: integer
+        description: Coins for video creation.
+      white_labeled:
+        type: boolean
+        description: Whether whitelabel feature is available or not.
+  StyleLimit:
+    type: object
+    properties:
+      quality:
+        type: array
+        items:
+          $ref: '#/definitions/StyleQuality'
+      title_length:
+        type: integer
+        description: Length of title in frame allowed.
+      text_length:
+        type: integer
+        description: Length of text bofy in frame allowed.
+  Style:
+    type: object
+    properties:
+      name:
+        type: string
+        description: Name of the style
+      category:
+        type: string
+        description: One of the available style categories. eg. Premium, Stardard
+      is_featured:
+        type: boolean
+        description: Whether the style is featured or not
+      machine_name:
+        type: string
+        description: Unique machine readable identifier
+      description:
+        type: string
+        description: Quick information about the style.
+      scope:
+        type: string
+        description: This style can be used in cases A, B, etc...
+      order:
+        type: integer
+        description: Numeric value to indicate ordering if required
+      sample_url:
+        type: string
+        description: URL for the sample video
+      thumbnail:
+        type: string
+        description: URL for the style thumbnail
+      type:
+        type: string
+        description: type related to style such as "premium"
+      youtube_url:
+        type: string
+        description: URL id for youtube link if available
+      limits:
+        $ref: '#/definitions/StyleLimit'
+  Music:
+    type: object
+    discriminator: musicType
+    properties:
+      id:
+        type: string
+        description: Unique Identifier
+      artist:
+        type: string
+        description: Music artist.
+      title:
+        type: string
+        description: Music Name
+      preview_url:
+        type: string
+        description: Preview URL of music
+      duration:
+        type: integer
+        description: Length of music.
+  SystemMusic:
+    type: object
+    allOf:
+      - $ref: '#/definitions/Music'
+      - properties:
+          category:
+            type: string
+            description: Sytem category.
+          is_featured:
+            type: boolean
+            description: Whether the music is featured or not.
+      
+  PersonalMusic:
+    type: object
+    allOf:
+      - $ref: '#/definitions/Music'
+      - properties:
+          url:
+            type: string
+            description: URL of music.
+        
+        
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+      fields:
+        type: string
+      
+
+  
