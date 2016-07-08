@@ -3,17 +3,28 @@
 swagger: '2.0'
 info:
   title: Picovico API
-  description: The Picovico API provides interface to access and integrate the video rendering functionality into your own platform. Our API is organized around REST, has resource-oriented URLs, and uses HTTP response codes to indicate errors. We support cross-origin resource sharing, allowing you to interact securely with our API from a client-side web application (though API Keys should never be exposed in any public website's client-side code). JSON is the standard for all API responses, including errors.
+  description: |
+    The Picovico API provides interface to access and 
+    integrate the video rendering functionality into 
+    your own platform. Our API is organized around REST, 
+    has resource-oriented URLs, and uses HTTP response 
+    codes to indicate errors. We support cross-origin 
+    resource sharing, allowing you to interact securely 
+    with our API from a client-side web application 
+    (though API Keys should never be exposed in any public website's client-side code). 
+    JSON is the standard for all API responses, including errors.
   version: "2.1"
 # the domain of the service
 host: api.picovico.com
 # array of all schemes that your API supports
 schemes:
-  - https
+  -
+    https
 # will be prefixed to all paths
 basePath: /v2.1
 produces:
-  - application/json
+  -
+    application/json
 paths:
   /login:
     post:
@@ -23,17 +34,20 @@ paths:
       consumes:
         - application/x-www-form-urlencoded
       parameters:
-        - name: username
+        - 
+          name: username
           in: formData
           description: Username of the user.
           required: true
           type: string
-        - name: password
+        - 
+          name: password
           in: formData
           description: User password.
           required: true
           type: string
-        - name: app_id
+        - 
+          name: app_id
           in: formData
           description: Picovico Provided Application Id.
           required: true
@@ -45,7 +59,6 @@ paths:
           description: Access Key and Token for use in auth.
           schema:
             $ref: '#/definitions/Auth'
-  
   /login/app:
     post:
       summary: Login with Application Id and Application Secret provided by Picovico.
@@ -54,12 +67,14 @@ paths:
       consumes:
         - application/x-www-form-urlencoded
       parameters:
-        - name: app_id
+        - 
+          name: app_id
           in: formData
           description: Application Id provided by picovico dashboard.
           required: true
           type: string
-        - name: app_secret
+        - 
+          name: app_secret
           in: formData
           description: Application Secret Provided by picovico secret.
           required: true
@@ -71,21 +86,6 @@ paths:
           description: Access Key and Token for use in auth.
           schema:
             $ref: '#/definitions/Auth'
-
-  /musics:
-    get:
-      summary: Get all Picovico provided musics.
-      description: |
-        The endpoint gets music that are in picovico systems.
-      tags:
-        - SystemMusic
-      responses:
-        200:
-          description: All system related music
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/SystemMusic'
   /styles:
     get:
       summary: Get all Picovico provided styles.
@@ -100,6 +100,33 @@ paths:
             type: array
             items:
               $ref: '#/definitions/Style'
+  /musics:
+    get:
+      summary: Get all Picovico provided musics.
+      description: |
+        The endpoint gets music that are in picovico systems.
+      tags:
+        - SystemMusic
+      responses:
+        200:
+          description: All system related music
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SystemMusic'
+  /me:
+    parameters:
+      - $ref: '#/parameters/AccessKey'
+      - $ref: '#/parameters/AccessToken'
+    get:
+      summary: User Profile Information
+      tags:
+        - User
+      responses:
+        200:
+          description: User Information
+          schema:
+            $ref: '#/definitions/User'
   /me/musics:
     parameters:
       - $ref: '#/parameters/AccessKey'
@@ -121,15 +148,18 @@ paths:
     put:
       summary: Upload music.
       parameters:
-        - name: Music-Title
+        -
+          name: Music-Title
           in: header
           description: Title of music to be uploaded.
           required: false
-        - name: Music-Artist
+        - 
+          name: Music-Artist
           in: header
           description: Artist of music to be uploaded.
           required: false
-        - in: body
+        - 
+          in: body
           description: Upload file content
           required: true
           schema:
@@ -143,19 +173,6 @@ paths:
           description: Uploaded Music.
           schema:
             $ref: '#/definitions/PersonalMusic'
-  /me:
-    parameters:
-      - $ref: '#/parameters/AccessKey'
-      - $ref: '#/parameters/AccessToken'
-    get:
-      summary: User Profile Information
-      tags:
-        - User
-      responses:
-        200:
-          description: User Information
-          schema:
-            $ref: '#/definitions/User'
   /me/photos:
     parameters:
       - $ref: '#/parameters/AccessKey'
@@ -176,15 +193,9 @@ paths:
                   $ref: '#/definitions/PhotoAlbum'
     put:
       summary: User Photo Upload.
-      parameters:
-        - in: body
-          description: Upload image content
-          required: true
-          schema:
-            type: file
       consumes:
         - image/png
-        - image/jpg
+        - image/jpeg
       tags:
         - Photo
       responses:
@@ -192,6 +203,138 @@ paths:
           description: Uploaded Photo.
           schema:
             $ref: '#/definitions/Photo'
+  /me/photos/{photo_id}:
+    parameters:
+      - $ref: '#/parameters/AccessKey'
+      - $ref: '#/parameters/AccessToken'
+    delete:
+      summary: User Photo Delete.
+      parameters:
+        - name: photo_id
+          in: path
+          type: string
+          required: true
+          description: The photo identifier that should be deleted.
+      tags:
+        - SinglePhoto
+      responses:
+        200:
+          description: Action success message
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: the action succeed messages.
+  /me/videos:
+    parameters:
+      - $ref: '#/parameters/AccessKey'
+      - $ref: '#/parameters/AccessToken'
+    get:
+      summary: Get All the video of user
+      parameters:
+        -
+          name: count
+          type: integer
+          required: false
+          in: query
+          description: Count of video to pull
+        -
+          name: to
+          type: integer
+          required: false
+          in: query
+          description: Video to timestamp for filter.
+        -
+          name: from
+          type: integer
+          required: false
+          in: query
+          description: Video from timestamp for filter.
+      tags:
+        - Videos
+      responses:
+        200:
+          description: Action Success
+          schema:
+            type: object
+            properties:
+              paging:
+                type: object
+                description: Pages URL and number of videos.
+                properties:
+                  count:
+                    type: integer
+                    description: Video count in the page.
+                  next_url:
+                    type: string
+                    description: URL for next video list.
+                  prev_url:
+                    type: string
+                    description: URL for previous video list.
+              videos:
+                type: array
+                title: ArrayofUserVideo
+                items:
+                  $ref: '#/definitions/Video'
+    post:
+      summary: Create New Video/ Get video in draft.
+      parameters:
+        - name: name
+          type: string
+          required: false
+          in: formData
+      tags:
+        - Videos
+      responses:
+        200:
+          schema:
+            $ref: '#/definitions/Video'
+  /me/videos/{video_id}:
+    parameters:
+      - $ref: '#/parameters/AccessKey'
+      - $ref: '#/parameters/AccessToken'
+      - $ref: '#/parameters/VideoID'
+    get:
+      summary: Get single Video information.
+      tags:
+        - SingleVideo
+      responses:
+        200:
+          schema:
+            $ref: '#/definitions/Video'
+    delete:
+      summary: Delete the sepecified owner video.
+      tags:
+        - SingleVideo
+      responses:
+        200:
+          schema:
+            type: object
+    post:
+      summary: Update specified video content.
+      tags:
+        - SingleVideo
+      responses:
+        200:
+          schema:
+            $ref: '#/definitions/Video'
+  /me/videos/{video-id}/render:
+    parameters:
+      - $ref: '#/parameters/AccessKey'
+      - $ref: '#/parameters/AccessToken'
+      - $ref: '#/parameters/VideoID'
+    post:
+      summary: Render the video.
+      tags:
+        - SingleVideo
+      responses:
+        200:
+          schema:
+            type: object
+        401:
+          schema:
+            $ref: '#/definitions/Error'
 parameters:
   AccessKey:
     name: Access-Key
@@ -205,14 +348,36 @@ parameters:
     description: Access Token provided once logged in.
     required: true
     type: string
-    
+  VideoID:
+    name: video_id
+    description: Unique Identifier of video.
+    in: path
+    required: true
+    type: string
 definitions:
-  User:
+  UserID:
+    type: string
+    description: Unique Identifier of the User.
+  VideoUser:
     type: object
     properties:
       id:
+        $ref: '#/definitions/UserID'
+      name:
         type: string
-        description: Unique Identifier associated with any authenticated user.
+        description: Full Name of the user.
+      profile_pic:
+        type: string
+        description: URL of user profile picture.
+  User:
+    type: object
+    allOf:
+      - $ref: '#/definitions/VideoUser'
+      - 
+        properties:
+          bio:
+            type: string
+            description: Information summary of user.
   Auth:
     type: object
     properties:
@@ -223,7 +388,7 @@ definitions:
         type: string
         description: Access Token provided to application after authentication.
       id:
-        $ref: '#/definitions/User'
+        $ref: '#/definitions/UserID'
   StyleQuality:
     type: object
     properties:
@@ -285,7 +450,7 @@ definitions:
       youtube_url:
         type: string
         description: URL id for youtube link if available
-      limits:
+      limits: 
         $ref: '#/definitions/StyleLimit'
   Music:
     type: object
@@ -317,7 +482,6 @@ definitions:
           is_featured:
             type: boolean
             description: Whether the music is featured or not.
-      
   PersonalMusic:
     type: object
     allOf:
@@ -326,7 +490,6 @@ definitions:
           url:
             type: string
             description: URL of music.
-  
   Photo:
     type: object
     properties:
@@ -349,13 +512,106 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Photo'
+  Asset:
+    type: object
+    properties:
+      name:
+        type: string
+        enum: ['text', 'image', 'music']
+        description: Name of video asset.
+      start_time:
+        type: integer
+        description: Start time of the asset in video.
+      end_time:
+        type: integer
+        description: End time of asset in video.
+      data:
+        type: object
+        description: Data for asset.
+      attributes:
+        type: object
+        description: Attributes of Assets.
+  TextAsset:
+    type: object
+    allOf:
+      - $ref: '#/definitions/Asset'
+      - properties:
+          data:
+            type: object
+            properties:
+              text:
+                type: string
+              title:
+                type: string
+  VideoCreditItem:
+    title: VideoCredit
+    type: string
+  VideoCredit:
+    type: array
+    items:
+      type: array
+      items:
+          $ref: '#/definitions/VideoCreditItem'
+  Video:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Unique identifier of video
+      status:
+        type: string
+        description: The video creation status
+      style:
+        type: string
+        description: Style Object machine name.
+      name:
+        type: string
+        description: Name of video to be identified.
+      duration:
+        type: integer
+        description: Duration length of video.
+      created_on:
+        type: integer
+        description: Date timestamp of video creation.
+      modified_on:
+        type: integer
+        description: Date timestamp of video modified.
+      view:
+        type: integer
+        description: View Count of Video.
+      privacy:
+        type: string
+        description: Whether video is 'private' or 'public'.
+      description:
+        type: string
+        description: Description of video.
+      quality:
+        type: array
+        items:
+          type: integer
+          description: Quality list of video
+      credits:
+        type: array
+        items:
+          type: string
+      owner:
+        $ref: '#/definitions/VideoUser'
+      assets:
+        title: ArrayofAssets
+        type: array
+        items:
+          $ref: '#/definitions/Asset'
   Error:
     type: object
     properties:
-      code:
-        type: integer
-        format: int32
-      message:
-        type: string
-      fields:
-        type: string
+      error:
+        type: object
+        properties:
+          message:
+            type: string
+          status:
+            type: integer
+    example:
+      error:
+        message: You are not authorized.
+        status: 401
