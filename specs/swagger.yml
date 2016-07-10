@@ -1,5 +1,4 @@
-# this is an example of the Uber API
-# as a demonstration of an API spec in YAML
+#PICOVICO 2.+ API SwagSpec
 swagger: '2.0'
 info:
   title: Picovico API
@@ -14,25 +13,20 @@ info:
     (though API Keys should never be exposed in any public website's client-side code). 
     JSON is the standard for all API responses, including errors.
   version: "2.1"
-# the domain of the service
 host: api.picovico.com
-# array of all schemes that your API supports
 schemes:
-  -
-    https
-# will be prefixed to all paths
+  - https
 basePath: /v2.1
+consumes:
+  - application/x-www-form-urlencoded
 produces:
-  -
-    application/json
+  - application/json
 paths:
   /login:
     post:
       summary: Authenticate with Username/Password
       description: |
         The endpoint for login with username, password and app_id.
-      consumes:
-        - application/x-www-form-urlencoded
       parameters:
         - 
           name: username
@@ -146,24 +140,27 @@ paths:
                 items:
                   $ref: '#/definitions/PersonalMusic'
     put:
-      summary: Upload music.
+      summary: Upload music file.
       parameters:
         -
-          name: Music-Title
+          name: 'Music-Title'
           in: header
           description: Title of music to be uploaded.
           required: false
+          type: string
         - 
-          name: Music-Artist
+          name: 'Music-Artist'
           in: header
           description: Artist of music to be uploaded.
           required: false
+          type: string
         - 
           in: body
           description: Upload file content
           required: true
           schema:
-            type: file
+            $ref: '#/definitions/RawFile'
+          name: body
       consumes:
         - application/octet-stream
       tags:
@@ -288,6 +285,7 @@ paths:
         - Videos
       responses:
         200:
+          description: success
           schema:
             $ref: '#/definitions/Video'
   /me/videos/{video_id}:
@@ -301,6 +299,7 @@ paths:
         - SingleVideo
       responses:
         200:
+          description: success
           schema:
             $ref: '#/definitions/Video'
     delete:
@@ -309,6 +308,7 @@ paths:
         - SingleVideo
       responses:
         200:
+          description: success
           schema:
             type: object
     post:
@@ -317,9 +317,10 @@ paths:
         - SingleVideo
       responses:
         200:
+          description: success
           schema:
             $ref: '#/definitions/Video'
-  /me/videos/{video-id}/render:
+  /me/videos/{video_id}/render:
     parameters:
       - $ref: '#/parameters/AccessKey'
       - $ref: '#/parameters/AccessToken'
@@ -330,9 +331,11 @@ paths:
         - SingleVideo
       responses:
         200:
+          description: success
           schema:
             type: object
         401:
+          description: Reached the maximum number of drafts allowed
           schema:
             $ref: '#/definitions/Error'
 parameters:
@@ -471,6 +474,9 @@ definitions:
       duration:
         type: integer
         description: Length of music.
+      url:
+        type: string
+        description: Full length URL of the music uploaded
   SystemMusic:
     type: object
     allOf:
@@ -601,6 +607,8 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/Asset'
+  RawFile:
+    type: string
   Error:
     type: object
     properties:
@@ -615,3 +623,4 @@ definitions:
       error:
         message: You are not authorized.
         status: 401
+
