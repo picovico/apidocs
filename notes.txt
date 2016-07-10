@@ -1,0 +1,5 @@
+1. YAML to JSON
+yaml2json --save --pretty --indentation 2 swagger.yml
+
+2. 
+
