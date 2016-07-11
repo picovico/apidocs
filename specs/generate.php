@@ -41,5 +41,6 @@ $twig->addExtension(new SlugifyExtension(Slugify::create()));
 echo $twig->render('generator.template.html', $spec);
 ?>
 
-<pre>
+<pre style="display:none">
 <?php print_r($spec); ?>
+</pre>

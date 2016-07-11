@@ -1,0 +1,3031 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Picovico API</title>
+
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.6-dist/css/bootstrap.min.css" /> <!-- use if you need -->
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+    <script type="text/javascript" src="bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link href="custom.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="#">
+                        Picovico API
+                    </a>
+                </li>
+                                  <li>
+                    <a href="#path/login">/login</a>
+                  </li>
+                                  <li>
+                    <a href="#path/login/app">/login/app</a>
+                  </li>
+                                  <li>
+                    <a href="#path/styles">/styles</a>
+                  </li>
+                                  <li>
+                    <a href="#path/musics">/musics</a>
+                  </li>
+                                  <li>
+                    <a href="#path/me">/me</a>
+                  </li>
+                                  <li>
+                    <a href="#path/me/musics">/me/musics</a>
+                  </li>
+                                  <li>
+                    <a href="#path/me/photos">/me/photos</a>
+                  </li>
+                                  <li>
+                    <a href="#path/me/photos/{photo_id}">/me/photos/{photo_id}</a>
+                  </li>
+                                  <li>
+                    <a href="#path/me/videos">/me/videos</a>
+                  </li>
+                                  <li>
+                    <a href="#path/me/videos/{video_id}">/me/videos/{video_id}</a>
+                  </li>
+                                  <li>
+                    <a href="#path/me/videos/{video-id}/render">/me/videos/{video-id}/render</a>
+                  </li>
+                            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <div class='container'>
+            <div class='row'>
+              <div class='col-sm-12'>
+                <h3>API Documentation <small>(version: 2.1)</small></h3>
+                <div class="panel panel-default">
+                  <div class="panel-body">
+                    <h1 class="api-title">Picovico API</h1>
+                    <p class="api-desc">The Picovico API provides interface to access and 
+integrate the video rendering functionality into 
+your own platform. Our API is organized around REST, 
+has resource-oriented URLs, and uses HTTP response 
+codes to indicate errors. We support cross-origin 
+resource sharing, allowing you to interact securely 
+with our API from a client-side web application 
+(though API Keys should never be exposed in any public website&#039;s client-side code). 
+JSON is the standard for all API responses, including errors.
+</p>
+                  </div>
+                  <table class="table table-striped table-bordered">
+                    <tr><th>Host</th><td><a target="_blank" href="https://api.picovico.com">api.picovico.com</a></td></tr>
+                    <tr><th>Schemes</th><td>https</td></tr>
+                    <tr><th>Version</th><td>2.1</td></tr>
+                    <tr><th>Base Path</th>
+                        <td>
+                          <a href="https://api.picovico.com/v2.1">/v2.1</a>
+                          <small class="pull-right">api.picovico.com/v2.1</small>
+                        </td>
+                    </tr>
+                                          <tr>
+                        <th>Produces</th>
+                        <td>
+                            <ul>
+                                                        <li>application/json</li>
+                                                        </ul>
+                        </td>
+                      </tr>
+                                      </table>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12"><h2>Paths</h2><hr /></div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                                                  <a name="path/login"></a>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4>/login</h4>
+                    </div>
+                                        <div class="panel-body">
+                                                                                                                                                <h4 class="rest-method method-post">POST
+                            <small class="pull-right label label-info">
+                              Authentication
+                            </small>
+                          </h4>
+                          <p>Authenticate with Username/Password</p>
+                          <hr />
+                          <strong>Paramters</strong>
+                                                    <div class="clearfix"></div>
+                                                                                                                                                              </div>
+                  </div>
+                                  <a name="path/login/app"></a>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4>/login/app</h4>
+                    </div>
+                                        <div class="panel-body">
+                                                                                                                                                <h4 class="rest-method method-post">POST
+                            <small class="pull-right label label-info">
+                              Authentication
+                            </small>
+                          </h4>
+                          <p>Login with Application Id and Application Secret provided by Picovico.</p>
+                          <hr />
+                          <strong>Paramters</strong>
+                                                    <div class="clearfix"></div>
+                                                                                                                                                              </div>
+                  </div>
+                                  <a name="path/styles"></a>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4>/styles</h4>
+                    </div>
+                                        <div class="panel-body">
+                                                                                                  <h4 class="rest-method method-get">GET
+                            <small class="pull-right label label-info">
+                              Style
+                            </small>
+                          </h4>
+                          <p>Get all Picovico provided styles.</p>
+                          <hr />
+                          <strong>Paramters</strong>
+                                                    <div class="clearfix"></div>
+                                                                                                                                                                                                            </div>
+                  </div>
+                                  <a name="path/musics"></a>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4>/musics</h4>
+                    </div>
+                                        <div class="panel-body">
+                                                                                                  <h4 class="rest-method method-get">GET
+                            <small class="pull-right label label-info">
+                              SystemMusic
+                            </small>
+                          </h4>
+                          <p>Get all Picovico provided musics.</p>
+                          <hr />
+                          <strong>Paramters</strong>
+                                                    <div class="clearfix"></div>
+                                                                                                                                                                                                            </div>
+                  </div>
+                                  <a name="path/me"></a>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4>/me</h4>
+                    </div>
+                                          <div class="list-group">
+                        <div class="list-group-item">
+                          <h3>Parameters</h3>
+                        </div>
+                      </div>
+                                        <div class="panel-body">
+                                                                                                  <h4 class="rest-method method-get">GET
+                            <small class="pull-right label label-info">
+                              User
+                            </small>
+                          </h4>
+                          <p>User Profile Information</p>
+                          <hr />
+                          <strong>Paramters</strong>
+                                                      <div class="list-group-item">
+                              Access-Key - Access Key provided once logged in.
+                            </div>
+                                                      <div class="list-group-item">
+                              Access-Token - Access Token provided once logged in.
+                            </div>
+                                                    <div class="clearfix"></div>
+                                                                                                                                                                                                            </div>
+                  </div>
+                                  <a name="path/me/musics"></a>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4>/me/musics</h4>
+                    </div>
+                                          <div class="list-group">
+                        <div class="list-group-item">
+                          <h3>Parameters</h3>
+                        </div>
+                      </div>
+                                        <div class="panel-body">
+                                                                                                  <h4 class="rest-method method-get">GET
+                            <small class="pull-right label label-info">
+                              PersonalMusic
+                            </small>
+                          </h4>
+                          <p>List User Uploaded musics.</p>
+                          <hr />
+                          <strong>Paramters</strong>
+                                                      <div class="list-group-item">
+                              Access-Key - Access Key provided once logged in.
+                            </div>
+                                                      <div class="list-group-item">
+                              Access-Token - Access Token provided once logged in.
+                            </div>
+                                                    <div class="clearfix"></div>
+                                                                                                                                                                        <h4 class="rest-method method-put">PUT
+                            <small class="pull-right label label-info">
+                              PersonalMusic
+                            </small>
+                          </h4>
+                          <p>Upload music.</p>
+                          <hr />
+                          <strong>Paramters</strong>
+                                                      <div class="list-group-item">
+                              Access-Key - Access Key provided once logged in.
+                            </div>
+                                                      <div class="list-group-item">
+                              Access-Token - Access Token provided once logged in.
+                            </div>
+                                                    <div class="clearfix"></div>
+                                                                                                                </div>
+                  </div>
+                                  <a name="path/me/photos"></a>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4>/me/photos</h4>
+                    </div>
+                                          <div class="list-group">
+                        <div class="list-group-item">
+                          <h3>Parameters</h3>
+                        </div>
+                      </div>
+                                        <div class="panel-body">
+                                                                                                  <h4 class="rest-method method-get">GET
+                            <small class="pull-right label label-info">
+                              Photo
+                            </small>
+                          </h4>
+                          <p>List user photos.</p>
+                          <hr />
+                          <strong>Paramters</strong>
+                                                      <div class="list-group-item">
+                              Access-Key - Access Key provided once logged in.
+                            </div>
+                                                      <div class="list-group-item">
+                              Access-Token - Access Token provided once logged in.
+                            </div>
+                                                    <div class="clearfix"></div>
+                                                                                                                                                                        <h4 class="rest-method method-put">PUT
+                            <small class="pull-right label label-info">
+                              Photo
+                            </small>
+                          </h4>
+                          <p>User Photo Upload.</p>
+                          <hr />
+                          <strong>Paramters</strong>
+                                                      <div class="list-group-item">
+                              Access-Key - Access Key provided once logged in.
+                            </div>
+                                                      <div class="list-group-item">
+                              Access-Token - Access Token provided once logged in.
+                            </div>
+                                                    <div class="clearfix"></div>
+                                                                                                                </div>
+                  </div>
+                                  <a name="path/me/photos/{photo_id}"></a>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4>/me/photos/{photo_id}</h4>
+                    </div>
+                                          <div class="list-group">
+                        <div class="list-group-item">
+                          <h3>Parameters</h3>
+                        </div>
+                      </div>
+                                        <div class="panel-body">
+                                                                                                                                                                                                                                            <h4 class="rest-method method-delete">DELETE
+                            <small class="pull-right label label-info">
+                              SinglePhoto
+                            </small>
+                          </h4>
+                          <p>User Photo Delete.</p>
+                          <hr />
+                          <strong>Paramters</strong>
+                                                      <div class="list-group-item">
+                              Access-Key - Access Key provided once logged in.
+                            </div>
+                                                      <div class="list-group-item">
+                              Access-Token - Access Token provided once logged in.
+                            </div>
+                                                    <div class="clearfix"></div>
+                                                                  </div>
+                  </div>
+                                  <a name="path/me/videos"></a>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4>/me/videos</h4>
+                    </div>
+                                          <div class="list-group">
+                        <div class="list-group-item">
+                          <h3>Parameters</h3>
+                        </div>
+                      </div>
+                                        <div class="panel-body">
+                                                                                                  <h4 class="rest-method method-get">GET
+                            <small class="pull-right label label-info">
+                              Videos
+                            </small>
+                          </h4>
+                          <p>Get All the video of user</p>
+                          <hr />
+                          <strong>Paramters</strong>
+                                                      <div class="list-group-item">
+                              Access-Key - Access Key provided once logged in.
+                            </div>
+                                                      <div class="list-group-item">
+                              Access-Token - Access Token provided once logged in.
+                            </div>
+                                                    <div class="clearfix"></div>
+                                                                                                                          <h4 class="rest-method method-post">POST
+                            <small class="pull-right label label-info">
+                              Videos
+                            </small>
+                          </h4>
+                          <p>Create New Video/ Get video in draft.</p>
+                          <hr />
+                          <strong>Paramters</strong>
+                                                      <div class="list-group-item">
+                              Access-Key - Access Key provided once logged in.
+                            </div>
+                                                      <div class="list-group-item">
+                              Access-Token - Access Token provided once logged in.
+                            </div>
+                                                    <div class="clearfix"></div>
+                                                                                                                                                              </div>
+                  </div>
+                                  <a name="path/me/videos/{video_id}"></a>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4>/me/videos/{video_id}</h4>
+                    </div>
+                                          <div class="list-group">
+                        <div class="list-group-item">
+                          <h3>Parameters</h3>
+                        </div>
+                      </div>
+                                        <div class="panel-body">
+                                                                                                  <h4 class="rest-method method-get">GET
+                            <small class="pull-right label label-info">
+                              SingleVideo
+                            </small>
+                          </h4>
+                          <p>Get single Video information.</p>
+                          <hr />
+                          <strong>Paramters</strong>
+                                                      <div class="list-group-item">
+                              Access-Key - Access Key provided once logged in.
+                            </div>
+                                                      <div class="list-group-item">
+                              Access-Token - Access Token provided once logged in.
+                            </div>
+                                                      <div class="list-group-item">
+                              video_id - Unique Identifier of video.
+                            </div>
+                                                    <div class="clearfix"></div>
+                                                                                                                          <h4 class="rest-method method-post">POST
+                            <small class="pull-right label label-info">
+                              SingleVideo
+                            </small>
+                          </h4>
+                          <p>Update specified video content.</p>
+                          <hr />
+                          <strong>Paramters</strong>
+                                                      <div class="list-group-item">
+                              Access-Key - Access Key provided once logged in.
+                            </div>
+                                                      <div class="list-group-item">
+                              Access-Token - Access Token provided once logged in.
+                            </div>
+                                                      <div class="list-group-item">
+                              video_id - Unique Identifier of video.
+                            </div>
+                                                    <div class="clearfix"></div>
+                                                                                                                                                                        <h4 class="rest-method method-delete">DELETE
+                            <small class="pull-right label label-info">
+                              SingleVideo
+                            </small>
+                          </h4>
+                          <p>Delete the sepecified owner video.</p>
+                          <hr />
+                          <strong>Paramters</strong>
+                                                      <div class="list-group-item">
+                              Access-Key - Access Key provided once logged in.
+                            </div>
+                                                      <div class="list-group-item">
+                              Access-Token - Access Token provided once logged in.
+                            </div>
+                                                      <div class="list-group-item">
+                              video_id - Unique Identifier of video.
+                            </div>
+                                                    <div class="clearfix"></div>
+                                                                  </div>
+                  </div>
+                                  <a name="path/me/videos/{video-id}/render"></a>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4>/me/videos/{video-id}/render</h4>
+                    </div>
+                                          <div class="list-group">
+                        <div class="list-group-item">
+                          <h3>Parameters</h3>
+                        </div>
+                      </div>
+                                        <div class="panel-body">
+                                                                                                                                                <h4 class="rest-method method-post">POST
+                            <small class="pull-right label label-info">
+                              SingleVideo
+                            </small>
+                          </h4>
+                          <p>Render the video.</p>
+                          <hr />
+                          <strong>Paramters</strong>
+                                                      <div class="list-group-item">
+                              Access-Key - Access Key provided once logged in.
+                            </div>
+                                                      <div class="list-group-item">
+                              Access-Token - Access Token provided once logged in.
+                            </div>
+                                                      <div class="list-group-item">
+                              video_id - Unique Identifier of video.
+                            </div>
+                                                    <div class="clearfix"></div>
+                                                                                                                                                              </div>
+                  </div>
+                              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+
+</body>
+
+</html>
+
+<pre style="display:none">
+Array
+(
+    [swagger] => 2.0
+    [info] => Array
+        (
+            [title] => Picovico API
+            [description] => The Picovico API provides interface to access and 
+integrate the video rendering functionality into 
+your own platform. Our API is organized around REST, 
+has resource-oriented URLs, and uses HTTP response 
+codes to indicate errors. We support cross-origin 
+resource sharing, allowing you to interact securely 
+with our API from a client-side web application 
+(though API Keys should never be exposed in any public website's client-side code). 
+JSON is the standard for all API responses, including errors.
+
+            [version] => 2.1
+        )
+
+    [host] => api.picovico.com
+    [schemes] => Array
+        (
+            [0] => https
+        )
+
+    [basePath] => /v2.1
+    [produces] => Array
+        (
+            [0] => application/json
+        )
+
+    [paths] => Array
+        (
+            [/login] => Array
+                (
+                    [post] => Array
+                        (
+                            [summary] => Authenticate with Username/Password
+                            [description] => The endpoint for login with username, password and app_id.
+
+                            [consumes] => Array
+                                (
+                                    [0] => application/x-www-form-urlencoded
+                                )
+
+                            [parameters] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [name] => username
+                                            [in] => formData
+                                            [description] => Username of the user.
+                                            [required] => 1
+                                            [type] => string
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [name] => password
+                                            [in] => formData
+                                            [description] => User password.
+                                            [required] => 1
+                                            [type] => string
+                                        )
+
+                                    [2] => Array
+                                        (
+                                            [name] => app_id
+                                            [in] => formData
+                                            [description] => Picovico Provided Application Id.
+                                            [required] => 1
+                                            [type] => string
+                                        )
+
+                                )
+
+                            [tags] => Array
+                                (
+                                    [0] => Authentication
+                                )
+
+                            [responses] => Array
+                                (
+                                    [200] => Array
+                                        (
+                                            [description] => Access Key and Token for use in auth.
+                                            [schema] => Array
+                                                (
+                                                    [type] => object
+                                                    [properties] => Array
+                                                        (
+                                                            [access_key] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Access Key provided to application after authentication.
+                                                                )
+
+                                                            [access_token] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Access Token provided to application after authentication.
+                                                                )
+
+                                                            [id] => Array
+                                                                (
+                                                                    [$ref] => #/definitions/UserID
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [/login/app] => Array
+                (
+                    [post] => Array
+                        (
+                            [summary] => Login with Application Id and Application Secret provided by Picovico.
+                            [description] => The endpoint for login with Application Id and Application Secret provided in picovico developer dashboard.
+
+                            [consumes] => Array
+                                (
+                                    [0] => application/x-www-form-urlencoded
+                                )
+
+                            [parameters] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [name] => app_id
+                                            [in] => formData
+                                            [description] => Application Id provided by picovico dashboard.
+                                            [required] => 1
+                                            [type] => string
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [name] => app_secret
+                                            [in] => formData
+                                            [description] => Application Secret Provided by picovico secret.
+                                            [required] => 1
+                                            [type] => string
+                                        )
+
+                                )
+
+                            [tags] => Array
+                                (
+                                    [0] => Authentication
+                                )
+
+                            [responses] => Array
+                                (
+                                    [200] => Array
+                                        (
+                                            [description] => Access Key and Token for use in auth.
+                                            [schema] => Array
+                                                (
+                                                    [type] => object
+                                                    [properties] => Array
+                                                        (
+                                                            [access_key] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Access Key provided to application after authentication.
+                                                                )
+
+                                                            [access_token] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Access Token provided to application after authentication.
+                                                                )
+
+                                                            [id] => Array
+                                                                (
+                                                                    [$ref] => #/definitions/UserID
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [/styles] => Array
+                (
+                    [get] => Array
+                        (
+                            [summary] => Get all Picovico provided styles.
+                            [description] => The endpoint gets styles that are in picovico systems.
+
+                            [tags] => Array
+                                (
+                                    [0] => Style
+                                )
+
+                            [responses] => Array
+                                (
+                                    [200] => Array
+                                        (
+                                            [description] => All picovico styles
+                                            [schema] => Array
+                                                (
+                                                    [type] => array
+                                                    [items] => Array
+                                                        (
+                                                            [type] => object
+                                                            [properties] => Array
+                                                                (
+                                                                    [name] => Array
+                                                                        (
+                                                                            [type] => string
+                                                                            [description] => Name of the style
+                                                                        )
+
+                                                                    [category] => Array
+                                                                        (
+                                                                            [type] => string
+                                                                            [description] => One of the available style categories. eg. Premium, Stardard
+                                                                        )
+
+                                                                    [is_featured] => Array
+                                                                        (
+                                                                            [type] => boolean
+                                                                            [description] => Whether the style is featured or not
+                                                                        )
+
+                                                                    [machine_name] => Array
+                                                                        (
+                                                                            [type] => string
+                                                                            [description] => Unique machine readable identifier
+                                                                        )
+
+                                                                    [description] => Array
+                                                                        (
+                                                                            [type] => string
+                                                                            [description] => Quick information about the style.
+                                                                        )
+
+                                                                    [scope] => Array
+                                                                        (
+                                                                            [type] => string
+                                                                            [description] => This style can be used in cases A, B, etc...
+                                                                        )
+
+                                                                    [order] => Array
+                                                                        (
+                                                                            [type] => integer
+                                                                            [description] => Numeric value to indicate ordering if required
+                                                                        )
+
+                                                                    [sample_url] => Array
+                                                                        (
+                                                                            [type] => string
+                                                                            [description] => URL for the sample video
+                                                                        )
+
+                                                                    [thumbnail] => Array
+                                                                        (
+                                                                            [type] => string
+                                                                            [description] => URL for the style thumbnail
+                                                                        )
+
+                                                                    [type] => Array
+                                                                        (
+                                                                            [type] => string
+                                                                            [description] => type related to style such as "premium"
+                                                                        )
+
+                                                                    [youtube_url] => Array
+                                                                        (
+                                                                            [type] => string
+                                                                            [description] => URL id for youtube link if available
+                                                                        )
+
+                                                                    [limits] => Array
+                                                                        (
+                                                                            [$ref] => #/definitions/StyleLimit
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [/musics] => Array
+                (
+                    [get] => Array
+                        (
+                            [summary] => Get all Picovico provided musics.
+                            [description] => The endpoint gets music that are in picovico systems.
+
+                            [tags] => Array
+                                (
+                                    [0] => SystemMusic
+                                )
+
+                            [responses] => Array
+                                (
+                                    [200] => Array
+                                        (
+                                            [description] => All system related music
+                                            [schema] => Array
+                                                (
+                                                    [type] => array
+                                                    [items] => Array
+                                                        (
+                                                            [type] => object
+                                                            [allOf] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [$ref] => #/definitions/Music
+                                                                        )
+
+                                                                    [1] => Array
+                                                                        (
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [category] => Array
+                                                                                        (
+                                                                                            [type] => string
+                                                                                            [description] => Sytem category.
+                                                                                        )
+
+                                                                                    [is_featured] => Array
+                                                                                        (
+                                                                                            [type] => boolean
+                                                                                            [description] => Whether the music is featured or not.
+                                                                                        )
+
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [/me] => Array
+                (
+                    [parameters] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [name] => Access-Key
+                                    [in] => header
+                                    [description] => Access Key provided once logged in.
+                                    [required] => 1
+                                    [type] => string
+                                )
+
+                            [1] => Array
+                                (
+                                    [name] => Access-Token
+                                    [in] => header
+                                    [description] => Access Token provided once logged in.
+                                    [required] => 1
+                                    [type] => string
+                                )
+
+                        )
+
+                    [get] => Array
+                        (
+                            [summary] => User Profile Information
+                            [tags] => Array
+                                (
+                                    [0] => User
+                                )
+
+                            [responses] => Array
+                                (
+                                    [200] => Array
+                                        (
+                                            [description] => User Information
+                                            [schema] => Array
+                                                (
+                                                    [type] => object
+                                                    [allOf] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [$ref] => #/definitions/VideoUser
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [properties] => Array
+                                                                        (
+                                                                            [bio] => Array
+                                                                                (
+                                                                                    [type] => string
+                                                                                    [description] => Information summary of user.
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [/me/musics] => Array
+                (
+                    [parameters] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [name] => Access-Key
+                                    [in] => header
+                                    [description] => Access Key provided once logged in.
+                                    [required] => 1
+                                    [type] => string
+                                )
+
+                            [1] => Array
+                                (
+                                    [name] => Access-Token
+                                    [in] => header
+                                    [description] => Access Token provided once logged in.
+                                    [required] => 1
+                                    [type] => string
+                                )
+
+                        )
+
+                    [get] => Array
+                        (
+                            [summary] => List User Uploaded musics.
+                            [tags] => Array
+                                (
+                                    [0] => PersonalMusic
+                                )
+
+                            [responses] => Array
+                                (
+                                    [200] => Array
+                                        (
+                                            [description] => All user musics.
+                                            [schema] => Array
+                                                (
+                                                    [type] => object
+                                                    [properties] => Array
+                                                        (
+                                                            [musics] => Array
+                                                                (
+                                                                    [type] => array
+                                                                    [items] => Array
+                                                                        (
+                                                                            [type] => object
+                                                                            [allOf] => Array
+                                                                                (
+                                                                                    [0] => Array
+                                                                                        (
+                                                                                            [$ref] => #/definitions/Music
+                                                                                        )
+
+                                                                                    [1] => Array
+                                                                                        (
+                                                                                            [properties] => Array
+                                                                                                (
+                                                                                                    [url] => Array
+                                                                                                        (
+                                                                                                            [type] => string
+                                                                                                            [description] => URL of music.
+                                                                                                        )
+
+                                                                                                )
+
+                                                                                        )
+
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [put] => Array
+                        (
+                            [summary] => Upload music.
+                            [parameters] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [name] => Music-Title
+                                            [in] => header
+                                            [description] => Title of music to be uploaded.
+                                            [required] => 
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [name] => Music-Artist
+                                            [in] => header
+                                            [description] => Artist of music to be uploaded.
+                                            [required] => 
+                                        )
+
+                                    [2] => Array
+                                        (
+                                            [in] => body
+                                            [description] => Upload file content
+                                            [required] => 1
+                                            [schema] => Array
+                                                (
+                                                    [type] => file
+                                                )
+
+                                        )
+
+                                )
+
+                            [consumes] => Array
+                                (
+                                    [0] => application/octet-stream
+                                )
+
+                            [tags] => Array
+                                (
+                                    [0] => PersonalMusic
+                                )
+
+                            [responses] => Array
+                                (
+                                    [200] => Array
+                                        (
+                                            [description] => Uploaded Music.
+                                            [schema] => Array
+                                                (
+                                                    [type] => object
+                                                    [allOf] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [$ref] => #/definitions/Music
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [properties] => Array
+                                                                        (
+                                                                            [url] => Array
+                                                                                (
+                                                                                    [type] => string
+                                                                                    [description] => URL of music.
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [/me/photos] => Array
+                (
+                    [parameters] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [name] => Access-Key
+                                    [in] => header
+                                    [description] => Access Key provided once logged in.
+                                    [required] => 1
+                                    [type] => string
+                                )
+
+                            [1] => Array
+                                (
+                                    [name] => Access-Token
+                                    [in] => header
+                                    [description] => Access Token provided once logged in.
+                                    [required] => 1
+                                    [type] => string
+                                )
+
+                        )
+
+                    [get] => Array
+                        (
+                            [summary] => List user photos.
+                            [tags] => Array
+                                (
+                                    [0] => Photo
+                                )
+
+                            [responses] => Array
+                                (
+                                    [200] => Array
+                                        (
+                                            [description] => User Photo Album list
+                                            [schema] => Array
+                                                (
+                                                    [type] => object
+                                                    [properties] => Array
+                                                        (
+                                                            [albums] => Array
+                                                                (
+                                                                    [type] => array
+                                                                    [items] => Array
+                                                                        (
+                                                                            [type] => object
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [album_name] => Array
+                                                                                        (
+                                                                                            [type] => string
+                                                                                            [description] => Name of Album
+                                                                                        )
+
+                                                                                    [photos] => Array
+                                                                                        (
+                                                                                            [type] => array
+                                                                                            [items] => Array
+                                                                                                (
+                                                                                                    [$ref] => #/definitions/Photo
+                                                                                                )
+
+                                                                                        )
+
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [put] => Array
+                        (
+                            [summary] => User Photo Upload.
+                            [consumes] => Array
+                                (
+                                    [0] => image/png
+                                    [1] => image/jpeg
+                                )
+
+                            [tags] => Array
+                                (
+                                    [0] => Photo
+                                )
+
+                            [responses] => Array
+                                (
+                                    [200] => Array
+                                        (
+                                            [description] => Uploaded Photo.
+                                            [schema] => Array
+                                                (
+                                                    [type] => object
+                                                    [properties] => Array
+                                                        (
+                                                            [id] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Unique Identifier for photo.
+                                                                )
+
+                                                            [url] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => URL of photo.
+                                                                )
+
+                                                            [thumbnail_url] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => URL of thumbnail for photo.
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [/me/photos/{photo_id}] => Array
+                (
+                    [parameters] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [name] => Access-Key
+                                    [in] => header
+                                    [description] => Access Key provided once logged in.
+                                    [required] => 1
+                                    [type] => string
+                                )
+
+                            [1] => Array
+                                (
+                                    [name] => Access-Token
+                                    [in] => header
+                                    [description] => Access Token provided once logged in.
+                                    [required] => 1
+                                    [type] => string
+                                )
+
+                        )
+
+                    [delete] => Array
+                        (
+                            [summary] => User Photo Delete.
+                            [parameters] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [name] => photo_id
+                                            [in] => path
+                                            [type] => string
+                                            [required] => 1
+                                            [description] => The photo identifier that should be deleted.
+                                        )
+
+                                )
+
+                            [tags] => Array
+                                (
+                                    [0] => SinglePhoto
+                                )
+
+                            [responses] => Array
+                                (
+                                    [200] => Array
+                                        (
+                                            [description] => Action success message
+                                            [schema] => Array
+                                                (
+                                                    [type] => object
+                                                    [properties] => Array
+                                                        (
+                                                            [message] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => the action succeed messages.
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [/me/videos] => Array
+                (
+                    [parameters] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [name] => Access-Key
+                                    [in] => header
+                                    [description] => Access Key provided once logged in.
+                                    [required] => 1
+                                    [type] => string
+                                )
+
+                            [1] => Array
+                                (
+                                    [name] => Access-Token
+                                    [in] => header
+                                    [description] => Access Token provided once logged in.
+                                    [required] => 1
+                                    [type] => string
+                                )
+
+                        )
+
+                    [get] => Array
+                        (
+                            [summary] => Get All the video of user
+                            [parameters] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [name] => count
+                                            [type] => integer
+                                            [required] => 
+                                            [in] => query
+                                            [description] => Count of video to pull
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [name] => to
+                                            [type] => integer
+                                            [required] => 
+                                            [in] => query
+                                            [description] => Video to timestamp for filter.
+                                        )
+
+                                    [2] => Array
+                                        (
+                                            [name] => from
+                                            [type] => integer
+                                            [required] => 
+                                            [in] => query
+                                            [description] => Video from timestamp for filter.
+                                        )
+
+                                )
+
+                            [tags] => Array
+                                (
+                                    [0] => Videos
+                                )
+
+                            [responses] => Array
+                                (
+                                    [200] => Array
+                                        (
+                                            [description] => Action Success
+                                            [schema] => Array
+                                                (
+                                                    [type] => object
+                                                    [properties] => Array
+                                                        (
+                                                            [paging] => Array
+                                                                (
+                                                                    [type] => object
+                                                                    [description] => Pages URL and number of videos.
+                                                                    [properties] => Array
+                                                                        (
+                                                                            [count] => Array
+                                                                                (
+                                                                                    [type] => integer
+                                                                                    [description] => Video count in the page.
+                                                                                )
+
+                                                                            [next_url] => Array
+                                                                                (
+                                                                                    [type] => string
+                                                                                    [description] => URL for next video list.
+                                                                                )
+
+                                                                            [prev_url] => Array
+                                                                                (
+                                                                                    [type] => string
+                                                                                    [description] => URL for previous video list.
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                            [videos] => Array
+                                                                (
+                                                                    [type] => array
+                                                                    [title] => ArrayofUserVideo
+                                                                    [items] => Array
+                                                                        (
+                                                                            [type] => object
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [id] => Array
+                                                                                        (
+                                                                                            [type] => string
+                                                                                            [description] => Unique identifier of video
+                                                                                        )
+
+                                                                                    [status] => Array
+                                                                                        (
+                                                                                            [type] => string
+                                                                                            [description] => The video creation status
+                                                                                        )
+
+                                                                                    [style] => Array
+                                                                                        (
+                                                                                            [type] => string
+                                                                                            [description] => Style Object machine name.
+                                                                                        )
+
+                                                                                    [name] => Array
+                                                                                        (
+                                                                                            [type] => string
+                                                                                            [description] => Name of video to be identified.
+                                                                                        )
+
+                                                                                    [duration] => Array
+                                                                                        (
+                                                                                            [type] => integer
+                                                                                            [description] => Duration length of video.
+                                                                                        )
+
+                                                                                    [created_on] => Array
+                                                                                        (
+                                                                                            [type] => integer
+                                                                                            [description] => Date timestamp of video creation.
+                                                                                        )
+
+                                                                                    [modified_on] => Array
+                                                                                        (
+                                                                                            [type] => integer
+                                                                                            [description] => Date timestamp of video modified.
+                                                                                        )
+
+                                                                                    [view] => Array
+                                                                                        (
+                                                                                            [type] => integer
+                                                                                            [description] => View Count of Video.
+                                                                                        )
+
+                                                                                    [privacy] => Array
+                                                                                        (
+                                                                                            [type] => string
+                                                                                            [description] => Whether video is 'private' or 'public'.
+                                                                                        )
+
+                                                                                    [description] => Array
+                                                                                        (
+                                                                                            [type] => string
+                                                                                            [description] => Description of video.
+                                                                                        )
+
+                                                                                    [quality] => Array
+                                                                                        (
+                                                                                            [type] => array
+                                                                                            [items] => Array
+                                                                                                (
+                                                                                                    [type] => integer
+                                                                                                    [description] => Quality list of video
+                                                                                                )
+
+                                                                                        )
+
+                                                                                    [credits] => Array
+                                                                                        (
+                                                                                            [type] => array
+                                                                                            [items] => Array
+                                                                                                (
+                                                                                                    [type] => string
+                                                                                                )
+
+                                                                                        )
+
+                                                                                    [owner] => Array
+                                                                                        (
+                                                                                            [$ref] => #/definitions/VideoUser
+                                                                                        )
+
+                                                                                    [assets] => Array
+                                                                                        (
+                                                                                            [title] => ArrayofAssets
+                                                                                            [type] => array
+                                                                                            [items] => Array
+                                                                                                (
+                                                                                                    [$ref] => #/definitions/Asset
+                                                                                                )
+
+                                                                                        )
+
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [post] => Array
+                        (
+                            [summary] => Create New Video/ Get video in draft.
+                            [parameters] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [name] => name
+                                            [type] => string
+                                            [required] => 
+                                            [in] => formData
+                                        )
+
+                                )
+
+                            [tags] => Array
+                                (
+                                    [0] => Videos
+                                )
+
+                            [responses] => Array
+                                (
+                                    [200] => Array
+                                        (
+                                            [schema] => Array
+                                                (
+                                                    [type] => object
+                                                    [properties] => Array
+                                                        (
+                                                            [id] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Unique identifier of video
+                                                                )
+
+                                                            [status] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => The video creation status
+                                                                )
+
+                                                            [style] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Style Object machine name.
+                                                                )
+
+                                                            [name] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Name of video to be identified.
+                                                                )
+
+                                                            [duration] => Array
+                                                                (
+                                                                    [type] => integer
+                                                                    [description] => Duration length of video.
+                                                                )
+
+                                                            [created_on] => Array
+                                                                (
+                                                                    [type] => integer
+                                                                    [description] => Date timestamp of video creation.
+                                                                )
+
+                                                            [modified_on] => Array
+                                                                (
+                                                                    [type] => integer
+                                                                    [description] => Date timestamp of video modified.
+                                                                )
+
+                                                            [view] => Array
+                                                                (
+                                                                    [type] => integer
+                                                                    [description] => View Count of Video.
+                                                                )
+
+                                                            [privacy] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Whether video is 'private' or 'public'.
+                                                                )
+
+                                                            [description] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Description of video.
+                                                                )
+
+                                                            [quality] => Array
+                                                                (
+                                                                    [type] => array
+                                                                    [items] => Array
+                                                                        (
+                                                                            [type] => integer
+                                                                            [description] => Quality list of video
+                                                                        )
+
+                                                                )
+
+                                                            [credits] => Array
+                                                                (
+                                                                    [type] => array
+                                                                    [items] => Array
+                                                                        (
+                                                                            [type] => string
+                                                                        )
+
+                                                                )
+
+                                                            [owner] => Array
+                                                                (
+                                                                    [$ref] => #/definitions/VideoUser
+                                                                )
+
+                                                            [assets] => Array
+                                                                (
+                                                                    [title] => ArrayofAssets
+                                                                    [type] => array
+                                                                    [items] => Array
+                                                                        (
+                                                                            [$ref] => #/definitions/Asset
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [/me/videos/{video_id}] => Array
+                (
+                    [parameters] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [name] => Access-Key
+                                    [in] => header
+                                    [description] => Access Key provided once logged in.
+                                    [required] => 1
+                                    [type] => string
+                                )
+
+                            [1] => Array
+                                (
+                                    [name] => Access-Token
+                                    [in] => header
+                                    [description] => Access Token provided once logged in.
+                                    [required] => 1
+                                    [type] => string
+                                )
+
+                            [2] => Array
+                                (
+                                    [name] => video_id
+                                    [description] => Unique Identifier of video.
+                                    [in] => path
+                                    [required] => 1
+                                    [type] => string
+                                )
+
+                        )
+
+                    [get] => Array
+                        (
+                            [summary] => Get single Video information.
+                            [tags] => Array
+                                (
+                                    [0] => SingleVideo
+                                )
+
+                            [responses] => Array
+                                (
+                                    [200] => Array
+                                        (
+                                            [schema] => Array
+                                                (
+                                                    [type] => object
+                                                    [properties] => Array
+                                                        (
+                                                            [id] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Unique identifier of video
+                                                                )
+
+                                                            [status] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => The video creation status
+                                                                )
+
+                                                            [style] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Style Object machine name.
+                                                                )
+
+                                                            [name] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Name of video to be identified.
+                                                                )
+
+                                                            [duration] => Array
+                                                                (
+                                                                    [type] => integer
+                                                                    [description] => Duration length of video.
+                                                                )
+
+                                                            [created_on] => Array
+                                                                (
+                                                                    [type] => integer
+                                                                    [description] => Date timestamp of video creation.
+                                                                )
+
+                                                            [modified_on] => Array
+                                                                (
+                                                                    [type] => integer
+                                                                    [description] => Date timestamp of video modified.
+                                                                )
+
+                                                            [view] => Array
+                                                                (
+                                                                    [type] => integer
+                                                                    [description] => View Count of Video.
+                                                                )
+
+                                                            [privacy] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Whether video is 'private' or 'public'.
+                                                                )
+
+                                                            [description] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Description of video.
+                                                                )
+
+                                                            [quality] => Array
+                                                                (
+                                                                    [type] => array
+                                                                    [items] => Array
+                                                                        (
+                                                                            [type] => integer
+                                                                            [description] => Quality list of video
+                                                                        )
+
+                                                                )
+
+                                                            [credits] => Array
+                                                                (
+                                                                    [type] => array
+                                                                    [items] => Array
+                                                                        (
+                                                                            [type] => string
+                                                                        )
+
+                                                                )
+
+                                                            [owner] => Array
+                                                                (
+                                                                    [$ref] => #/definitions/VideoUser
+                                                                )
+
+                                                            [assets] => Array
+                                                                (
+                                                                    [title] => ArrayofAssets
+                                                                    [type] => array
+                                                                    [items] => Array
+                                                                        (
+                                                                            [$ref] => #/definitions/Asset
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [delete] => Array
+                        (
+                            [summary] => Delete the sepecified owner video.
+                            [tags] => Array
+                                (
+                                    [0] => SingleVideo
+                                )
+
+                            [responses] => Array
+                                (
+                                    [200] => Array
+                                        (
+                                            [schema] => Array
+                                                (
+                                                    [type] => object
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [post] => Array
+                        (
+                            [summary] => Update specified video content.
+                            [tags] => Array
+                                (
+                                    [0] => SingleVideo
+                                )
+
+                            [responses] => Array
+                                (
+                                    [200] => Array
+                                        (
+                                            [schema] => Array
+                                                (
+                                                    [type] => object
+                                                    [properties] => Array
+                                                        (
+                                                            [id] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Unique identifier of video
+                                                                )
+
+                                                            [status] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => The video creation status
+                                                                )
+
+                                                            [style] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Style Object machine name.
+                                                                )
+
+                                                            [name] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Name of video to be identified.
+                                                                )
+
+                                                            [duration] => Array
+                                                                (
+                                                                    [type] => integer
+                                                                    [description] => Duration length of video.
+                                                                )
+
+                                                            [created_on] => Array
+                                                                (
+                                                                    [type] => integer
+                                                                    [description] => Date timestamp of video creation.
+                                                                )
+
+                                                            [modified_on] => Array
+                                                                (
+                                                                    [type] => integer
+                                                                    [description] => Date timestamp of video modified.
+                                                                )
+
+                                                            [view] => Array
+                                                                (
+                                                                    [type] => integer
+                                                                    [description] => View Count of Video.
+                                                                )
+
+                                                            [privacy] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Whether video is 'private' or 'public'.
+                                                                )
+
+                                                            [description] => Array
+                                                                (
+                                                                    [type] => string
+                                                                    [description] => Description of video.
+                                                                )
+
+                                                            [quality] => Array
+                                                                (
+                                                                    [type] => array
+                                                                    [items] => Array
+                                                                        (
+                                                                            [type] => integer
+                                                                            [description] => Quality list of video
+                                                                        )
+
+                                                                )
+
+                                                            [credits] => Array
+                                                                (
+                                                                    [type] => array
+                                                                    [items] => Array
+                                                                        (
+                                                                            [type] => string
+                                                                        )
+
+                                                                )
+
+                                                            [owner] => Array
+                                                                (
+                                                                    [$ref] => #/definitions/VideoUser
+                                                                )
+
+                                                            [assets] => Array
+                                                                (
+                                                                    [title] => ArrayofAssets
+                                                                    [type] => array
+                                                                    [items] => Array
+                                                                        (
+                                                                            [$ref] => #/definitions/Asset
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [/me/videos/{video-id}/render] => Array
+                (
+                    [parameters] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [name] => Access-Key
+                                    [in] => header
+                                    [description] => Access Key provided once logged in.
+                                    [required] => 1
+                                    [type] => string
+                                )
+
+                            [1] => Array
+                                (
+                                    [name] => Access-Token
+                                    [in] => header
+                                    [description] => Access Token provided once logged in.
+                                    [required] => 1
+                                    [type] => string
+                                )
+
+                            [2] => Array
+                                (
+                                    [name] => video_id
+                                    [description] => Unique Identifier of video.
+                                    [in] => path
+                                    [required] => 1
+                                    [type] => string
+                                )
+
+                        )
+
+                    [post] => Array
+                        (
+                            [summary] => Render the video.
+                            [tags] => Array
+                                (
+                                    [0] => SingleVideo
+                                )
+
+                            [responses] => Array
+                                (
+                                    [200] => Array
+                                        (
+                                            [schema] => Array
+                                                (
+                                                    [type] => object
+                                                )
+
+                                        )
+
+                                    [401] => Array
+                                        (
+                                            [schema] => Array
+                                                (
+                                                    [type] => object
+                                                    [properties] => Array
+                                                        (
+                                                            [error] => Array
+                                                                (
+                                                                    [type] => object
+                                                                    [properties] => Array
+                                                                        (
+                                                                            [message] => Array
+                                                                                (
+                                                                                    [type] => string
+                                                                                )
+
+                                                                            [status] => Array
+                                                                                (
+                                                                                    [type] => integer
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [example] => Array
+                                                        (
+                                                            [error] => Array
+                                                                (
+                                                                    [message] => You are not authorized.
+                                                                    [status] => 401
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [parameters] => Array
+        (
+            [AccessKey] => Array
+                (
+                    [name] => Access-Key
+                    [in] => header
+                    [description] => Access Key provided once logged in.
+                    [required] => 1
+                    [type] => string
+                )
+
+            [AccessToken] => Array
+                (
+                    [name] => Access-Token
+                    [in] => header
+                    [description] => Access Token provided once logged in.
+                    [required] => 1
+                    [type] => string
+                )
+
+            [VideoID] => Array
+                (
+                    [name] => video_id
+                    [description] => Unique Identifier of video.
+                    [in] => path
+                    [required] => 1
+                    [type] => string
+                )
+
+        )
+
+    [definitions] => Array
+        (
+            [UserID] => Array
+                (
+                    [type] => string
+                    [description] => Unique Identifier of the User.
+                )
+
+            [VideoUser] => Array
+                (
+                    [type] => object
+                    [properties] => Array
+                        (
+                            [id] => Array
+                                (
+                                    [type] => string
+                                    [description] => Unique Identifier of the User.
+                                )
+
+                            [name] => Array
+                                (
+                                    [type] => string
+                                    [description] => Full Name of the user.
+                                )
+
+                            [profile_pic] => Array
+                                (
+                                    [type] => string
+                                    [description] => URL of user profile picture.
+                                )
+
+                        )
+
+                )
+
+            [User] => Array
+                (
+                    [type] => object
+                    [allOf] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [type] => object
+                                    [properties] => Array
+                                        (
+                                            [id] => Array
+                                                (
+                                                    [$ref] => #/definitions/UserID
+                                                )
+
+                                            [name] => Array
+                                                (
+                                                    [type] => string
+                                                    [description] => Full Name of the user.
+                                                )
+
+                                            [profile_pic] => Array
+                                                (
+                                                    [type] => string
+                                                    [description] => URL of user profile picture.
+                                                )
+
+                                        )
+
+                                )
+
+                            [1] => Array
+                                (
+                                    [properties] => Array
+                                        (
+                                            [bio] => Array
+                                                (
+                                                    [type] => string
+                                                    [description] => Information summary of user.
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [Auth] => Array
+                (
+                    [type] => object
+                    [properties] => Array
+                        (
+                            [access_key] => Array
+                                (
+                                    [type] => string
+                                    [description] => Access Key provided to application after authentication.
+                                )
+
+                            [access_token] => Array
+                                (
+                                    [type] => string
+                                    [description] => Access Token provided to application after authentication.
+                                )
+
+                            [id] => Array
+                                (
+                                    [type] => string
+                                    [description] => Unique Identifier of the User.
+                                )
+
+                        )
+
+                )
+
+            [StyleQuality] => Array
+                (
+                    [type] => object
+                    [properties] => Array
+                        (
+                            [res] => Array
+                                (
+                                    [type] => integer
+                                    [description] => One of the available quality.
+                                )
+
+                            [coins] => Array
+                                (
+                                    [type] => integer
+                                    [description] => Coins for video creation.
+                                )
+
+                            [white_labeled] => Array
+                                (
+                                    [type] => boolean
+                                    [description] => Whether whitelabel feature is available or not.
+                                )
+
+                        )
+
+                )
+
+            [StyleLimit] => Array
+                (
+                    [type] => object
+                    [properties] => Array
+                        (
+                            [quality] => Array
+                                (
+                                    [type] => array
+                                    [items] => Array
+                                        (
+                                            [type] => object
+                                            [properties] => Array
+                                                (
+                                                    [res] => Array
+                                                        (
+                                                            [type] => integer
+                                                            [description] => One of the available quality.
+                                                        )
+
+                                                    [coins] => Array
+                                                        (
+                                                            [type] => integer
+                                                            [description] => Coins for video creation.
+                                                        )
+
+                                                    [white_labeled] => Array
+                                                        (
+                                                            [type] => boolean
+                                                            [description] => Whether whitelabel feature is available or not.
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [title_length] => Array
+                                (
+                                    [type] => integer
+                                    [description] => Length of title in frame allowed.
+                                )
+
+                            [text_length] => Array
+                                (
+                                    [type] => integer
+                                    [description] => Length of text bofy in frame allowed.
+                                )
+
+                        )
+
+                )
+
+            [Style] => Array
+                (
+                    [type] => object
+                    [properties] => Array
+                        (
+                            [name] => Array
+                                (
+                                    [type] => string
+                                    [description] => Name of the style
+                                )
+
+                            [category] => Array
+                                (
+                                    [type] => string
+                                    [description] => One of the available style categories. eg. Premium, Stardard
+                                )
+
+                            [is_featured] => Array
+                                (
+                                    [type] => boolean
+                                    [description] => Whether the style is featured or not
+                                )
+
+                            [machine_name] => Array
+                                (
+                                    [type] => string
+                                    [description] => Unique machine readable identifier
+                                )
+
+                            [description] => Array
+                                (
+                                    [type] => string
+                                    [description] => Quick information about the style.
+                                )
+
+                            [scope] => Array
+                                (
+                                    [type] => string
+                                    [description] => This style can be used in cases A, B, etc...
+                                )
+
+                            [order] => Array
+                                (
+                                    [type] => integer
+                                    [description] => Numeric value to indicate ordering if required
+                                )
+
+                            [sample_url] => Array
+                                (
+                                    [type] => string
+                                    [description] => URL for the sample video
+                                )
+
+                            [thumbnail] => Array
+                                (
+                                    [type] => string
+                                    [description] => URL for the style thumbnail
+                                )
+
+                            [type] => Array
+                                (
+                                    [type] => string
+                                    [description] => type related to style such as "premium"
+                                )
+
+                            [youtube_url] => Array
+                                (
+                                    [type] => string
+                                    [description] => URL id for youtube link if available
+                                )
+
+                            [limits] => Array
+                                (
+                                    [type] => object
+                                    [properties] => Array
+                                        (
+                                            [quality] => Array
+                                                (
+                                                    [type] => array
+                                                    [items] => Array
+                                                        (
+                                                            [$ref] => #/definitions/StyleQuality
+                                                        )
+
+                                                )
+
+                                            [title_length] => Array
+                                                (
+                                                    [type] => integer
+                                                    [description] => Length of title in frame allowed.
+                                                )
+
+                                            [text_length] => Array
+                                                (
+                                                    [type] => integer
+                                                    [description] => Length of text bofy in frame allowed.
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [Music] => Array
+                (
+                    [type] => object
+                    [discriminator] => musicType
+                    [properties] => Array
+                        (
+                            [id] => Array
+                                (
+                                    [type] => string
+                                    [description] => Unique Identifier
+                                )
+
+                            [artist] => Array
+                                (
+                                    [type] => string
+                                    [description] => Music artist.
+                                )
+
+                            [title] => Array
+                                (
+                                    [type] => string
+                                    [description] => Music Name
+                                )
+
+                            [preview_url] => Array
+                                (
+                                    [type] => string
+                                    [description] => Preview URL of music
+                                )
+
+                            [duration] => Array
+                                (
+                                    [type] => integer
+                                    [description] => Length of music.
+                                )
+
+                        )
+
+                )
+
+            [SystemMusic] => Array
+                (
+                    [type] => object
+                    [allOf] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [type] => object
+                                    [discriminator] => musicType
+                                    [properties] => Array
+                                        (
+                                            [id] => Array
+                                                (
+                                                    [type] => string
+                                                    [description] => Unique Identifier
+                                                )
+
+                                            [artist] => Array
+                                                (
+                                                    [type] => string
+                                                    [description] => Music artist.
+                                                )
+
+                                            [title] => Array
+                                                (
+                                                    [type] => string
+                                                    [description] => Music Name
+                                                )
+
+                                            [preview_url] => Array
+                                                (
+                                                    [type] => string
+                                                    [description] => Preview URL of music
+                                                )
+
+                                            [duration] => Array
+                                                (
+                                                    [type] => integer
+                                                    [description] => Length of music.
+                                                )
+
+                                        )
+
+                                )
+
+                            [1] => Array
+                                (
+                                    [properties] => Array
+                                        (
+                                            [category] => Array
+                                                (
+                                                    [type] => string
+                                                    [description] => Sytem category.
+                                                )
+
+                                            [is_featured] => Array
+                                                (
+                                                    [type] => boolean
+                                                    [description] => Whether the music is featured or not.
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [PersonalMusic] => Array
+                (
+                    [type] => object
+                    [allOf] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [type] => object
+                                    [discriminator] => musicType
+                                    [properties] => Array
+                                        (
+                                            [id] => Array
+                                                (
+                                                    [type] => string
+                                                    [description] => Unique Identifier
+                                                )
+
+                                            [artist] => Array
+                                                (
+                                                    [type] => string
+                                                    [description] => Music artist.
+                                                )
+
+                                            [title] => Array
+                                                (
+                                                    [type] => string
+                                                    [description] => Music Name
+                                                )
+
+                                            [preview_url] => Array
+                                                (
+                                                    [type] => string
+                                                    [description] => Preview URL of music
+                                                )
+
+                                            [duration] => Array
+                                                (
+                                                    [type] => integer
+                                                    [description] => Length of music.
+                                                )
+
+                                        )
+
+                                )
+
+                            [1] => Array
+                                (
+                                    [properties] => Array
+                                        (
+                                            [url] => Array
+                                                (
+                                                    [type] => string
+                                                    [description] => URL of music.
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [Photo] => Array
+                (
+                    [type] => object
+                    [properties] => Array
+                        (
+                            [id] => Array
+                                (
+                                    [type] => string
+                                    [description] => Unique Identifier for photo.
+                                )
+
+                            [url] => Array
+                                (
+                                    [type] => string
+                                    [description] => URL of photo.
+                                )
+
+                            [thumbnail_url] => Array
+                                (
+                                    [type] => string
+                                    [description] => URL of thumbnail for photo.
+                                )
+
+                        )
+
+                )
+
+            [PhotoAlbum] => Array
+                (
+                    [type] => object
+                    [properties] => Array
+                        (
+                            [album_name] => Array
+                                (
+                                    [type] => string
+                                    [description] => Name of Album
+                                )
+
+                            [photos] => Array
+                                (
+                                    [type] => array
+                                    [items] => Array
+                                        (
+                                            [type] => object
+                                            [properties] => Array
+                                                (
+                                                    [id] => Array
+                                                        (
+                                                            [type] => string
+                                                            [description] => Unique Identifier for photo.
+                                                        )
+
+                                                    [url] => Array
+                                                        (
+                                                            [type] => string
+                                                            [description] => URL of photo.
+                                                        )
+
+                                                    [thumbnail_url] => Array
+                                                        (
+                                                            [type] => string
+                                                            [description] => URL of thumbnail for photo.
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [Asset] => Array
+                (
+                    [type] => object
+                    [properties] => Array
+                        (
+                            [name] => Array
+                                (
+                                    [type] => string
+                                    [enum] => Array
+                                        (
+                                            [0] => text
+                                            [1] => image
+                                            [2] => music
+                                        )
+
+                                    [description] => Name of video asset.
+                                )
+
+                            [start_time] => Array
+                                (
+                                    [type] => integer
+                                    [description] => Start time of the asset in video.
+                                )
+
+                            [end_time] => Array
+                                (
+                                    [type] => integer
+                                    [description] => End time of asset in video.
+                                )
+
+                            [data] => Array
+                                (
+                                    [type] => object
+                                    [description] => Data for asset.
+                                )
+
+                            [attributes] => Array
+                                (
+                                    [type] => object
+                                    [description] => Attributes of Assets.
+                                )
+
+                        )
+
+                )
+
+            [TextAsset] => Array
+                (
+                    [type] => object
+                    [allOf] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [type] => object
+                                    [properties] => Array
+                                        (
+                                            [name] => Array
+                                                (
+                                                    [type] => string
+                                                    [enum] => Array
+                                                        (
+                                                            [0] => text
+                                                            [1] => image
+                                                            [2] => music
+                                                        )
+
+                                                    [description] => Name of video asset.
+                                                )
+
+                                            [start_time] => Array
+                                                (
+                                                    [type] => integer
+                                                    [description] => Start time of the asset in video.
+                                                )
+
+                                            [end_time] => Array
+                                                (
+                                                    [type] => integer
+                                                    [description] => End time of asset in video.
+                                                )
+
+                                            [data] => Array
+                                                (
+                                                    [type] => object
+                                                    [description] => Data for asset.
+                                                )
+
+                                            [attributes] => Array
+                                                (
+                                                    [type] => object
+                                                    [description] => Attributes of Assets.
+                                                )
+
+                                        )
+
+                                )
+
+                            [1] => Array
+                                (
+                                    [properties] => Array
+                                        (
+                                            [data] => Array
+                                                (
+                                                    [type] => object
+                                                    [properties] => Array
+                                                        (
+                                                            [text] => Array
+                                                                (
+                                                                    [type] => string
+                                                                )
+
+                                                            [title] => Array
+                                                                (
+                                                                    [type] => string
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [VideoCreditItem] => Array
+                (
+                    [title] => VideoCredit
+                    [type] => string
+                )
+
+            [VideoCredit] => Array
+                (
+                    [type] => array
+                    [items] => Array
+                        (
+                            [type] => array
+                            [items] => Array
+                                (
+                                    [title] => VideoCredit
+                                    [type] => string
+                                )
+
+                        )
+
+                )
+
+            [Video] => Array
+                (
+                    [type] => object
+                    [properties] => Array
+                        (
+                            [id] => Array
+                                (
+                                    [type] => string
+                                    [description] => Unique identifier of video
+                                )
+
+                            [status] => Array
+                                (
+                                    [type] => string
+                                    [description] => The video creation status
+                                )
+
+                            [style] => Array
+                                (
+                                    [type] => string
+                                    [description] => Style Object machine name.
+                                )
+
+                            [name] => Array
+                                (
+                                    [type] => string
+                                    [description] => Name of video to be identified.
+                                )
+
+                            [duration] => Array
+                                (
+                                    [type] => integer
+                                    [description] => Duration length of video.
+                                )
+
+                            [created_on] => Array
+                                (
+                                    [type] => integer
+                                    [description] => Date timestamp of video creation.
+                                )
+
+                            [modified_on] => Array
+                                (
+                                    [type] => integer
+                                    [description] => Date timestamp of video modified.
+                                )
+
+                            [view] => Array
+                                (
+                                    [type] => integer
+                                    [description] => View Count of Video.
+                                )
+
+                            [privacy] => Array
+                                (
+                                    [type] => string
+                                    [description] => Whether video is 'private' or 'public'.
+                                )
+
+                            [description] => Array
+                                (
+                                    [type] => string
+                                    [description] => Description of video.
+                                )
+
+                            [quality] => Array
+                                (
+                                    [type] => array
+                                    [items] => Array
+                                        (
+                                            [type] => integer
+                                            [description] => Quality list of video
+                                        )
+
+                                )
+
+                            [credits] => Array
+                                (
+                                    [type] => array
+                                    [items] => Array
+                                        (
+                                            [type] => string
+                                        )
+
+                                )
+
+                            [owner] => Array
+                                (
+                                    [type] => object
+                                    [properties] => Array
+                                        (
+                                            [id] => Array
+                                                (
+                                                    [$ref] => #/definitions/UserID
+                                                )
+
+                                            [name] => Array
+                                                (
+                                                    [type] => string
+                                                    [description] => Full Name of the user.
+                                                )
+
+                                            [profile_pic] => Array
+                                                (
+                                                    [type] => string
+                                                    [description] => URL of user profile picture.
+                                                )
+
+                                        )
+
+                                )
+
+                            [assets] => Array
+                                (
+                                    [title] => ArrayofAssets
+                                    [type] => array
+                                    [items] => Array
+                                        (
+                                            [type] => object
+                                            [properties] => Array
+                                                (
+                                                    [name] => Array
+                                                        (
+                                                            [type] => string
+                                                            [enum] => Array
+                                                                (
+                                                                    [0] => text
+                                                                    [1] => image
+                                                                    [2] => music
+                                                                )
+
+                                                            [description] => Name of video asset.
+                                                        )
+
+                                                    [start_time] => Array
+                                                        (
+                                                            [type] => integer
+                                                            [description] => Start time of the asset in video.
+                                                        )
+
+                                                    [end_time] => Array
+                                                        (
+                                                            [type] => integer
+                                                            [description] => End time of asset in video.
+                                                        )
+
+                                                    [data] => Array
+                                                        (
+                                                            [type] => object
+                                                            [description] => Data for asset.
+                                                        )
+
+                                                    [attributes] => Array
+                                                        (
+                                                            [type] => object
+                                                            [description] => Attributes of Assets.
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [Error] => Array
+                (
+                    [type] => object
+                    [properties] => Array
+                        (
+                            [error] => Array
+                                (
+                                    [type] => object
+                                    [properties] => Array
+                                        (
+                                            [message] => Array
+                                                (
+                                                    [type] => string
+                                                )
+
+                                            [status] => Array
+                                                (
+                                                    [type] => integer
+                                                )
+
+                                        )
+
+                                )
+
+                        )
+
+                    [example] => Array
+                        (
+                            [error] => Array
+                                (
+                                    [message] => You are not authorized.
+                                    [status] => 401
+                                )
+
+                        )
+
+                )
+
+        )
+
+)
+</pre>
