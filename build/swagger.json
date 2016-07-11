@@ -1,0 +1,943 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Picovico API",
+        "description": "The Picovico API provides interface to access and \nintegrate the video rendering functionality into \nyour own platform. Our API is organized around REST, \nhas resource-oriented URLs, and uses HTTP response \ncodes to indicate errors. We support cross-origin \nresource sharing, allowing you to interact securely \nwith our API from a client-side web application \n(though API Keys should never be exposed in any public website's client-side code). \nJSON is the standard for all API responses, including errors.\n",
+        "version": "2.1"
+    },
+    "host": "api.picovico.com",
+    "schemes": [
+        "https"
+    ],
+    "basePath": "/v2.1",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/login": {
+            "post": {
+                "summary": "Authenticate with Username/Password",
+                "description": "The endpoint for login with username, password and app_id.\n",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "formData",
+                        "description": "Username of the user.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "password",
+                        "in": "formData",
+                        "description": "User password.",
+                        "required": true,
+                        "type": "string",
+                        "format": "password"
+                    },
+                    {
+                        "name": "app_id",
+                        "in": "formData",
+                        "description": "Picovico Provided Application Id.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Authentication"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Access Key and Token for use in auth.",
+                        "schema": {
+                            "$ref": "#/definitions/Auth"
+                        }
+                    }
+                }
+            }
+        },
+        "/login/app": {
+            "post": {
+                "summary": "Login with Application Id and Application Secret provided by Picovico.",
+                "description": "The endpoint for login with Application Id and Application Secret provided in picovico developer dashboard.\n",
+                "consumes": [
+                    "application/x-www-form-urlencoded"
+                ],
+                "parameters": [
+                    {
+                        "name": "app_id",
+                        "in": "formData",
+                        "description": "Application Id provided by picovico dashboard.",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "app_secret",
+                        "in": "formData",
+                        "description": "Application Secret Provided by picovico secret.",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Authentication"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Access Key and Token for use in auth.",
+                        "schema": {
+                            "$ref": "#/definitions/Auth"
+                        }
+                    }
+                }
+            }
+        },
+        "/styles": {
+            "get": {
+                "summary": "Get all Picovico provided styles.",
+                "description": "The endpoint gets styles that are in picovico systems.\n",
+                "tags": [
+                    "Style"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "All picovico styles",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/Style"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/musics": {
+            "get": {
+                "summary": "Get all Picovico provided musics.",
+                "description": "The endpoint gets music that are in picovico systems.\n",
+                "tags": [
+                    "SystemMusic"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "All system related music",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/SystemMusic"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/me": {
+            "parameters": [
+                {
+                    "$ref": "#/parameters/AccessKey"
+                },
+                {
+                    "$ref": "#/parameters/AccessToken"
+                }
+            ],
+            "get": {
+                "summary": "User Profile Information",
+                "tags": [
+                    "User"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Information",
+                        "schema": {
+                            "$ref": "#/definitions/User"
+                        }
+                    }
+                }
+            }
+        },
+        "/me/musics": {
+            "parameters": [
+                {
+                    "$ref": "#/parameters/AccessKey"
+                },
+                {
+                    "$ref": "#/parameters/AccessToken"
+                }
+            ],
+            "get": {
+                "summary": "List User Uploaded musics.",
+                "tags": [
+                    "PersonalMusic"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "All user musics.",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "musics": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/PersonalMusic"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Upload music.",
+                "parameters": [
+                    {
+                        "name": "Music-Title",
+                        "in": "header",
+                        "description": "Title of music to be uploaded.",
+                        "required": false
+                    },
+                    {
+                        "name": "Music-Artist",
+                        "in": "header",
+                        "description": "Artist of music to be uploaded.",
+                        "required": false
+                    },
+                    {
+                        "in": "body",
+                        "description": "Upload file content",
+                        "required": true,
+                        "schema": {
+                            "type": "file"
+                        }
+                    }
+                ],
+                "consumes": [
+                    "application/octet-stream"
+                ],
+                "tags": [
+                    "PersonalMusic"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Uploaded Music.",
+                        "schema": {
+                            "$ref": "#/definitions/PersonalMusic"
+                        }
+                    }
+                }
+            }
+        },
+        "/me/photos": {
+            "parameters": [
+                {
+                    "$ref": "#/parameters/AccessKey"
+                },
+                {
+                    "$ref": "#/parameters/AccessToken"
+                }
+            ],
+            "get": {
+                "summary": "List user photos.",
+                "tags": [
+                    "Photo"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User Photo Album list",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "albums": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/PhotoAlbum"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "User Photo Upload.",
+                "consumes": [
+                    "image/png",
+                    "image/jpeg"
+                ],
+                "tags": [
+                    "Photo"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Uploaded Photo.",
+                        "schema": {
+                            "$ref": "#/definitions/Photo"
+                        }
+                    }
+                }
+            }
+        },
+        "/me/photos/{photo_id}": {
+            "parameters": [
+                {
+                    "$ref": "#/parameters/AccessKey"
+                },
+                {
+                    "$ref": "#/parameters/AccessToken"
+                }
+            ],
+            "delete": {
+                "summary": "User Photo Delete.",
+                "parameters": [
+                    {
+                        "name": "photo_id",
+                        "in": "path",
+                        "type": "string",
+                        "required": true,
+                        "description": "The photo identifier that should be deleted."
+                    }
+                ],
+                "tags": [
+                    "SinglePhoto"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Action success message",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "description": "the action succeed messages."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/me/videos": {
+            "parameters": [
+                {
+                    "$ref": "#/parameters/AccessKey"
+                },
+                {
+                    "$ref": "#/parameters/AccessToken"
+                }
+            ],
+            "get": {
+                "summary": "Get All the video of user",
+                "parameters": [
+                    {
+                        "name": "count",
+                        "type": "integer",
+                        "required": false,
+                        "in": "query",
+                        "description": "Count of video to pull"
+                    },
+                    {
+                        "name": "to",
+                        "type": "integer",
+                        "required": false,
+                        "in": "query",
+                        "description": "Video to timestamp for filter."
+                    },
+                    {
+                        "name": "from",
+                        "type": "integer",
+                        "required": false,
+                        "in": "query",
+                        "description": "Video from timestamp for filter."
+                    }
+                ],
+                "tags": [
+                    "Videos"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Action Success",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "paging": {
+                                    "type": "object",
+                                    "description": "Pages URL and number of videos.",
+                                    "properties": {
+                                        "count": {
+                                            "type": "integer",
+                                            "description": "Video count in the page."
+                                        },
+                                        "next_url": {
+                                            "type": "string",
+                                            "description": "URL for next video list."
+                                        },
+                                        "prev_url": {
+                                            "type": "string",
+                                            "description": "URL for previous video list."
+                                        }
+                                    }
+                                },
+                                "videos": {
+                                    "type": "array",
+                                    "title": "ArrayofUserVideo",
+                                    "items": {
+                                        "$ref": "#/definitions/Video"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Create New Video/ Get video in draft.",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "type": "string",
+                        "required": false,
+                        "in": "formData"
+                    }
+                ],
+                "tags": [
+                    "Videos"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/Video"
+                        }
+                    }
+                }
+            }
+        },
+        "/me/videos/{video_id}": {
+            "parameters": [
+                {
+                    "$ref": "#/parameters/AccessKey"
+                },
+                {
+                    "$ref": "#/parameters/AccessToken"
+                },
+                {
+                    "$ref": "#/parameters/VideoID"
+                }
+            ],
+            "get": {
+                "summary": "Get single Video information.",
+                "tags": [
+                    "SingleVideo"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/Video"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete the sepecified owner video.",
+                "tags": [
+                    "SingleVideo"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "type": "object"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Update specified video content.",
+                "tags": [
+                    "SingleVideo"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/Video"
+                        }
+                    }
+                }
+            }
+        },
+        "/me/videos/{video-id}/render": {
+            "parameters": [
+                {
+                    "$ref": "#/parameters/AccessKey"
+                },
+                {
+                    "$ref": "#/parameters/AccessToken"
+                },
+                {
+                    "$ref": "#/parameters/VideoID"
+                }
+            ],
+            "post": {
+                "summary": "Render the video.",
+                "tags": [
+                    "SingleVideo"
+                ],
+                "responses": {
+                    "200": {
+                        "schema": {
+                            "$ref": "#/definitions/Video"
+                        }
+                    },
+                    "401": {
+                        "$ref": "#/responses/401"
+                    },
+                    "404": {
+                        "$ref": "#/responses/404"
+                    }
+                }
+            }
+        }
+    },
+    "responses": {
+        "401": {
+            "schema": {
+                "$ref": "#/definitions/UnauthorizedError"
+            }
+        },
+        "404": {
+            "schema": {
+                "$ref": "#/definitions/NotFoundError"
+            }
+        }
+    },
+    "parameters": {
+        "AccessKey": {
+            "name": "Access-Key",
+            "in": "header",
+            "description": "Access Key provided once logged in.",
+            "required": true,
+            "type": "string"
+        },
+        "AccessToken": {
+            "name": "Access-Token",
+            "in": "header",
+            "description": "Access Token provided once logged in.",
+            "required": true,
+            "type": "string"
+        },
+        "VideoID": {
+            "name": "video_id",
+            "description": "Unique Identifier of video.",
+            "in": "path",
+            "required": true,
+            "type": "string"
+        }
+    },
+    "definitions": {
+        "UserID": {
+            "type": "string",
+            "description": "Unique Identifier of the User."
+        },
+        "VideoUser": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "$ref": "#/definitions/UserID"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Full Name of the user."
+                },
+                "profile_pic": {
+                    "type": "string",
+                    "description": "URL of user profile picture."
+                }
+            }
+        },
+        "User": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/VideoUser"
+                },
+                {
+                    "properties": {
+                        "bio": {
+                            "type": "string",
+                            "description": "Information summary of user."
+                        }
+                    }
+                }
+            ]
+        },
+        "Auth": {
+            "type": "object",
+            "properties": {
+                "access_key": {
+                    "type": "string",
+                    "description": "Access Key provided to application after authentication."
+                },
+                "access_token": {
+                    "type": "string",
+                    "description": "Access Token provided to application after authentication."
+                },
+                "id": {
+                    "$ref": "#/definitions/UserID"
+                }
+            },
+            "example": {
+                "access_key": "sdssadgdasgaga",
+                "access_token": "afdsffadsadsf",
+                "id": "AdHtd0"
+            }
+        },
+        "StyleQuality": {
+            "type": "object",
+            "properties": {
+                "res": {
+                    "type": "integer",
+                    "description": "One of the available quality."
+                },
+                "coins": {
+                    "type": "integer",
+                    "description": "Coins for video creation."
+                },
+                "white_labeled": {
+                    "type": "boolean",
+                    "description": "Whether whitelabel feature is available or not."
+                }
+            }
+        },
+        "StyleLimit": {
+            "type": "object",
+            "properties": {
+                "quality": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/StyleQuality"
+                    }
+                },
+                "title_length": {
+                    "type": "integer",
+                    "description": "Length of title in frame allowed."
+                },
+                "text_length": {
+                    "type": "integer",
+                    "description": "Length of text bofy in frame allowed."
+                }
+            }
+        },
+        "Style": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the style"
+                },
+                "category": {
+                    "type": "string",
+                    "description": "One of the available style categories. eg. Premium, Stardard"
+                },
+                "is_featured": {
+                    "type": "boolean",
+                    "description": "Whether the style is featured or not"
+                },
+                "machine_name": {
+                    "type": "string",
+                    "description": "Unique machine readable identifier"
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Quick information about the style."
+                },
+                "scope": {
+                    "type": "string",
+                    "description": "This style can be used in cases A, B, etc..."
+                },
+                "order": {
+                    "type": "integer",
+                    "description": "Numeric value to indicate ordering if required"
+                },
+                "sample_url": {
+                    "type": "string",
+                    "description": "URL for the sample video"
+                },
+                "thumbnail": {
+                    "type": "string",
+                    "description": "URL for the style thumbnail"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "type related to style such as \"premium\""
+                },
+                "youtube_url": {
+                    "type": "string",
+                    "description": "URL id for youtube link if available"
+                },
+                "limits": {
+                    "$ref": "#/definitions/StyleLimit"
+                }
+            }
+        },
+        "Music": {
+            "type": "object",
+            "discriminator": "musicType",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique Identifier"
+                },
+                "artist": {
+                    "type": "string",
+                    "description": "Music artist."
+                },
+                "title": {
+                    "type": "string",
+                    "description": "Music Name"
+                },
+                "preview_url": {
+                    "type": "string",
+                    "description": "Preview URL of music"
+                },
+                "duration": {
+                    "type": "integer",
+                    "description": "Length of music."
+                }
+            }
+        },
+        "SystemMusic": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Music"
+                },
+                {
+                    "properties": {
+                        "category": {
+                            "type": "string",
+                            "description": "Sytem category."
+                        },
+                        "is_featured": {
+                            "type": "boolean",
+                            "description": "Whether the music is featured or not."
+                        }
+                    }
+                }
+            ]
+        },
+        "PersonalMusic": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Music"
+                },
+                {
+                    "properties": {
+                        "url": {
+                            "type": "string",
+                            "description": "URL of music."
+                        }
+                    }
+                }
+            ]
+        },
+        "Photo": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique Identifier for photo."
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of photo."
+                },
+                "thumbnail_url": {
+                    "type": "string",
+                    "description": "URL of thumbnail for photo."
+                }
+            }
+        },
+        "PhotoAlbum": {
+            "type": "object",
+            "properties": {
+                "album_name": {
+                    "type": "string",
+                    "description": "Name of Album"
+                },
+                "photos": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Photo"
+                    }
+                }
+            }
+        },
+        "Asset": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "enum": [
+                        "text",
+                        "image",
+                        "music"
+                    ],
+                    "description": "Name of video asset."
+                },
+                "start_time": {
+                    "type": "integer",
+                    "description": "Start time of the asset in video."
+                },
+                "end_time": {
+                    "type": "integer",
+                    "description": "End time of asset in video."
+                },
+                "data": {
+                    "type": "object",
+                    "description": "Data for asset."
+                },
+                "attributes": {
+                    "type": "object",
+                    "description": "Attributes of Assets."
+                }
+            }
+        },
+        "TextAsset": {
+            "type": "object",
+            "allOf": [
+                {
+                    "$ref": "#/definitions/Asset"
+                },
+                {
+                    "properties": {
+                        "data": {
+                            "type": "object",
+                            "properties": {
+                                "text": {
+                                    "type": "string"
+                                },
+                                "title": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            ]
+        },
+        "VideoCreditItem": {
+            "title": "VideoCredit",
+            "type": "string"
+        },
+        "VideoCredit": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/VideoCreditItem",
+                "maximum": 2
+            }
+        },
+        "Video": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Unique identifier of video"
+                },
+                "status": {
+                    "type": "string",
+                    "description": "The video creation status"
+                },
+                "style": {
+                    "type": "string",
+                    "description": "Style Object machine name."
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of video to be identified."
+                },
+                "duration": {
+                    "type": "integer",
+                    "description": "Duration length of video."
+                },
+                "created_on": {
+                    "type": "integer",
+                    "description": "Date timestamp of video creation."
+                },
+                "modified_on": {
+                    "type": "integer",
+                    "description": "Date timestamp of video modified."
+                },
+                "view": {
+                    "type": "integer",
+                    "description": "View Count of Video."
+                },
+                "privacy": {
+                    "type": "string",
+                    "description": "Whether video is 'private' or 'public'."
+                },
+                "description": {
+                    "type": "string",
+                    "description": "Description of video."
+                },
+                "quality": {
+                    "type": "array",
+                    "items": {
+                        "type": "integer",
+                        "description": "Quality list of video"
+                    }
+                },
+                "credits": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/VideoCredit"
+                    }
+                },
+                "owner": {
+                    "$ref": "#/definitions/VideoUser"
+                },
+                "assets": {
+                    "title": "ArrayofAssets",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Asset"
+                    }
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "error": {
+                    "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string"
+                        },
+                        "status": {
+                            "type": "integer"
+                        }
+                    }
+                }
+            }
+        },
+        "UnauthorizedError": {
+            "$ref": "#/definitions/Error",
+            "examples": {
+                "error": {
+                    "message": "You are not authorized",
+                    "status": 401
+                }
+            }
+        },
+        "NotFoundError": {
+            "$ref": "#/definitions/Error",
+            "examples": {
+                "error": {
+                    "message": "Thing not found",
+                    "status": 404
+                }
+            }
+        }
+    }
+}
