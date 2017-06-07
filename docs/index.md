@@ -42,10 +42,17 @@ Errors are responded with:
 
 Success [200 OK] will be responded in: 
 
+    
+    Only Newer API respond with:
+
     {
         '_count': <no_of_response_data>,
         'data': [{<success_response_object>},]  # [] for 0 count
     }
 
 
+*For backward compatibility, only newer API respond in this format. See corresponding methods.*
+
 - Note: *Success also may have other meta information followed by `_` such as `_page` where necessary.*
+    
+    

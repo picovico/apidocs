@@ -1,13 +1,13 @@
-#Styles
-Following endpoints are valid for styles. `X-Access-Key` and `X-Access-Token` required wherever the endpoint expects 
-authorization. 
+Following endpoints are valid for styles.
 
 ##Endpoints
 
-###GET `/styles`
+###URL `/styles`
+
+###Method `GET`
 * List of styles
 
-####Response
+###Response
 
     [
         {
@@ -40,3 +40,16 @@ authorization.
         },
         ...
     ]
+    
+###URL `/styles/<machine_name>/`
+
+###Method `GET`
+
+###Response
+
+###Endpoint `/me/styles`
+    Authentication Headers is required.
+
+###Method `GET`
+
+###Response
