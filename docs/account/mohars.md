@@ -1,4 +1,4 @@
-# #Mohars
+# #Pay Per Video
 Picovico currency is known as #Mohar and to use the platform your account needs to have sufficient #mohars required by any particular action.
 
 # Basic #Mohar expense

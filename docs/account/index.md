@@ -35,7 +35,7 @@ __Both the methods will return same response upon successful authentication. __
     {
         "access_key" : "<some-random-access-key>",
         "access_token" : "<some-random-access-token>",
-        "id" : "<system-wide-unique-resource-id>"
+        "id" : "<unique_identifier_of_the_user>"
     }
     
 ## Step 2

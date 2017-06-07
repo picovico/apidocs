@@ -4,7 +4,9 @@ user with the system. Upon successful login, access_key and access_token are pro
 
 ## Step 1
 
-### GET `/me`  
+### URL `/me`  
+
+### Method `GET`
 * Get user related profile information
 
 ###response
@@ -23,7 +25,7 @@ user with the system. Upon successful login, access_key and access_token are pro
     }
     
 
-### POST `/me`
+### Method `POST`
 * Update profile information
 
 ###parameters
