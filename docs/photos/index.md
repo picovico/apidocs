@@ -1,20 +1,39 @@
-#Photos
-Following endpoints are valid for photos. `X-Access-Key` and `X-Access-Token` required wherever the endpoint expects 
-authorization.
-## Endpoints
-### GET `/me/photos`
-* Get list of user uploaded photos
-* Categorized view from different sources
-    
-### PUT `/me/photos`
-* Upload photo directly with the binary image file
-* Supported format is .jpg/.png
+####Response Object
+```json
+{
+    "url": <photo_url>,
+    "thumbnail_url": "<thumbnail_url>"
+    "id": "<photo_id>"
+}
+```
+### Get Photos
+1. List Photos
+    - URL: `/me/photos`
+    - METHOD: `GET`
+    - HEADERS:
+        - `X-Access-Token`: (required) Token Provided by Picovico.
+        - `X-Access-Key`: (required) Access Key Provided by Picovico.
+    - RESPONSE: 
 
-### POST `/me/photos/external`
-* Importing photos from external sources
-* External sources may be facebook, flickr or other web urls
+2. Get Specific Photo
+    - URL: `/me/photos/<photo_id>`
+    - METHOD: `GET`
+    - HEADERS:
+        - `X-Access-Token`: (required) Token Provided by Picovico.
+        - `X-Access-Key`: (required) Access Key Provided by Picovico.
+    - RESPONSE: `<response_object>`
+#### Upload Photos
+*`JPG` and `PNG` Format are only supported for uploads.*
 
-###  DELETE `/me/photos/<photo_id>`
-* Deleting the photo
+1. Upload Photo/Image File
+    - URL: `/me/photos`
+    - METHOD: `PUT`
+    - HEADERS:
+        - `X-Access-Token`: (required) Token Provided by Picovico.
+        - `X-Access-Key`: (required) Access Key Provided by Picovico.
+    - BODY: `<IMAGE_FILE>`
+    - RESPONSE: `<response_object>`
 
-[More Details](details.md)
+#### Delete Photos
+
+1. Delete All Uploaded Photos

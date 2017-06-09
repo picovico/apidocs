@@ -9,12 +9,9 @@
 * __Root URL__  
 `http://api2.picovico.com/`__`v2.5`__  
 * __Authentication__  
-
-*Following headers should be included in requests:*
-
-
-    X-Access-Token: <token_provided>
-    X-Access-Key: <key_provided>
+    - Headers
+        - X-Access-Token: `<token_provided>`
+        - X-Access-Key: `<key_provided>`
 
 ## Requests
 
@@ -40,7 +37,7 @@ Errors are responded with:
         'status': <http_status_code>  // 400
     }
 
-Success [200 OK] will be responded in: 
+Success [200 OK] will be responded in:
 
     
     Only Newer API respond with:
@@ -51,7 +48,7 @@ Success [200 OK] will be responded in:
     }
 
 
-*For backward compatibility, only newer API respond in this format. See corresponding methods.*
+*For backward compatibility, only newer API respond in this format. See corresponding endpoints for actual response.*
 
 - Note: *Success also may have other meta information followed by `_` such as `_page` where necessary.*
     
