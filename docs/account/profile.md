@@ -1,53 +1,83 @@
-#Login Flow
-Picovico 2.0 API follows a simple login flow. Each account is provided with username and password which authenticates
-user with the system. Upon successful login, access_key and access_token are provided in the response.
+User Profile Data
 
-## Step 1
-
-### URL `/me`  
-
-### Method `GET`
-* Get user related profile information
-
-###response
+###Response Object
 
     {
-        "profile_pic": "<some-link>",
-        "video_count": <some-user-video-count>,
-        "name": "<some-user-full-name>",
-        "bio": "<some-bio-tagline>",
-        "gender": "male/female",
-        "address": "<some-address>",
-        "id": "<some-user-id>",
-        "date_of_birth": <date-timestamp>,
-        "country": "<some-country>",
-        "email": "<some-email>",
+        "id": '<user_id>',
+        "profile_pic": '', 
+        "email": '',
+        "address": '',
+        "gender": '',
+        "country": '',
+        "date_of_birth": '',
+        "name": '',
+        "video_count": 0,
+        "bio": '',
+        "plan": {
+            'id': '',
+            'type': '',
+            'expires_on': '',
+            'on_trial': false,
+            'on_coupon': false,
+            'trial_ends_on': '',
+            'video_count': {},
+            'payment_method': [],
+            'limits': {
+                'logo': true,
+                'video': {
+                    "min": -1,
+                    "max": -1
+                },
+                "text": {
+                    "max": -1, //max text slide allowed -1 is unlimited, 0 is restricted.
+                    "title_len": 50, //character length of title
+                    "text_len": 50, // character length of text body
+                    "min": -1 //minimum text slide. -1 is unlimited, 0 is restricted.
+                },
+                "image": {
+                    "caption_len": 50, //character length of caption
+                    "max": -1,
+                    "min": -1
+                },
+                "videoclip": {
+                    "max": -1,
+                    "min": -1
+                },
+                "music": {
+                    "max": -1,
+                    "min": -1
+                }
+            },
+            'private': false,
+            'subscription': true,
+            'cancelled': false,
+            'cancelled_at': '',
+            'payment_key': {
+                'stripe': '', 
+            }
+        },
+        "preferences": {
+            'cta': {},
+            'email': {},
+            'timezone': '',
+            'publisher_name': '',
+            'logo': {}
+        },
+        "limit": {
+            'has_password': true,
+            'usable_email': true,
+            'multiple_projects': true,
+            'max_projects': 10,
+            'trial_used': true,
+            'cta_allowed': false,
+            'trial_disabled': false
+        }
     }
-    
 
-### Method `POST`
-* Update profile information
-
-###parameters
-* `name`        -   Full Name
-* `bio`         -   User bio / Tagline
-* `address`     -   User Address
-* `country`     -   User Country
-* `gender`      -   Gender 
-* `date_of_birth` - Date of birth
-
-###response
-    {
-        "profile_pic": "<some-link>",
-        "video_count": <some-user-video-count>,
-        "name": "<some-user-full-name>",
-        "bio": "<some-bio-tagline>",
-        "gender": "male/female",
-        "address": "<some-address>",
-        "id": "<some-user-id>",
-        "date_of_birth": <date-timestamp>,
-        "country": "<some-country>",
-        "email": "<some-email>",
-    }
-    
-    
+## Get Profile
+- URL: `/me`  
+- METHOD: `GET`
+- HEADERS:
+    - `X-Access-Token`: (required) Token Provided by Picovico.
+    - `X-Access-Key`: (required) Access Key Provided by Picovico.
+- RESPONSE: `<response_object>`

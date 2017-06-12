@@ -1,47 +1,45 @@
-#Login Flow
-Picovico 2.0 API follows a simple login flow. Each account is provided with username and password which authenticates
-user with the system. Upon successful login, access_key and access_token are provided in the response.
+Picovico provides `app` login as well as `user` login. Currently, both app login and user login provides
+`access_key` and `access_token` which is then used for all authentications.
 
-## Update: 
-As of API Version 2.1, Login Flow has some modifications.
-Each login request must provide [app_id] as a mandatory third parameter,
-and two different endpoints of login have been provided.
 
-* Endpoint 1 - __/login__  
-  Login with `app_id`, `username` & `password`  
-* Endpoint 2 - __/login/app__  
-  Login with `app_id`, `app_secret`
+##Response Object
+
+```json
+{
+    'access_key': <picovico_access_key>,
+    'access_token': <picovico_access_token>,
+    'id': <user_id>
+}
+```
+
+
+## App Login
+- URL: `/login/app/`
+- METHOD: `POST`
+- URL: `/login/`
+- METHOD: `POST`
+- PARAMS:
+    - `app_id`: (required) Application Identifier Provided by picovico.
+    - `app_secret`: (required) Application Secret Provided by picovico.
+    - `device_id`: (optional) Some unique device identifier.
+- RESPONSE: `<response_object>`
+
+
+## User Login
+- URL: `/login/`
+- METHOD: `POST`
+- PARAMS:
+    - `username`: (required) Email of login user.
+    - `password`: (required) Password of user.
+    - `app_id`: (required) Application ID for login.
+    - `device_id`: (optional) Some unique device identifier.
+- RESPONSE: `<response_object>`
 
 Check the [Developer Signup](account/developer-signup) page for more details.
 
-## Step 1 
-## (First Method) Login with username and password
-###POST `/login` 
-###parameters    
-* username        
-* password        
-* app_id
-  
-
-## (Second Method) Login with app_id and app_secret
-###POST `/login/app`
-###parameters
-* app_id
-* app_secret
-
-###response
-__Both the methods will return same response upon successful authentication. __
-
-    {
-        "access_key" : "<some-random-access-key>",
-        "access_token" : "<some-random-access-token>",
-        "id" : "<unique_identifier_of_the_user>"
-    }
-    
-## Step 2
 Use the `access_key` and `access_token` as headers for making other subsequent requests.
 
-###headers
+###Authentication Headers
 
     X-Access-Key: access_key  
     X-Access-Token: access_token

@@ -28,18 +28,4 @@
 #### Upload VideoClip
 *`MOV`, `AVI` and `MP4` Format are only supported for uploads.*
 
-1. Upload VideoClip File
-    
-VideoClip Upload Works differently to Image/Music.
-We Provide direct bucket upload URL for our amazon s3.
-    - URL: `/me/directupload/videoclip/`
-    - METHOD: `GET`
-    - HEADERS:
-        - `X-Access-Token`: (required) Token Provided by Picovico.
-        - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - BODY: `<IMAGE_FILE>`
-    - RESPONSE: `<response_object>`
-
-#### Delete Photos
-
-1. Delete All Uploaded Photos
+[We Provide direct bucket upload URL for our amazon s3](directupload/index.md)

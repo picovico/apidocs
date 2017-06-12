@@ -17,6 +17,7 @@ pages:
  - ['videos/index.md', 'Videos', 'Endpoints']
  - ['videos/details.md', 'Videos', 'Video Details']
  - ['videoclips/index.md', 'VideoClips', 'Details']
+ - ['directupload/index.md', 'AWS S3 Direct Bucket Upload']
  - ['photos/index.md', 'Photos', 'Details']
  - ['musics/index.md', 'Musics & Audio Library', 'Picovico System Provided Music']
  - ['musics/user_music.md', 'Musics & Audio Library', 'User Uploaded Music']

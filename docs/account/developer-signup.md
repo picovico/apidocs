@@ -1,5 +1,5 @@
 #Developer Signup
-Picovico 2.0 API provides signup and dashboards for developers. Each developer interested in using the Picovico API has to create an account at Picovico
+Picovico 2.5 API provides signup and dashboards for developers. Each developer interested in using the Picovico API has to create an account at Picovico
 and needs to have developer access. 
 
 ## Public Signup
