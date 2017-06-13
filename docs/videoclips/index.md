@@ -28,4 +28,4 @@
 #### Upload VideoClip
 *`MOV`, `AVI` and `MP4` Format are only supported for uploads.*
 
-[We Provide direct bucket upload URL for our amazon s3](directupload/index.md)
+[We Provide direct upload URL for our amazon s3 bucket.](directupload/index.md)

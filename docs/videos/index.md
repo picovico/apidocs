@@ -1,30 +1,101 @@
-#Videos
-Following endpoints are valid for videos. `X-Access-Key` and `X-Access-Token` required wherever the endpoint expects 
-authorization.
-## Endpoints
-### GET `/me/videos`
-* List of videos created or being created
+###Response Object
+```json
+{
+    "status": "published",
+    "style": "<some-style>",
+    "name": "<some-video-name>",
+    "assets": [],
+    "duration": <some-duration>,
+    "owner": {
+        "profile_pic": "<some-image-link>",
+        "id": "<some-user-id>",
+        "name": "<some-name>"
+    },
+    "id": "<video_id>",
+    "created_on": 1418879545,
+    "video": {
+        "360": {
+            "url": "<some-url>",
+            "size": 2647812
+        },
+        "480": {
+            "url": "<some-url>",
+            "size": 4068889
+        },
+        "720": {
+            "url": "<some-url>",
+            "size": 5477751
+        }
+    },
+    "modified_on": 1418879545,
+    "view": 0,
+    "quality": 360,
+    "thumbnail": {
+        "360": "<some-url>",
+        "480": "<some-url>",
+        "720": "<some-url>"
+    },
+    "music_credits": ["title by artist"..]
+}
+```
+###Get Video list.
+- URL: `/me/videos`
+- METHOD: `GET`
+- HEADERS:
+    - `X-Access-Token`: (required) Token Provided by Picovico.
+    - `X-Access-Key`: (required) Access Key Provided by Picovico.
 
-### GET `/v/<video-id>/video-name.mp4`
-* Direct Link to video file after a video is created successfully.
-* Authorization is NOT required
 
-### POST `/me/videos`
-* Create a new video project, or get the last draft project
+###Create New Video Project.
+- URL: `/me/videos`
+- METHOD: `POST`
+- HEADERS:
+    - `X-Access-Token`: (required) Token Provided by Picovico.
+    - `X-Access-Key`: (required) Access Key Provided by Picovico.
+- PARAMS:
+    - `name`: (required) Name of Video Project.
 
-### GET `/me/videos/<video-id>`
-* Get the status, details of any video
+### Get specific video project
+- URL: `/me/videos/<video_id>`
+- METHOD: `GET`
+- HEADERS:
+    - `X-Access-Token`: (required) Token Provided by Picovico.
+    - `X-Access-Key`: (required) Access Key Provided by Picovico.
+- RESPONSE: <response_object>
 
-### POST `/me/videos/<video-id>`
-* Define or update a video content
+###Update Video Project
+- URL: `/me/videos/<video_id>`
+- METHOD: `POST`
+- HEADERS:
+    - `X-Access-Token`: (required) Token Provided by Picovico.
+    - `X-Access-Key`: (required) Access Key Provided by Picovico.
+- RESPONSE: <response_object>
 
-### DELETE `/me/videos/<video-id>`
-* Delete the video
+### Render Video Project
+- URL: `/me/videos/<video_id>/render`
+- METHOD: `POST`
+- HEADERS:
+    - `X-Access-Token`: (required) Token Provided by Picovico.
+    - `X-Access-Key`: (required) Access Key Provided by Picovico.
+- RESPONSE:
+    - If video is being rendered for first time.
+        {
+            "message": "video being created." 
+        }
+    -else
+        `<response_object>`
+    
 
-### POST `/me/videos/<video-id>/render`
-* Send the video rendering request to rendering engine
-
-
-[More Details](details.md)
+### Preview Video Project
+- URL: `/me/videos/<video_id>/preview`
+- METHOD: `POST`
+- HEADERS:
+    - `X-Access-Token`: (required) Token Provided by Picovico.
+    - `X-Access-Key`: (required) Access Key Provided by Picovico.
+- RESPONSE: 
+    - If preview is not available.
+        {
+            "message": "video preview being created." 
+        }
     
     
