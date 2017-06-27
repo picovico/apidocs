@@ -146,7 +146,7 @@
 
 ### Render Video Project
 - URL: `/me/videos/<video_id>/render`
-- METHOD: `POST`
+- METHOD: `PUT`
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
@@ -166,7 +166,7 @@
 
 ### Preview Video Project
 - URL: `/me/videos/<video_id>/preview`
-- METHOD: `POST`
+- METHOD: `PUT`
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
