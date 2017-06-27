@@ -13,7 +13,12 @@
     - HEADERS:
         - `X-Access-Token`: (required) Token Provided by Picovico.
         - `X-Access-Key`: (required) Access Key Provided by Picovico.
+        - `X-pv-meta-app`: (required) APP Id from picovico developer.
     - RESPONSE: 
+        {
+            '_count': <no_of_response_data>,
+            'data': [<response_object>,...]  # [] for 0 count
+        }
 
 2. Get Specific Photo
     - URL: `/me/photos/<photo_id>`
@@ -21,7 +26,12 @@
     - HEADERS:
         - `X-Access-Token`: (required) Token Provided by Picovico.
         - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - RESPONSE: `<response_object>`
+        - `X-pv-meta-app`: (required) APP Id from picovico developer.
+    - RESPONSE: 
+    {
+        '_count': 1,
+        'data': [<response_object>]
+    }
 #### Upload Photos
 *`JPG` and `PNG` Format are only supported for uploads.*
 
@@ -31,7 +41,10 @@
     - HEADERS:
         - `X-Access-Token`: (required) Token Provided by Picovico.
         - `X-Access-Key`: (required) Access Key Provided by Picovico.
+        - `X-pv-meta-app`: (required) APP Id from picovico developer.
     - BODY: `<IMAGE_FILE>`
-    - RESPONSE: `<response_object>`
-
-#### Delete Photos
+    - RESPONSE: 
+    {
+        '_count': 1,
+        'data': [<response_object>]
+    }

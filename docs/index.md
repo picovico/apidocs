@@ -3,19 +3,23 @@
 
 ## API Documentation
 * __Platform Version__  
-`2.5`
+`2.7`
 * __API Version__  
-`2.5 - REST API`
+`2.7`
 * __Root URL__  
-`http://api2.picovico.com/`__`v2.5`__  
+`http://api2.picovico.com/`__`v2.7`__  
 * __Authentication__  
     - Headers
         - X-Access-Token: `<token_provided>`
         - X-Access-Key: `<key_provided>`
+* __REQUIRED_APP_HEADER__
+    - X-pv-meta-app: `<app_id from picovico developer>`
+
+
 
 ## Requests
 
-Endpoint: `http://api2.picovico.com/v2.5/`
+Endpoint: `http://api2.picovico.com/v2.7/`
 
 - Note: *For the sake of legibility, this portion of the URL will be assumed and omitted in the remaining code samples in this documentation.*
 
@@ -40,15 +44,11 @@ Errors are responded with:
 Success [200 OK] will be responded in:
 
     
-    Only Newer API respond with:
-
     {
         '_count': <no_of_response_data>,
         'data': [{<success_response_object>},]  # [] for 0 count
     }
 
-
-*For backward compatibility, only newer API respond in this format. See corresponding endpoints for actual response.*
 
 - Note: *Success also may have other meta information followed by `_` such as `_page` where necessary.*
     

@@ -1,7 +1,7 @@
 ###Response Object
 ```json
 {
-    "status": "published",
+    "status": "initial", //'published', 'processing'
     "style": "<some-style>",
     "name": "<some-video-name>",
     "assets": [],
@@ -35,7 +35,31 @@
         "480": "<some-url>",
         "720": "<some-url>"
     },
-    "music_credits": ["title by artist"..]
+    "music_credits": ["title by artist"..],
+    //assets is available only on initial status
+    "assets": [{
+        'musics': {
+            "name": "music"
+            "asset_id": <music_id>,
+            "extras": {
+                "preview_url": <music_url>,
+            }
+        },
+        "frames": [{
+            "name": "image" //can be text
+            "asset_id": <image_id> //Not available for text,
+            "data": {
+                "text": "",
+                "title": ""
+            } // if image {"caption": ""},
+            "attributes": {},
+            "extras": {
+                "url": "",
+                "thumbnail_url": ""
+            }
+        },....]
+    }
+    ]
 }
 ```
 ###Get Video list.
@@ -44,6 +68,7 @@
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
+    - `X-pv-meta-app`: (required) APP Id from picovico developer.
 
 
 ###Create New Video Project.
@@ -52,8 +77,15 @@
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
+    - `X-pv-meta-app`: (required) APP Id from picovico developer.
 - PARAMS:
     - `name`: (required) Name of Video Project.
+- RESPONSE:
+
+            {
+                '_count': 1,
+                'data': [<response_object>]
+            }
 
 ### Get specific video project
 - URL: `/me/videos/<video_id>`
@@ -61,7 +93,14 @@
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
-- RESPONSE: <response_object>
+    - `X-pv-meta-app`: (required) APP Id from picovico developer.
+- RESPONSE:
+
+            {
+                '_count': 1,
+                'data': [<response_object>]
+            }
+
 
 ###Update Video Project
 - URL: `/me/videos/<video_id>`
@@ -69,7 +108,41 @@
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
-- RESPONSE: <response_object>
+    - `X-pv-meta-app`: (required) APP Id from picovico developer.
+- PARAMETERS:
+    - style: (required) style for video to be used.
+    - privacy: (optional) privacy of video.
+    - name: (optional) Name of video. *Will update*
+    - quality: (optional) Quality to be used. By default 360.
+    - aspect_ratio: (optional) Aspect Ratio of the video. Default is '16:9' *Only on supported style*
+    - assets: (required) `JSON` objects of frames in video.
+        - `json` format of *assets* is list of frames and music.
+            
+                [{
+                'frames': [{
+                    "name": 'image',
+                    "asset_id": <image_id>,
+                    "data": { //optional
+                        "caption": ""
+                    }
+                },{
+                    "name": "text",
+                    "data": { //One is required `text` or `title`
+                        "text": '',
+                        "title": ''
+                    }
+                }...],
+                'music': {
+                        'asset_id': <music_id>, //id provided by picovico
+                    } 
+                }, ....]
+
+- RESPONSE:
+    
+        {
+            '_count': 1,
+            'data': [<response_object>] 
+        }
 
 ### Render Video Project
 - URL: `/me/videos/<video_id>/render`
@@ -77,13 +150,18 @@
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
+    - `X-pv-meta-app`: (required) APP Id from picovico developer.
 - RESPONSE:
-    - If video is being rendered for first time.
-        {
-            "message": "video being created." 
-        }
-    -else
-        `<response_object>`
+    - If video is being rendered for first time:
+        
+        `HTTP_STATUS: 202`
+    
+    - else:
+        
+            {
+                'data': [<response_object>] //check 'status' of object.
+                '_count': 1,
+            }
     
 
 ### Preview Video Project
@@ -92,10 +170,14 @@
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
+    - `X-pv-meta-app`: (required) APP Id from picovico developer.
 - RESPONSE: 
-    - If preview is not available.
-        {
-            "message": "video preview being created." 
-        }
-    
+    - If preview is not available: `HTTP_STATUS: 202`
+    - else:
+        
+            {
+                '_count': 1,
+                'data': [{'144': {'url': <preview_url>}}] 
+            }
+        
     
