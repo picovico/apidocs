@@ -1,10 +1,9 @@
 ####Response Object
 ```json
 {
-    "url": <url>,
+    "url": <preview_url>, //we create preview of uploaded music
     "artist": "<Artist of music if available>",
     "title": "<Title of music if available>",
-    "preview_url": "<preview_url>"
     "duration": <duration_in_seconds>,
     "id": "<music_id>"
 }

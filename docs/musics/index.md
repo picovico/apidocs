@@ -5,7 +5,7 @@
     "is_featured": true,
     "artist": "<Artist of music if available>",
     "title": "<Title of music if available>",
-    "preview_url": "<preview_url>"
+    "url": "<preview_url>"
     "duration": <duration_in_seconds>,
     "id": "<music_id>"
 }
