@@ -4,7 +4,7 @@
     "status": "initial", //'published', 'processing'
     "style": "<some-style>",
     "name": "<some-video-name>",
-    "assets": [],
+    "aspect_ratio": "16:9",
     "duration": <some-duration>,
     "owner": {
         "profile_pic": "<some-image-link>",
@@ -68,7 +68,7 @@
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - `X-pv-meta-app`: (required) APP Id from picovico developer.
+    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 
 
 ###Create New Video Project.
@@ -77,7 +77,7 @@
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - `X-pv-meta-app`: (required) APP Id from picovico developer.
+    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - PARAMS:
     - `name`: (required) Name of Video Project.
 - RESPONSE:
@@ -93,7 +93,7 @@
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - `X-pv-meta-app`: (required) APP Id from picovico developer.
+    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - RESPONSE:
 
             {
@@ -108,14 +108,14 @@
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - `X-pv-meta-app`: (required) APP Id from picovico developer.
+    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - PARAMETERS:
-    - style: (required) style for video to be used.
-    - privacy: (optional) privacy of video.
-    - name: (optional) Name of video. *Will update*
-    - quality: (optional) Quality to be used. By default 360.
-    - aspect_ratio: (optional) Aspect Ratio of the video. Default is '16:9' *Only on supported style*
-    - assets: (required) `JSON` objects of frames in video.
+    - `style`: (required) style <machine_name> for video to be used.
+    - `privacy`: (optional) privacy of video.
+    - `name`: (optional) Name of video. *Will update*
+    - `quality`: (optional) Quality to be used. By default 360.
+    - `aspect_ratio`: (optional) Aspect Ratio of the video. Default is '16:9' *Only on supported style*
+    - `assets`: (required) `JSON` objects of frames in video.
         - `json` format of *assets* is list of frames and music.
             
                 [{
@@ -150,7 +150,7 @@
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - `X-pv-meta-app`: (required) APP Id from picovico developer.
+    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - RESPONSE:
     - If video is being rendered for first time:
         
@@ -170,7 +170,7 @@
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - `X-pv-meta-app`: (required) APP Id from picovico developer.
+    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - RESPONSE: 
     - If preview is not available: `HTTP_STATUS: 202`
     - else:
@@ -181,3 +181,15 @@
             }
         
     
+### Make a copy of video
+- URL: `/me/videos/<video_id>/duplicate`
+- METHOD: `POST`
+- HEADERS:
+    - `X-Access-Token`: (required) Token Provided by Picovico.
+    - `X-Access-Key`: (required) Access Key Provided by Picovico.
+    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+- RESPONSE:
+            {
+                'data': [<response_object>] //check 'status' of object.
+                '_count': 1,
+            }

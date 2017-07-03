@@ -16,7 +16,12 @@
     - HEADERS:
         - `X-Access-Token`: (required) Token Provided by Picovico.
         - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - RESPONSE: `[<response_object>, ...]`
+        - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+    - RESPONSE:
+            {
+                'data': [<response_object>,.....] //check 'status' of object.
+                '_count': <no_of_music>,
+            }
 
 2. Get Single Music
     - URL: `/me/musics/<music_id>`
@@ -24,7 +29,12 @@
     - HEADERS:
         - `X-Access-Token`: (required) Token Provided by Picovico.
         - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - RESPONSE: `<response_object>`
+        - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+    - RESPONSE:
+            {
+                'data': [<response_object>] //check 'status' of object.
+                '_count': 1,
+            }
 
 ####Upload Musics
 1. Upload Music File
@@ -33,22 +43,14 @@
     - HEADERS:
         - `X-Access-Token`: (required) Token Provided by Picovico.
         - `X-Access-Key`: (required) Access Key Provided by Picovico.
+        - `X-PV-Meta-App`: (required) APP Id from picovico developer.
         - `X-Music-Title` (optional) Title of music to be set.
         - `X-Music-Artist` (optional) Artist of music to be set.
-    - RESPONSE: `<response_object>`
-
-2. Set Music from other host.
-    - URL: `/me/musics`
-    - METHOD: `POST`
-    - HEADERS:
-        - `X-Access-Token`: (required) Token Provided by Picovico.
-        - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - PARAMETERS:
-        - `url` (required)
-        - `preview_url` (optional)
-        - `title` (optional)
-        - `artist` (optional)
-    - RESPONSE: `<response_object>`
+    - RESPONSE:
+            {
+                'data': [<response_object>] //check 'status' of object.
+                '_count': 1,
+            }
 
 ####Delete User Musics
 1. Add All Music to trashcan.
@@ -57,6 +59,7 @@
     - HEADERS:
         - `X-Access-Token`: (required) Token Provided by Picovico.
         - `X-Access-Key`: (required) Access Key Provided by Picovico.
+        - `X-PV-Meta-App`: (required) APP Id from picovico developer.
     - RESPONSE: 
 ```json
 {
@@ -71,6 +74,7 @@
     - HEADERS:
         - `X-Access-Token`: (required) Token Provided by Picovico.
         - `X-Access-Key`: (required) Access Key Provided by Picovico.
+        - `X-PV-Meta-App`: (required) APP Id from picovico developer.
     - RESPONSE: 
 ```json
 {

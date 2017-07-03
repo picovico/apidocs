@@ -80,4 +80,5 @@ User Profile Data
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
+    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - RESPONSE: `<response_object>`

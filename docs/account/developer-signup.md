@@ -7,3 +7,6 @@ You need to buy Web-Pro plan to access developer portal. Please contact [d(at)pi
 
 ## Developer Apps
 To obtain `app_id` and `app_secret` you need to create atleast one app from the __Developer Zone__ in your [Developer Dashboard](http://developer.picovico.com)
+
+
+###Developer Access

@@ -13,6 +13,7 @@
     - HEADERS:
         - `X-Access-Token`: (required) Token Provided by Picovico.
         - `X-Access-Key`: (required) Access Key Provided by Picovico.
+        - `X-PV-Meta-App`: (required) APP Id from picovico developer.
     - RESPONSE: 
 
 2. Get Specific Photo
@@ -21,6 +22,7 @@
     - HEADERS:
         - `X-Access-Token`: (required) Token Provided by Picovico.
         - `X-Access-Key`: (required) Access Key Provided by Picovico.
+        - `X-PV-Meta-App`: (required) APP Id from picovico developer.
     - RESPONSE: `<response_object>`
 #### Upload Photos
 *`JPG` and `PNG` Format are only supported for uploads.*
@@ -31,6 +33,7 @@
     - HEADERS:
         - `X-Access-Token`: (required) Token Provided by Picovico.
         - `X-Access-Key`: (required) Access Key Provided by Picovico.
+        - `X-PV-Meta-App`: (required) APP Id from picovico developer.
     - BODY: `<IMAGE_FILE>`
     - RESPONSE: `<response_object>`
 

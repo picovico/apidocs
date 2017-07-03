@@ -109,6 +109,7 @@
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
+    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - RESPONSE: `[<style_response_object>,...]`
     
 2 Get Single Specific User Allowed Style
@@ -118,4 +119,5 @@
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
+    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - RESPONSE: `<style_response_object>`
