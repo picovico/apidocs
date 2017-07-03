@@ -38,16 +38,18 @@
     "music_credits": ["title by artist"..],
     //assets is available only on initial status
     "assets": [{
-        'musics': {
-            "name": "music"
-            "asset_id": <music_id>,
+        'music': {
+            "asset_id": <music_id> or None,
             "extras": {
-                "preview_url": <music_url>,
+                "url": <music_url>,
+                "title": "", //Only if available, check "asset_id"
+                "artist": "", //Only if available
+                "duration": "" //Only if available
             }
         },
         "frames": [{
             "name": "image" //can be text
-            "asset_id": <image_id> //Not available for text,
+            "asset_id": null or <image_id> //Not available for text,
             "data": {
                 "text": "",
                 "title": ""
@@ -192,7 +194,8 @@
 - URL: `/me/videos/<video_id>`
 - METHOD: `PUT`
 - QUERY PARAMS:
-    - `preview`: (optional) Set this value to 1 if preview is required.   
+    - `preview`: (optional) Set this value to 1 if preview is required.
+    - `render`: (optional) Set this value to 1 if along with preview rendering is also required  
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
