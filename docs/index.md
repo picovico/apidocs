@@ -13,7 +13,7 @@
         - X-Access-Token: `<token_provided>`
         - X-Access-Key: `<key_provided>`
 * __REQUIRED_APP_HEADER__
-    - X-pv-meta-app: `<app_id from picovico developer>`
+    - X-PV-Meta-App: `<app_id from picovico developer>`
 
 
 
@@ -37,7 +37,7 @@ All response are json with HTTP status code playing the part for error or succes
 Errors are responded with:
 
     {
-        'error': {'message': ''},
+        'error': {'message': 'Some human friendly error message.'},
         'status': <http_status_code>  // 400
     }
 
