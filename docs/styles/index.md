@@ -92,13 +92,32 @@
 
 - URL: `/styles`
 - METHOD: `GET`
-- RESPONSE: `[<style_response_object>,...]`
+- QUERY:
+    - `count`: Number of styles.
+    - `page`: Page Number if available.
+- HEADERS:
+    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+- RESPONSE: 
+        
+        {
+            "_count": 10, //We provide 10 styles by default, can query more with count
+            "data": [<style_response_object>,...],
+            "_more": true,
+            "_page": 1
+        }
     
 2 Get Single Specific Style
 
 - URL: `/styles/<machine_name>/`
 - METHOD: `GET`
-- RESPONSE: `<style_response_object>`
+- HEADERS:
+    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+- RESPONSE:
+
+        {
+            "_count": 1,
+            "data": [<style_response_object>] 
+        }
             
 ###User Allowed Styles
 
@@ -110,8 +129,15 @@
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
-- RESPONSE: `[<style_response_object>,...]`
-    
+- RESPONSE:
+        
+        {
+            "_count": <no_of_styles>,
+            "data": [<style_response_object>,...],
+            "_more": true,
+            "_page": 1 
+        } 
+
 2 Get Single Specific User Allowed Style
     
 - URL: `/me/styles/<machine_name>`
@@ -120,4 +146,9 @@
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
-- RESPONSE: `<style_response_object>`
+- RESPONSE:
+
+        {
+            "_count": 1,
+            "data": [<style_response_object>] 
+        }
