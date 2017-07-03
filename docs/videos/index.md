@@ -106,6 +106,7 @@
                 'frames': [{
                     "name": 'image',
                     "asset_id": <image_id>,
+                    "url": <direct_image_url>, //if no image_id
                     "data": { //optional
                         "caption": ""
                     }
@@ -118,6 +119,7 @@
                 }...],
                 'music': {
                         'asset_id': <music_id>, //id provided by picovico
+                        "url": <direct_music_url>, //if no music_id
                     } 
                 }, ....]
 
@@ -168,6 +170,7 @@
                 'frames': [{
                     "name": 'image',
                     "asset_id": <image_id>,
+                    "url": <direct_image_url>, //if no image_id
                     "data": { //optional
                         "caption": ""
                     }
@@ -180,8 +183,10 @@
                 }...],
                 'music': {
                         'asset_id': <music_id>, //id provided by picovico
+                        "url": <direct_music_url>, //if no music_id
                     } 
                 }, ....]
+
 
 - RESPONSE:
     
