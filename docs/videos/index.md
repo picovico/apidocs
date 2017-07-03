@@ -65,18 +65,25 @@
 ###Get Video list.
 - URL: `/me/videos`
 - METHOD: `GET`
+- QUERY PARAMS:
+    - `count`: (optional) No of videos to query.
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - RESPONSE:
+        
         {
-            "_count": 25,
-            "data": [<response_object>]
+            "_count": 15, #default 15
+            "data": [<response_object>],
+            "_total": <total_no_of_videos>,
+            "_page": <page_num>,
         }
 
 
 ###Create New Video Project.
+`NOTE: Content-Type: "application/json" is also supported with POST parameters as object keys`
+
 - URL: `/me/videos`
 - METHOD: `POST`
 - HEADERS:
@@ -85,12 +92,42 @@
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - PARAMS:
     - `name`: (required) Name of Video Project.
-- RESPONSE:
+    - `style`: (optional) style <machine_name> for video to be used.
+    - `privacy`: (optional) privacy of video.
+    - `name`: (optional) Name of video. *Will update*
+    - `quality`: (optional) Quality to be used. By default 360.
+    - `aspect_ratio`: (optional) Aspect Ratio of the video. Default is '16:9' *Only on supported style*
+    - `assets`: (optional) `JSON` objects of frames in video.
+        - `json` format of *assets* is list of frames and music.
+            
+                [{
+                'frames': [{
+                    "name": 'image',
+                    "asset_id": <image_id>,
+                    "data": { //optional
+                        "caption": ""
+                    }
+                },{
+                    "name": "text",
+                    "data": { //One is required `text` or `title`
+                        "text": '',
+                        "title": ''
+                    }
+                }...],
+                'music': {
+                        'asset_id': <music_id>, //id provided by picovico
+                    } 
+                }, ....]
 
-            {
-                '_count': 1,
-                'data': [<response_object>]
-            }
+- RESPONSE:
+                
+        {
+            '_count': 1,
+            'data': [<response_object>]
+        }
+    
+
+
 
 ### Get specific video project
 - URL: `/me/videos/<video_id>`
@@ -162,31 +199,35 @@
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - RESPONSE:
     
-    - If video is being rendered for first time:
+    - If video is being rendered/previewed for first time:
         
         `HTTP_STATUS: 202`
     
     - else:
         - video_render_response:
         
-            {
-                'data': [<response_object>] //check 'status' of object.
-                '_count': 1,
-            }
+                {
+                    'data': [<response_object>] //check 'status' of object.
+                    '_count': 1,
+                }
+        
         - video preview response:
-            {
-                '_count': 1,
-                'data': [{'144': {'url': <preview_url>}}] 
-            }
+            
+                {
+                    '_count': 1,
+                    'data': [{'144': {'url': <preview_url>}}] 
+                }
     
 
 #Delete Video Object [Cancel Rendering]
 - URL: `/me/videos/<video_id>`
 - METHOD: `DELETE`
 - QUERY PARAMS:
-    - `cacnel`: (optional) Set this value to 1 if cancellation of rendering is required. 
+    - `cancel`: (optional) Set this value to 1 if cancellation of rendering is required.
+    - `trash`: (optional) Set this value to 1 along with `cancel` if both action is required.
 - RESPONSE:
-    {
-        'data': [<response_object>] //check 'status' of object.
-        '_count': 1,
-    }
+    
+        {
+            'data': [<response_object>] //check 'status' of object.
+            '_count': 1,
+        }
