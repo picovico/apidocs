@@ -93,16 +93,16 @@
 - URL: `/styles`
 - METHOD: `GET`
 - QUERY PARAMS:
-    - `num`: Number of styles.
+    - `count`: Number of styles.
     - `page`: Page Number if available.
 - HEADERS:
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - RESPONSE: 
         
         {
-            "_count": <total_no_of_styles>, 
+            "_total": <total_no_of_styles>, 
             "data": [<style_response_object>,...],
-            "_num": 10, //We provide 10 styles by default, can query more with num.
+            "_count": 10, //We provide 10 styles by default, can query more with num.
             "_page": 1
         }
     
@@ -130,14 +130,14 @@
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - QUERY PARAMS:
-    - `num`: Number of styles.
+    - `count`: Number of styles.
     - `page`: Page Number if available.
 - RESPONSE:
         
         {
-            "_count": <total_styles>,
+            "_total": <total_styles>,
             "data": [<style_response_object>,...],
-            "_num": 10, #as queried
+            "_count": 10, #as queried
             "_page": 1 
         } 
 

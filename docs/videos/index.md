@@ -69,6 +69,11 @@
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+- RESPONSE:
+        {
+            "_count": 25,
+            "data": [<response_object>]
+        }
 
 
 ###Create New Video Project.
@@ -94,6 +99,8 @@
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+- QUERY PARAMS:
+    - `restore`: (optional) Set this value to 1 if restoration of failed/cancelled video is required. 
 - RESPONSE:
 
             {
@@ -144,52 +151,42 @@
             'data': [<response_object>] 
         }
 
-### Render Video Project
-- URL: `/me/videos/<video_id>/render`
+### Render Video Project [or Preview]
+- URL: `/me/videos/<video_id>`
 - METHOD: `PUT`
+- QUERY PARAMS:
+    - `preview`: (optional) Set this value to 1 if preview is required.   
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - RESPONSE:
+    
     - If video is being rendered for first time:
         
         `HTTP_STATUS: 202`
     
     - else:
+        - video_render_response:
         
             {
                 'data': [<response_object>] //check 'status' of object.
                 '_count': 1,
             }
-    
-
-### Preview Video Project
-- URL: `/me/videos/<video_id>/preview`
-- METHOD: `PUT`
-- HEADERS:
-    - `X-Access-Token`: (required) Token Provided by Picovico.
-    - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
-- RESPONSE: 
-    - If preview is not available: `HTTP_STATUS: 202`
-    - else:
-        
+        - video preview response:
             {
                 '_count': 1,
                 'data': [{'144': {'url': <preview_url>}}] 
             }
-        
     
-### Make a copy of video
-- URL: `/me/videos/<video_id>/duplicate`
-- METHOD: `POST`
-- HEADERS:
-    - `X-Access-Token`: (required) Token Provided by Picovico.
-    - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+
+#Delete Video Object [Cancel Rendering]
+- URL: `/me/videos/<video_id>`
+- METHOD: `DELETE`
+- QUERY PARAMS:
+    - `cacnel`: (optional) Set this value to 1 if cancellation of rendering is required. 
 - RESPONSE:
-            {
-                'data': [<response_object>] //check 'status' of object.
-                '_count': 1,
-            }
+    {
+        'data': [<response_object>] //check 'status' of object.
+        '_count': 1,
+    }
