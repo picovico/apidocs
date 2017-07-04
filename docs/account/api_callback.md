@@ -27,7 +27,7 @@ and the url should comply. A mail will be sent to owner of app in case of callba
                     }], //information of size and all
                 },
                 "meta": {
-                    "message": '', //some readable message
+                    "msg": '', //some readable message
                     "app_id": <app_used>
                     
                 }
