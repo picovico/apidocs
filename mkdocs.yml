@@ -12,6 +12,7 @@ pages:
  - ['account/index.md', 'Account', 'Login Flow']
  - ['account/profile.md', 'Account', 'Profile']
  - ['account/developer-signup.md', 'Account', 'Developer Signup']
+ - ['account/api_callback.md', 'Account', 'API Application Callback']
  - ['account/password.md', 'Account', 'Change Password']
  - ['account/mohars.md', 'Account', '#Mohars']
  - ['videos/index.md', 'Videos', 'Endpoints']
