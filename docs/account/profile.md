@@ -66,9 +66,7 @@ User Profile Data
         "limit": {
             'has_password': true,
             'usable_email': true,
-            'multiple_projects': true,
             'max_projects': 10,
-            'trial_used': true,
             'cta_allowed': false,
             'trial_disabled': false
         }
