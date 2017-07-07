@@ -11,7 +11,7 @@ User Profile Data
         "country": '',
         "date_of_birth": '',
         "name": '',
-        "video_count": 0,
+        "total_videos": 0,
         "bio": '',
         "plan": {
             'id': '',
@@ -20,7 +20,7 @@ User Profile Data
             'on_trial': false,
             'on_coupon': false,
             'trial_ends_on': '',
-            'video_count': {},
+            'video_count': [{"quality": 360, "count": 1}],
             'payment_method': [],
             'limits': {
                 'logo': true,
@@ -52,9 +52,6 @@ User Profile Data
             'subscription': true,
             'cancelled': false,
             'cancelled_at': '',
-            'payment_key': {
-                'stripe': '', 
-            }
         },
         "preferences": {
             'cta': {},
@@ -63,20 +60,102 @@ User Profile Data
             'publisher_name': '',
             'logo': {}
         },
-        "limit": {
-            'has_password': true,
-            'usable_email': true,
-            'max_projects': 10,
-            'cta_allowed': false,
-            'trial_disabled': false
+        'payment_key': { //Included for payment purpose
+            'stripe': '', 
         }
     }
 
 ## Get Profile
 - URL: `/me`  
 - METHOD: `GET`
+- QUERY PARAMS:
+    - `plan`: Set this to `1` to include user plan.
+    - `pref`: Set this to `1` to include user preferences.
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
-- RESPONSE: `<response_object>`
+- RESPONSE:
+    {
+        "_count": 1,
+        "data": [<response_object>]
+    }
+
+## Get User Plan
+- URL: `/me/inventory`
+- METHOD: `GET`
+- QUERY PARAMS:
+    - `limit`: Set this to `1` for including plan limit.
+    - `payment`: Set this to `1` for including for payment info.
+- HEADERS:
+    - `X-Access-Token`: (required) Token Provided by Picovico.
+    - `X-Access-Key`: (required) Access Key Provided by Picovico.
+    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+- RESPONSE:
+        
+        {
+            "_count": 1,
+            "data": [{
+                'id': '',
+                'type': '',
+                'expires_on': '',
+                'on_trial': false,
+                'on_coupon': false,
+                'trial_ends_on': '',
+                'video_count': [],
+                'payment_method': [],
+                'limits': {
+                    'logo': true,
+                    'video': {
+                        "min": -1,
+                        "max": -1
+                    },
+                    "text": {
+                        "max": -1, //max text slide allowed -1 is unlimited, 0 is restricted.
+                        "title_len": 50, //character length of title
+                        "text_len": 50, // character length of text body
+                        "min": -1 //minimum text slide. -1 is unlimited, 0 is restricted.
+                    },
+                    "image": {
+                        "caption_len": 50, //character length of caption
+                        "max": -1,
+                        "min": -1
+                    },
+                    "videoclip": {
+                        "max": -1,
+                        "min": -1
+                    },
+                    "music": {
+                        "max": -1,
+                        "min": -1
+                    }
+                },
+                'private': false,
+                'subscription': true,
+                'cancelled': false,
+                'cancelled_at': '',
+            }] 
+        }
+
+## Get User Preferences:
+- URL: `/me/preferences/<logo|cta|email>/`
+- METHOD: `GET`
+- QUERY PARAMS:
+    - `all`: Set this to `1` for including all related preferences.
+- HEADERS:
+    - `X-Access-Token`: (required) Token Provided by Picovico.
+    - `X-Access-Key`: (required) Access Key Provided by Picovico.
+    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+- RESPONSE:
+    
+    
+    {
+        "_count": 1
+        "data": [{
+            "id": <user_id>,
+            "name": <name of user>,
+            "preferences": {
+                
+            }
+        }]
+    }
