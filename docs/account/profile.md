@@ -22,36 +22,11 @@ User Profile Data
             'trial_ends_on': '',
             'video_count': [{"quality": 360, "count": 1}],
             'payment_method': [],
-            'limits': {
-                'logo': true,
-                'video': {
-                    "min": -1,
-                    "max": -1
-                },
-                "text": {
-                    "max": -1, //max text slide allowed -1 is unlimited, 0 is restricted.
-                    "title_len": 50, //character length of title
-                    "text_len": 50, // character length of text body
-                    "min": -1 //minimum text slide. -1 is unlimited, 0 is restricted.
-                },
-                "image": {
-                    "caption_len": 50, //character length of caption
-                    "max": -1,
-                    "min": -1
-                },
-                "videoclip": {
-                    "max": -1,
-                    "min": -1
-                },
-                "music": {
-                    "max": -1,
-                    "min": -1
-                }
-            },
             'private': false,
             'subscription': true,
             'cancelled': false,
             'cancelled_at': '',
+            'max_quality': 720
         },
         "preferences": {
             'cta': {},
@@ -76,10 +51,11 @@ User Profile Data
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - RESPONSE:
-    {
-        "_count": 1,
-        "data": [<response_object>]
-    }
+    
+        {
+            "_count": 1,
+            "data": [<response_object>]
+        }
 
 ## Get User Plan
 - URL: `/me/inventory`
@@ -103,9 +79,11 @@ User Profile Data
                 'on_coupon': false,
                 'trial_ends_on': '',
                 'video_count': [],
+                'max_quality': 720,
                 'payment_method': [],
                 'limits': {
                     'logo': true,
+                    'cta_allowed': true,
                     'video': {
                         "min": -1,
                         "max": -1
@@ -140,22 +118,22 @@ User Profile Data
 ## Get User Preferences:
 - URL: `/me/preferences/<logo|cta|email>/`
 - METHOD: `GET`
-- QUERY PARAMS:
-    - `all`: Set this to `1` for including all related preferences.
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - RESPONSE:
     
-    
-    {
-        "_count": 1
-        "data": [{
-            "id": <user_id>,
-            "name": <name of user>,
-            "preferences": {
-                
-            }
-        }]
-    }
+        {
+            "_count": 1
+            "data": [{
+                "id": <user_id>,
+                "name": <name of user>,
+                "preferences": {
+                "cta": {},
+                "logo": {},
+                "email": {}
+                    
+                }
+            }]
+        }
