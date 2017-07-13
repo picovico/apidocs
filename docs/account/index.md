@@ -23,10 +23,12 @@ Picovico provides `app` login as well as `user` login. Currently, both app login
     - `app_secret`: (required) Application Secret Provided by picovico.
     - `device_id`: (optional) Some unique device identifier.
 - RESPONSE:
-    {
-        "_count": 1,
-        "data": [<response_object>]
-    }
+        
+        {
+            "_count": 1,
+            "data": [<response_object>]
+        
+        }
 
 
 ## User Login
@@ -39,10 +41,11 @@ Picovico provides `app` login as well as `user` login. Currently, both app login
     - `password`: (required) Password of user.
     - `device_id`: (optional) Some unique device identifier.
 - RESPONSE:
-    {
-        "_count": 1,
-        "data": [<response_object>]
-    }
+
+        {
+            "_count": 1,
+            "data": [<response_object>]
+        }
 
 Use the `access_key` and `access_token` as headers for making other subsequent requests.
 
