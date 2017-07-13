@@ -7,36 +7,25 @@
     "aspect_ratio": "16:9",
     "duration": <some-duration>,
     "owner": {
-        "profile_pic": "<some-image-link>",
-        "id": "<some-user-id>",
-        "name": "<some-name>"
+        "id": "<user_id>",
+        "name": "<user_name>",
+        "profile_pic": <some_pic>
     },
     "id": "<video_id>",
     "created_on": 1418879545,
-    "video": {
-        "360": {
-            "url": "<some-url>",
-            "size": 2647812
-        },
-        "480": {
-            "url": "<some-url>",
-            "size": 4068889
-        },
-        "720": {
-            "url": "<some-url>",
-            "size": 5477751
-        }
-    },
+    video: [{
+        "quality": 360,
+        "url": <video_url>,
+        "size": <video_size>,
+        "thumbnail": <video_thumbnail>
+    }],
     "modified_on": 1418879545,
     "view": 0,
-    "quality": 360,
-    "thumbnail": {
-        "360": "<some-url>",
-        "480": "<some-url>",
-        "720": "<some-url>"
-    },
-    "music_credits": ["title by artist"..],
     //assets is available only on initial status
+    credits: {
+        "music": ["Music Title by Music artist"],
+        "other": ["Image: Some One"]
+    }
     "assets": [{
         'music': {
             "asset_id": <music_id> or None,
@@ -49,13 +38,13 @@
         },
         "frames": [{
             "name": "image" //can be text
-            "asset_id": null or <image_id> //Not available for text,
             "data": {
                 "text": "",
                 "title": ""
             } // if image {"caption": ""},
             "attributes": {},
             "extras": {
+                "id": <image_id> // for available data
                 "url": "",
                 "thumbnail_url": ""
             }
@@ -141,7 +130,7 @@
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - QUERY PARAMS:
-    - `restore`: (optional) Set this value to 1 if restoration of failed/cancelled video is required. 
+    - `restore`: (optional) Set this value to `1` if restoration of failed/cancelled video is required. 
 - RESPONSE:
 
             {
@@ -199,8 +188,8 @@
 - URL: `/me/videos/<video_id>`
 - METHOD: `PUT`
 - QUERY PARAMS:
-    - `preview`: (optional) Set this value to 1 if preview is required.
-    - `render`: (optional) Set this value to 1 if along with preview rendering is also required  
+    - `preview`: (optional) Set this value to `1` if preview is required.
+    - `render`: (optional) Set this value to `1` along with `preview=1` if rendering is also required.  
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
@@ -231,8 +220,7 @@
 - URL: `/me/videos/<video_id>`
 - METHOD: `DELETE`
 - QUERY PARAMS:
-    - `cancel`: (optional) Set this value to 1 if cancellation of rendering is required.
-    - `trash`: (optional) Set this value to 1 along with `cancel` if both action is required.
+    - `cancel`: (optional) Set this value to `1` if you want to cancel rendering only.
 - RESPONSE:
     
         {
