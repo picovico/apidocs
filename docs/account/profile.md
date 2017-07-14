@@ -6,13 +6,9 @@ User Profile Data
         "id": '<user_id>',
         "profile_pic": '', 
         "email": '',
-        "address": '',
-        "gender": '',
-        "country": '',
-        "date_of_birth": '',
         "name": '',
-        "total_videos": 0,
         "bio": '',
+        "category": '',
         "plan": {
             'id': '',
             'type': '',
@@ -20,19 +16,20 @@ User Profile Data
             'on_trial': false,
             'on_coupon': false,
             'trial_ends_on': '',
-            'video_count': [{"quality": 360, "count": 1}],
             'payment_method': [],
             'private': false,
             'subscription': true,
             'cancelled': false,
             'cancelled_at': '',
-            'max_quality': 720
         },
+        "videos": {
+            "remaining": [{"quality": 360, "total": 10}]
+            "used": [{"status": "published", "total": 10}]
+        }
         "preferences": {
             'cta': {},
             'email': {},
             'timezone': '',
-            'publisher_name': '',
             'logo': {}
         },
         'payment_key': { //Included for payment purpose
@@ -44,8 +41,10 @@ User Profile Data
 - URL: `/me`  
 - METHOD: `GET`
 - QUERY PARAMS:
+    - `all`: Set this to `1` to include all user related data .i.e `plan`, `preferences`, `video` 
     - `plan`: Set this to `1` to include user plan.
     - `pref`: Set this to `1` to include user preferences.
+    - `video`: Set this to `1` to include user video stats.
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.

@@ -59,13 +59,8 @@
         }
     ],
     },
-    "musics": [],
-    "order": 1,
     "thumbnail": "<thumbnail_url>",
-    "meta": {
-        "related_styles": [],
-        "recommended_for": []
-    },
+    "sample_url": "<sample_url>",
     "sponsored": { //sponsored slide content. Should be included in video if included.
         "begin": [
             {
@@ -76,7 +71,6 @@
         "end": []
         },
     "scope": "<style_summary>",
-    "sample_url": "<sample_url>",
     "size": [ //aspect_ratio supported by style
         "16:9"
         ],
@@ -100,9 +94,9 @@
 - RESPONSE: 
         
         {
-            "_total": <total_no_of_styles>, 
+            "_total": <total_no_of_styles_available>, 
             "data": [<style_response_object>,...],
-            "_count": 10, //We provide 10 styles by default, can query more with num.
+            "_count": 10, //We provide 10 styles by default, can query more with count.
             "_page": 1
         }
     
