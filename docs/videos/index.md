@@ -2,10 +2,7 @@
 ```json
 {
     "status": "initial", //'published', 'processing'
-    "style": "<some-style>",
     "name": "<some-video-name>",
-    "aspect_ratio": "16:9",
-    "duration": <some-duration>,
     "id": "<video_id>",
     "created_on": 1418879545,
     "video": [{
@@ -15,6 +12,12 @@
         "thumbnail": <video_thumbnail>
     }],
     "modified_on": 1418879545,
+    //Only available in single video request.
+    "style": "<some-style>",
+    "aspect_ratio": "16:9",
+    "privacy": "unlisted",
+    "description": "some video description"
+    "duration": <some-duration>,
     //assets/credits is available only on initial status
     "credits": {
         "music": ["Music Title by Music artist"],
