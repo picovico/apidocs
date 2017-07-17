@@ -8,14 +8,13 @@
     "duration": <some-duration>,
     "id": "<video_id>",
     "created_on": 1418879545,
-    video: [{
+    "video": [{
         "quality": 360,
         "url": <video_url>,
         "size": <video_size>,
         "thumbnail": <video_thumbnail>
     }],
     "modified_on": 1418879545,
-    "view": 0,
     //assets is available only on initial status
     credits: {
         "music": ["Music Title by Music artist"],
@@ -23,11 +22,14 @@
     }
     "assets": [{
         'music': {
-            "id": <music_id>
+            "start_time": 0,
+            "end_time": 15,
+            "asset": {"id": <music_id>
             "url": <music_url>,
             "title": "", //Only if available, check "asset_id"
             "artist": "", //Only if available
             "duration": "" //Only if available
+            }
         },
         "frames": [{
             "name": "image" //can be text
@@ -36,6 +38,8 @@
                 "title": ""
             } // if image {"caption": ""},
             "attributes": {},
+            "start_time": 0,
+            "end_time": 5,
             "asset": {
                 "id": <image_id> // for available data
                 "url": "",
