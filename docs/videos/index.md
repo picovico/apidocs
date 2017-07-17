@@ -15,8 +15,8 @@
         "thumbnail": <video_thumbnail>
     }],
     "modified_on": 1418879545,
-    //assets is available only on initial status
-    credits: {
+    //assets/credits is available only on initial status
+    "credits": {
         "music": ["Music Title by Music artist"],
         "other": ["Image: Some One"]
     }
