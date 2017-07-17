@@ -6,11 +6,6 @@
     "name": "<some-video-name>",
     "aspect_ratio": "16:9",
     "duration": <some-duration>,
-    "owner": {
-        "id": "<user_id>",
-        "name": "<user_name>",
-        "profile_pic": <some_pic>
-    },
     "id": "<video_id>",
     "created_on": 1418879545,
     video: [{
@@ -28,13 +23,11 @@
     }
     "assets": [{
         'music': {
-            "asset_id": <music_id> or None,
-            "extras": {
-                "url": <music_url>,
-                "title": "", //Only if available, check "asset_id"
-                "artist": "", //Only if available
-                "duration": "" //Only if available
-            }
+            "id": <music_id>
+            "url": <music_url>,
+            "title": "", //Only if available, check "asset_id"
+            "artist": "", //Only if available
+            "duration": "" //Only if available
         },
         "frames": [{
             "name": "image" //can be text
@@ -43,7 +36,7 @@
                 "title": ""
             } // if image {"caption": ""},
             "attributes": {},
-            "extras": {
+            "asset": {
                 "id": <image_id> // for available data
                 "url": "",
                 "thumbnail_url": ""
@@ -94,7 +87,7 @@
                 [{
                 'frames': [{
                     "name": 'image',
-                    "asset_id": <image_id>,
+                    "id": <image_id>,
                     "url": <direct_image_url>, //if no image_id
                     "data": { //optional
                         "caption": ""
@@ -107,7 +100,7 @@
                     }
                 }...],
                 'music': {
-                        'asset_id': <music_id>, //id provided by picovico
+                        'id': <music_id>, //id provided by picovico
                         "url": <direct_music_url>, //if no music_id
                     } 
                 }, ....]
@@ -130,7 +123,10 @@
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - QUERY PARAMS:
-    - `restore`: (optional) Set this value to `1` if restoration of failed/cancelled video is required. 
+    - `restore`: (optional) Set this value to `1` if restoration of failed/cancelled video is required.
+    - `owner`: (optional) Set this value to `1` if owner info is required.
+    - `exports`: (optional) Set this value to `1` if exported data is required.
+    - `extras`: (optional) Set this value to `1` if extra info such as cta is required.
 - RESPONSE:
 
             {
@@ -158,7 +154,7 @@
                 [{
                 'frames': [{
                     "name": 'image',
-                    "asset_id": <image_id>,
+                    "id": <image_id>,
                     "url": <direct_image_url>, //if no image_id
                     "data": { //optional
                         "caption": ""
@@ -171,7 +167,7 @@
                     }
                 }...],
                 'music': {
-                        'asset_id': <music_id>, //id provided by picovico
+                        'id': <music_id>, //id provided by picovico
                         "url": <direct_music_url>, //if no music_id
                     } 
                 }, ....]
