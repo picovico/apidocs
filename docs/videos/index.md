@@ -19,10 +19,6 @@
     "description": "some video description"
     "duration": <some-duration>,
     //assets/credits is available only on initial status
-    "credits": {
-        "music": ["Music Title by Music artist"],
-        "other": ["Image: Some One"]
-    }
     "assets": [{
         'music': {
             "start_time": 0,
@@ -40,7 +36,7 @@
                 "text": "",
                 "title": ""
             } // if image {"caption": ""},
-            "attributes": {},
+            "attributes": {'credits': ''},
             "start_time": 0,
             "end_time": 5,
             "asset": {
