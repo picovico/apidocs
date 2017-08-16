@@ -61,7 +61,7 @@
     },
     "thumbnail": "<thumbnail_url>",
     "sample_url": "<sample_url>",
-    "sponsored": { //sponsored slide content. Should be included in video if included.
+    "sponsored": { //sponsored slide content. Will be included in video automatically.
         "begin": [
             {
             "url": "<url>",
@@ -89,6 +89,7 @@
 - QUERY PARAMS:
     - `count`: Number of styles.
     - `page`: Page Number if available.
+    - `story`: Whether you want to filter `story` filters in style.
 - HEADERS:
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - RESPONSE: 
