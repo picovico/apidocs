@@ -6,6 +6,14 @@
     "is_featured": <true|false>,
     "machine_name": "<machine_name>",
     "description": "<small_description>",
+    "thumbnail": "<thumbnail_url>",
+    "sample_url": "<sample_url>",
+    "scope": "<style_summary>",
+    "type": "<type_of_style>", // type of style in context to pricing plan
+    "youtube_url": "<youtube_id>", // youtube id for sample of style.
+    "is_story": false, // whether style is of storyboard type with preconfigured slides.
+    "name": "<name_of_style>"
+    //Only responded if querying `all` information
     "limits": { //slide limits of style
     "slide": {
         "text": {
@@ -59,8 +67,6 @@
         }
     ],
     },
-    "thumbnail": "<thumbnail_url>",
-    "sample_url": "<sample_url>",
     "sponsored": { //sponsored slide content. Will be included in video automatically.
         "begin": [
             {
@@ -70,14 +76,9 @@
         ],
         "end": []
         },
-    "scope": "<style_summary>",
     "size": [ //aspect_ratio supported by style
         "16:9"
         ],
-    "type": "<type_of_style>", // type of style in context to pricing plan
-    "youtube_url": "<youtube_id>", // youtube id for sample of style.
-    "is_story": false, // whether style is of storyboard type with preconfigured slides.
-    "name": "<name_of_style>"
 }
 ```
 ###Publicly Available Styles.
@@ -87,9 +88,10 @@
 - URL: `/styles`
 - METHOD: `GET`
 - QUERY PARAMS:
-    - `count`: Number of styles.
     - `page`: Page Number if available.
+    - `count`: Number of styles.
     - `story`: Whether you want to filter `story` filters in style.
+    - `all`: Whether include extra information such as `limits` and `quality` etc in response. 
 - HEADERS:
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - RESPONSE: 
@@ -105,6 +107,9 @@
 
 - URL: `/styles/<machine_name>/`
 - METHOD: `GET`
+- QUERY PARAMS:
+    - `story`: Whether you want to filter `story` filters in style.
+    - `all`: Whether include extra information such as `limits` and `quality` etc in response. 
 - HEADERS:
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - RESPONSE:
@@ -120,6 +125,11 @@
 
 - URL: `/me/styles`
 - METHOD: `GET`
+- QUERY PARAMS:
+    - `page`: Page Number if available.
+    - `count`: Number of styles.
+    - `story`: Whether you want to filter `story` filters in style.
+    - `all`: Whether include extra information such as `limits` and `quality` etc in response. 
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
@@ -140,6 +150,9 @@
     
 - URL: `/me/styles/<machine_name>`
 - METHOD: `GET`
+- QUERY PARAMS:
+    - `story`: Whether you want to filter `story` filters in style.
+    - `all`: Whether include extra information such as `limits` and `quality` etc in response. 
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
