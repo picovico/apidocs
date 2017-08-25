@@ -88,20 +88,27 @@
                     "url": <direct_image_url>, //if no image_id
                     "data": { //optional
                         "caption": ""
-                    }
+                    },
+                    "start_time": 4,
+                    "end_time": 8
                 },{
                     "name": "text",
                     "data": { //One is required `text` or `title`
                         "text": '',
                         "title": ''
-                    }
+                    },
+                    "start_time": 0, //in seconds
+                    "end_time": 9
                 }...],
                 'music': {
                         'id': <music_id>, //id provided by picovico
                         "url": <direct_music_url>, //if no music_id
+                        "start_time": 0,
+                        "end_time": 60
                     } 
                 }, ....]
-
+                
+                
 - RESPONSE:
                 
         {
