@@ -23,12 +23,8 @@
         'music': {
             "start_time": 0,
             "end_time": 15,
-            "asset": {"id": <music_id>
-            "url": <music_url>,
-            "title": "", //Only if available, check "asset_id"
-            "artist": "", //Only if available
-            "duration": "" //Only if available
-            }
+            "id": <music_id>,
+            "url": <some_url>, // when no id is present
         },
         "frames": [{
             "name": "image" //can be text
@@ -39,11 +35,9 @@
             "attributes": {'credits': ''},
             "start_time": 0,
             "end_time": 5,
-            "asset": {
-                "id": <image_id> // for available data
-                "url": "",
-                "thumbnail_url": ""
-            }
+            #for non text frames.
+            "id": <image_id>,
+            "url": <some_url>, //when no id is present
         },....]
     }
     ]
