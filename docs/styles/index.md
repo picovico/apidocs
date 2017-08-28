@@ -104,7 +104,7 @@
             "_page": 1
         }
     
-2 Get Single Specific Style
+2 Get Specific Style
 
 - URL: `/styles/<machine_name>/`
 - METHOD: `GET`
@@ -149,7 +149,7 @@
             "_page": 1 
         } 
 
-2 Get Single Specific User Allowed Style
+2 Get Specific User Allowed Style
     
 - URL: `/me/styles/<machine_name>`
 - METHOD: `GET`
