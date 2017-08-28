@@ -90,7 +90,8 @@
 - QUERY PARAMS:
     - `page`: Page Number if available.
     - `count`: Number of styles.
-    - `story`: Whether you want to filter `story` filters in style.
+    - `story`: Whether you want to filter `story` in style.
+    - `type`: Whether you want to filter `types` in style.
     - `all`: Whether include extra information such as `limits` and `quality` etc in response. 
 - HEADERS:
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
@@ -108,7 +109,8 @@
 - URL: `/styles/<machine_name>/`
 - METHOD: `GET`
 - QUERY PARAMS:
-    - `story`: Whether you want to filter `story` filters in style.
+    - `story`: Whether you want to filter `story` in style.
+    - `type`: Whether you want to filter `types` in style.
     - `all`: Whether include extra information such as `limits` and `quality` etc in response. 
 - HEADERS:
     - `X-PV-Meta-App`: (required) APP Id from picovico developer.
@@ -128,7 +130,8 @@
 - QUERY PARAMS:
     - `page`: Page Number if available.
     - `count`: Number of styles.
-    - `story`: Whether you want to filter `story` filters in style.
+    - `story`: Whether you want to filter `story` in style.
+    - `type`: Whether you want to filter `types` in style.
     - `all`: Whether include extra information such as `limits` and `quality` etc in response. 
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
@@ -151,7 +154,8 @@
 - URL: `/me/styles/<machine_name>`
 - METHOD: `GET`
 - QUERY PARAMS:
-    - `story`: Whether you want to filter `story` filters in style.
+    - `story`: Whether you want to filter `story` in style.
+    - `type`: Whether you want to filter `types` in style.
     - `all`: Whether include extra information such as `limits` and `quality` etc in response. 
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
