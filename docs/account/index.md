@@ -17,11 +17,11 @@ Picovico provides `app` login as well as `user` login. Currently, both app login
 - URL: `/login/app/`
 - METHOD: `POST`
 - HEADERS:
-    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+    - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
 - PARAMS:
-    - `app_id`: (required) Application Identifier Provided by picovico.
-    - `app_secret`: (required) Application Secret Provided by picovico.
-    - `device_id`: (optional) Some unique device identifier.
+    - `app_id`: (_required_) Application Identifier Provided by picovico.
+    - `app_secret`: (_required_) Application Secret Provided by picovico.
+    - `device_id`: (_optional_) Some unique device identifier.
 - RESPONSE:
         
         {
@@ -35,11 +35,11 @@ Picovico provides `app` login as well as `user` login. Currently, both app login
 - URL: `/login/`
 - METHOD: `POST`
 - HEADERS:
-    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+    - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
 - PARAMS:
-    - `username`: (required) Email of login user.
-    - `password`: (required) Password of user.
-    - `device_id`: (optional) Some unique device identifier.
+    - `username`: (_required_) Email of login user.
+    - `password`: (_required_) Password of user.
+    - `device_id`: (_optional_) Some unique device identifier.
 - RESPONSE:
 
         {
