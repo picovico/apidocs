@@ -33,6 +33,7 @@ and the url should comply. A mail will be sent to owner of app in case of callba
                 }
             }
         }
+
 - RESPONSE:
     - `json` data
     - status: 200 OK

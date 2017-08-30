@@ -94,7 +94,7 @@
     - `type`: Whether you want to filter `types` in style.
     - `all`: Whether include extra information such as `limits` and `quality` etc in response. 
 - HEADERS:
-    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+    - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
 - RESPONSE: 
         
         {
@@ -113,7 +113,7 @@
     - `type`: Whether you want to filter `types` in style.
     - `all`: Whether include extra information such as `limits` and `quality` etc in response. 
 - HEADERS:
-    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+    - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
 - RESPONSE:
 
         {
@@ -134,9 +134,9 @@
     - `type`: Whether you want to filter `types` in style.
     - `all`: Whether include extra information such as `limits` and `quality` etc in response. 
 - HEADERS:
-    - `X-Access-Token`: (required) Token Provided by Picovico.
-    - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+    - `X-Access-Token`: (_required_) Token Provided by Picovico.
+    - `X-Access-Key`: (_required_) Access Key Provided by Picovico.
+    - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
 - QUERY PARAMS:
     - `count`: Number of styles.
     - `page`: Page Number if available.
@@ -158,9 +158,9 @@
     - `type`: Whether you want to filter `types` in style.
     - `all`: Whether include extra information such as `limits` and `quality` etc in response. 
 - HEADERS:
-    - `X-Access-Token`: (required) Token Provided by Picovico.
-    - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+    - `X-Access-Token`: (_required_) Token Provided by Picovico.
+    - `X-Access-Key`: (_required_) Access Key Provided by Picovico.
+    - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
 - RESPONSE:
 
         {

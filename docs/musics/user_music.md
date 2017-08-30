@@ -25,9 +25,9 @@
     - URL: `/me/musics/<music_id>`
     - METHOD: `GET`
     - HEADERS:
-        - `X-Access-Token`: (required) Token Provided by Picovico.
-        - `X-Access-Key`: (required) Access Key Provided by Picovico.
-        - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+        - `X-Access-Token`: (_required_) Token Provided by Picovico.
+        - `X-Access-Key`: (_required_) Access Key Provided by Picovico.
+        - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
     - RESPONSE:
             
             {
@@ -40,9 +40,9 @@
     - URL: `/me/musics`
     - METHOD: `PUT`
     - HEADERS:
-        - `X-Access-Token`: (required) Token Provided by Picovico.
-        - `X-Access-Key`: (required) Access Key Provided by Picovico.
-        - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+        - `X-Access-Token`: (_required_) Token Provided by Picovico.
+        - `X-Access-Key`: (_required_) Access Key Provided by Picovico.
+        - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
     - BODY: __MUSIC_FILE__
     - RESPONSE:
     
@@ -56,9 +56,9 @@
     - URL: `/me/musics`
     - METHOD: `DELETE`
     - HEADERS:
-        - `X-Access-Token`: (required) Token Provided by Picovico.
-        - `X-Access-Key`: (required) Access Key Provided by Picovico.
-        - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+        - `X-Access-Token`: (_required_) Token Provided by Picovico.
+        - `X-Access-Key`: (_required_) Access Key Provided by Picovico.
+        - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
     - RESPONSE: 
             
             {
@@ -71,9 +71,9 @@
     - URL: `/me/musics/<music_id>`
     - METHOD: `DELETE`
     - HEADERS:
-        - `X-Access-Token`: (required) Token Provided by Picovico.
-        - `X-Access-Key`: (required) Access Key Provided by Picovico.
-        - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+        - `X-Access-Token`: (_required_) Token Provided by Picovico.
+        - `X-Access-Key`: (_required_) Access Key Provided by Picovico.
+        - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
     - RESPONSE: 
 
             {
