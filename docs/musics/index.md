@@ -14,9 +14,9 @@
 >- URL: `/musics`
 >- METHOD: `GET`
 >- HEADERS:
-    - `X-Access-Token`: (required) Token Provided by Picovico.
-    - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+    - `X-Access-Token`: (_required_) Token Provided by Picovico.
+    - `X-Access-Key`: (_required_) Access Key Provided by Picovico.
+    - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
 >- RESPONSE:
         
         {
@@ -28,9 +28,9 @@
 >- URL: `/musics/<music_id>`
 >- METHOD: `GET`
 >- HEADERS:
-    - `X-Access-Token`: (required) Token Provided by Picovico.
-    - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
+    - `X-Access-Token`: (_required_) Token Provided by Picovico.
+    - `X-Access-Key`: (_required_) Access Key Provided by Picovico.
+    - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
 >- RESPONSE:
     
     {
