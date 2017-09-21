@@ -1,4 +1,4 @@
-site_name: Picovico - API 2.0 Documentation
+site_name: Picovico - API 2.7 Documentation
 dev_addr: localhost:5000
 theme: readthedocs
 repo_url: https://github.com/picovico/apidocs
