@@ -21,6 +21,7 @@ final action.
     - HEADERS:
         - `X-Access-Token`: (required) Token Provided by Picovico.
         - `X-Access-Key`: (required) Access Key Provided by Picovico.
+        - `X-PV-Meta-App`: (required) APP Id from picovico developer.
     - RESPONSE:
         - If the checksum object is already present:
             
@@ -60,6 +61,7 @@ final action.
 - HEADERS:
     - `X-Access-Token`: (required) Token Provided by Picovico.
     - `X-Access-Key`: (required) Access Key Provided by Picovico.
+    - `X-PV-Meta-App`: (required) APP Id from picovico developer.
 - PARAMS:
     - `uploads`: (required) `json` format `[{"PartNumber": 1, "ETag": ""},..]` responded by s3 upload.  
 - RESPONSE:

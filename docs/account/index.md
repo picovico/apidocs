@@ -16,30 +16,41 @@ Picovico provides `app` login as well as `user` login. Currently, both app login
 ## App Login
 - URL: `/login/app/`
 - METHOD: `POST`
-- URL: `/login/`
-- METHOD: `POST`
+- HEADERS:
+    - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
 - PARAMS:
-    - `app_id`: (required) Application Identifier Provided by picovico.
-    - `app_secret`: (required) Application Secret Provided by picovico.
-    - `device_id`: (optional) Some unique device identifier.
-- RESPONSE: `<response_object>`
+    - `app_id`: (_required_) Application Identifier Provided by picovico.
+    - `app_secret`: (_required_) Application Secret Provided by picovico.
+    - `device_id`: (_optional_) Some unique device identifier.
+- RESPONSE:
+        
+        {
+            "_count": 1,
+            "data": [<response_object>]
+        
+        }
 
 
 ## User Login
 - URL: `/login/`
 - METHOD: `POST`
+- HEADERS:
+    - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
 - PARAMS:
-    - `username`: (required) Email of login user.
-    - `password`: (required) Password of user.
-    - `app_id`: (required) Application ID for login.
-    - `device_id`: (optional) Some unique device identifier.
-- RESPONSE: `<response_object>`
+    - `username`: (_required_) Email of login user.
+    - `password`: (_required_) Password of user.
+    - `device_id`: (_optional_) Some unique device identifier.
+- RESPONSE:
 
-Check the [Developer Signup](account/developer-signup) page for more details.
+        {
+            "_count": 1,
+            "data": [<response_object>]
+        }
 
 Use the `access_key` and `access_token` as headers for making other subsequent requests.
 
 ###Authentication Headers
+These headers are used with all urls with prefix `/me`
 
     X-Access-Key: access_key  
     X-Access-Token: access_token

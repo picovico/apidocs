@@ -5,13 +5,17 @@
 * __Platform Version__  
 `2.7`
 * __API Version__  
-`2.7 - REST API`
+`2.7`
 * __Root URL__  
 `http://api2.picovico.com/`__`v2.7`__  
 * __Authentication__  
     - Headers
         - X-Access-Token: `<token_provided>`
         - X-Access-Key: `<key_provided>`
+* __REQUIRED_APP_HEADER__
+    - X-PV-Meta-App: `<app_id from picovico developer>`
+
+
 
 ## Requests
 
@@ -33,22 +37,18 @@ All response are json with HTTP status code playing the part for error or succes
 Errors are responded with:
 
     {
-        'error': {'message': ''},
+        'error': {'message': 'Some human friendly error message.'},
         'status': <http_status_code>  // 400
     }
 
 Success [200 OK] will be responded in:
 
     
-    Only Newer API respond with:
-
     {
         '_count': <no_of_response_data>,
         'data': [{<success_response_object>},]  # [] for 0 count
     }
 
-
-*For backward compatibility, only newer API respond in this format. See corresponding endpoints for actual response.*
 
 - Note: *Success also may have other meta information followed by `_` such as `_page` where necessary.*
     

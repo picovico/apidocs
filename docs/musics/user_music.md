@@ -1,10 +1,9 @@
 ####Response Object
 ```json
 {
-    "url": <url>,
+    "url": <preview_url>, //we create preview of uploaded music
     "artist": "<Artist of music if available>",
     "title": "<Title of music if available>",
-    "preview_url": "<preview_url>"
     "duration": <duration_in_seconds>,
     "id": "<music_id>"
 }
@@ -14,68 +13,71 @@
 1. Get List of uploaded Musics.
     - URL: `/me/musics`
     - METHOD: `GET`
-    - HEADERS:
-        - `X-Access-Token`: (required) Token Provided by Picovico.
-        - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - RESPONSE: `[<response_object>, ...]`
+
+    - RESPONSE:
+
+            {
+                'data': [<response_object>,.....]
+                '_count': <no_of_music>,
+            }
 
 2. Get Single Music
     - URL: `/me/musics/<music_id>`
     - METHOD: `GET`
     - HEADERS:
-        - `X-Access-Token`: (required) Token Provided by Picovico.
-        - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - RESPONSE: `<response_object>`
+        - `X-Access-Token`: (_required_) Token Provided by Picovico.
+        - `X-Access-Key`: (_required_) Access Key Provided by Picovico.
+        - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
+    - RESPONSE:
+            
+            {
+                'data': [<response_object>]
+                '_count': 1,
+            }
 
 ####Upload Musics
 1. Upload Music File
     - URL: `/me/musics`
     - METHOD: `PUT`
     - HEADERS:
-        - `X-Access-Token`: (required) Token Provided by Picovico.
-        - `X-Access-Key`: (required) Access Key Provided by Picovico.
-        - `X-Music-Title` (optional) Title of music to be set.
-        - `X-Music-Artist` (optional) Artist of music to be set.
-    - RESPONSE: `<response_object>`
-
-2. Set Music from other host.
-    - URL: `/me/musics`
-    - METHOD: `POST`
-    - HEADERS:
-        - `X-Access-Token`: (required) Token Provided by Picovico.
-        - `X-Access-Key`: (required) Access Key Provided by Picovico.
-    - PARAMETERS:
-        - `url` (required)
-        - `preview_url` (optional)
-        - `title` (optional)
-        - `artist` (optional)
-    - RESPONSE: `<response_object>`
+        - `X-Access-Token`: (_required_) Token Provided by Picovico.
+        - `X-Access-Key`: (_required_) Access Key Provided by Picovico.
+        - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
+    - BODY: __MUSIC_FILE__
+    - RESPONSE:
+    
+            {
+                'data': [<response_object>] 
+                '_count': 1,
+            }
 
 ####Delete User Musics
 1. Add All Music to trashcan.
     - URL: `/me/musics`
     - METHOD: `DELETE`
     - HEADERS:
-        - `X-Access-Token`: (required) Token Provided by Picovico.
-        - `X-Access-Key`: (required) Access Key Provided by Picovico.
+        - `X-Access-Token`: (_required_) Token Provided by Picovico.
+        - `X-Access-Key`: (_required_) Access Key Provided by Picovico.
+        - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
     - RESPONSE: 
-```json
-{
-    '_count': 1,
-    data: [{message: "All Musics added to trashcan."}]
-}
-```
+            
+            {
+                '_count': 1,
+                data: [{message: "All Musics added to trashcan."}]
+            }
+
 
 2. Add Single Music to trashcan.
     - URL: `/me/musics/<music_id>`
     - METHOD: `DELETE`
     - HEADERS:
-        - `X-Access-Token`: (required) Token Provided by Picovico.
-        - `X-Access-Key`: (required) Access Key Provided by Picovico.
+        - `X-Access-Token`: (_required_) Token Provided by Picovico.
+        - `X-Access-Key`: (_required_) Access Key Provided by Picovico.
+        - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
     - RESPONSE: 
-```json
-{
-    '_count': 1,
-    data: [{message: "<music_id> Musics added to trashcan."}]
-}
-```
+
+            {
+                '_count': 1,
+                data: [{message: "<music_id> Musics added to trashcan."}]
+            }
+
