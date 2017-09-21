@@ -1,16 +1,39 @@
-#Musics
-Following endpoints are valid for musics. `X-Access-Key` and `X-Access-Token` are required wherever the endpoint expects 
-authorization. 
+###Response Object
+```json
+{
+    "category": "",
+    "is_featured": true,
+    "artist": "<Artist of music if available>",
+    "title": "<Title of music if available>",
+    "url": "<preview_url>",
+    "duration": <duration_in_seconds>,
+    "id": "<music_id>"
+}
+```
+###List all picovico provided musics
+>- URL: `/musics`
+>- METHOD: `GET`
+>- HEADERS:
+    - `X-Access-Token`: (_required_) Token Provided by Picovico.
+    - `X-Access-Key`: (_required_) Access Key Provided by Picovico.
+    - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
+>- RESPONSE:
+        
+        {
+            'data': [<response_object>,.....]
+            '_count': 25,
+        }
 
-##Endpoints
-
-###GET `/musics`
-* List of musics from Picovico Library
-
-###GET `/me/musics`
-* List of user's uploaded musics.
-
-###PUT `/me/musics`
-* Upload music.
-
-[More Details](details.md)
+###Get Single Specific Music
+>- URL: `/musics/<music_id>`
+>- METHOD: `GET`
+>- HEADERS:
+    - `X-Access-Token`: (_required_) Token Provided by Picovico.
+    - `X-Access-Key`: (_required_) Access Key Provided by Picovico.
+    - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
+>- RESPONSE:
+    
+    {
+        'data': [<response_object>]
+        '_count': 1,
+    }
