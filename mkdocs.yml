@@ -23,3 +23,4 @@ pages:
  - ['musics/index.md', 'Musics & Audio Library', 'Picovico System Provided Music']
 # - ['musics/user_music.md', 'Musics & Audio Library', 'User Uploaded Music']
  - ['styles/index.md', 'Styles', 'Details']
+ - ['sdk/index.md', 'SDK', 'Library & Examples']
