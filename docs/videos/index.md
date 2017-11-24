@@ -188,8 +188,9 @@
 - URL: `/me/videos/<video_id>`
 - METHOD: `PUT`
 - QUERY PARAMS:
+    `Rendering is done if no params`
     - `preview`: (_optional_) Set this value to `1` if preview is required.
-    - `render`: (_optional_) Set this value to `1` along with `preview=1` if rendering is also required.  
+    - `render`: (_optional_) Set this value to `1` along with `preview=1` if rendering is also required. 
 - HEADERS:
     - `X-Access-Token`: (_required_) Token Provided by Picovico.
     - `X-Access-Key`: (_required_) Access Key Provided by Picovico.
@@ -199,6 +200,15 @@
     - If video is being rendered/previewed for first time:
         
         `HTTP_STATUS: 202`
+        
+                {
+                    'data': [{'message': 'Video is being processed.'}] 
+                    '_count': 1,
+                    // Only if checking with test API application.
+                    // Please see response format above for reference in case of test as 
+                    // this will be the only response available.
+                    '_test': true 
+                }
     
     - else:
         - video_render_response:
