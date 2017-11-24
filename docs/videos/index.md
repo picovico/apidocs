@@ -205,7 +205,7 @@
                     'data': [{'message': 'Video is being processed.'}] 
                     '_count': 1,
                     // Only if checking with test API application.
-                    // Please see response format above for reference in case of test as 
+                    // Please see response format above for reference when video ready in case of test as 
                     // this will be the only response available.
                     '_test': true 
                 }
