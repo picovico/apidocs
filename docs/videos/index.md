@@ -234,6 +234,6 @@
 - RESPONSE:
     
         {
-            'data': [<response_object>] //check 'status' of object.
+            'data': [{"message": "Video Deleted"}]
             '_count': 1,
         }
