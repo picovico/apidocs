@@ -69,7 +69,7 @@ __Usage__
     APP_SECRET = ''
     DEVICE_ID = ''
     
-    picovico = PicovicoAPI(APP_ID, APP_SECRET, DEVICE_ID)
+    picovico = PicovicoAPI(app_id=APP_ID, app_secret=APP_SECRET, device_id=DEVICE_ID)
     picovico.authenticate()
     payload = {
         "style" : "vanilla_frameless",
@@ -91,7 +91,7 @@ __Usage__
         ]
     }
     try:
-        res = pv.authenticated_api(method='post', url='me/videos', json.dumps(payload), headers={'Content-Type': 'application/json', 'Accept': 'application/json'})
+        res = pv.authenticated_api(method='post', url='me/videos', params=json.dumps(payload), headers={'Content-Type': 'application/json', 'Accept': 'application/json'})
     except PicovicoError as e:
         print(str(e))
     else:
