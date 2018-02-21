@@ -202,20 +202,16 @@
         `HTTP_STATUS: 202`
         
                 {
-                    'data': [{'message': 'Video is being processed.'}] 
                     '_count': 1,
-                    // Only if checking with test API application.
-                    // Please see response format above for reference when video ready in case of test as 
-                    // this will be the only response available.
-                    '_test': true 
+                    'data': [{'message': 'Video is being processed.'}]
                 }
     
     - else:
         - video_render_response:
         
                 {
-                    'data': [<response_object>] //check 'status' of object.
                     '_count': 1,
+                    'data': [<response_object>] //check 'status' of object.
                 }
         
         - video preview response:
@@ -234,6 +230,6 @@
 - RESPONSE:
     
         {
-            'data': [{"message": "Video Deleted"}]
             '_count': 1,
+            'data': [{"message": "Video Deleted"}]
         }
