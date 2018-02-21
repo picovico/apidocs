@@ -79,8 +79,7 @@ __Usage__
         "assets" : [{
                 "music" : {
                     "id" : "aud_6j44J9zjbSQe54ZTTSqUj2"
-                }
-                ,
+                },
                 "frames" : [
                     picovico.text_slide(title="You are", body="my love"),
                     picovico.text_slide(title="You are", body="CSS to my HTML"),
