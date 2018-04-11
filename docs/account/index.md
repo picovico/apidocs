@@ -19,7 +19,6 @@ Picovico provides `app` login as well as `user` login. Currently, both app login
 - HEADERS:
     - `X-PV-Meta-App`: (_required_) APP Id from picovico developer.
 - PARAMS:
-    - `app_id`: (_required_) Application Identifier Provided by picovico.
     - `app_secret`: (_required_) Application Secret Provided by picovico.
     - `device_id`: (_optional_) Some unique device identifier.
 - RESPONSE:
