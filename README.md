@@ -1,4 +1,4 @@
-apidocs
+apidocs [Discontinued]
 =======
 
 Picovico REST API v2.0 Documentation
