@@ -1,3 +1,6 @@
+# This page is archived and no longer updated
+
+
 # Picovico 2.7
 [Picovico 2.7](http://picovico.com), the new version of Picovico, has been re-engineered and re-systematized from the core. The latter version is improved towards providing better user experience and stability.
 
