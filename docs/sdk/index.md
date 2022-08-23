@@ -1,3 +1,6 @@
+# This project / SDK is not longer active
+
+
 Picovico provides `SDK` for ease of use with the API. SDK are available in [github](https://github.com/picovico).
 
 ###PHP-SDK
