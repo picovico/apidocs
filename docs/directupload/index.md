@@ -1,4 +1,4 @@
-# This page is archived and no longer udpated. 
+<h1 style='color:red; padding:2em; border:1px solid red'> This page is archived and no longer udpated. </h1>
 
 We provide `signedurls` to upload directly to our s3 bucket.
 Currently this feature is supported for `videoclip` asset but

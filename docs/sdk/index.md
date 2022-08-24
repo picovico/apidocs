@@ -1,7 +1,4 @@
-# This page is archived and no longer udpated. 
-
-# This project / SDK is not longer active
-
+<h1 style='color:red; padding:2em; border:1px solid red'> This page is archived and no longer udpated. </h1>
 
 Picovico provides `SDK` for ease of use with the API. SDK are available in [github](https://github.com/picovico).
 

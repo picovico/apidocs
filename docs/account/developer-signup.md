@@ -1,4 +1,4 @@
-# This page is archived and no longer udpated. 
+<h1 style='color:red; padding:2em; border:1px solid red'> This page is archived and no longer udpated. </h1>
 
 #Developer Signup
 Picovico 2.7 API provides signup and dashboards for developers. Each developer interested in using the Picovico API has to create an account at Picovico

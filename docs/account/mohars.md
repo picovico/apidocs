@@ -1,4 +1,4 @@
-# This page is archived and no longer udpated. 
+<h1 style='color:red; padding:2em; border:1px solid red'> This page is archived and no longer udpated. </h1>
 
 # #Pay Per Video
 Picovico currency is known as #Mohar and to use the platform your account needs to have sufficient #mohars required by any particular action.

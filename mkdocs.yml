@@ -1,26 +1,15 @@
 site_name: Picovico - API 2.7 Documentation
-dev_addr: localhost:5000
-theme: readthedocs
+heme: material
 repo_url: https://github.com/picovico/apidocs
 site_author: Picovico Inc.
-site_favicon: http://www.picovico.com/app/assets/img/favicon.ico?v=102
 docs_dir: docs
 extra_css:
  - extras/screen.css
-pages:
- - ['index.md', 'Picovico API', 'Home']
- - ['account/index.md', 'Account', 'Login Flow']
-# - ['account/profile.md', 'Account', 'Profile']
-# - ['account/developer-signup.md', 'Account', 'Developer Signup']
- - ['account/api_callback.md', 'Account', 'API Application Callback']
-# - ['account/password.md', 'Account', 'Change Password']
-# - ['account/mohars.md', 'Account', '#Mohars']
- - ['videos/index.md', 'Videos', 'Endpoints']
-# - ['videos/details.md', 'Videos', 'Video Details']
-# - ['videoclips/index.md', 'VideoClips', 'Details']
-# - ['directupload/index.md', 'AWS S3 Direct Bucket Upload']
-# - ['photos/index.md', 'Photos', 'Details']
- - ['musics/index.md', 'Musics & Audio Library', 'Picovico System Provided Music']
-# - ['musics/user_music.md', 'Musics & Audio Library', 'User Uploaded Music']
- - ['styles/index.md', 'Styles', 'Details']
- - ['sdk/index.md', 'SDK', 'Library & Examples']
+nav:
+ - 'Home': 'index.md'
+ - 'Login Flow': 'account/index.md'
+ - 'API Application Callback': 'account/api_callback.md'
+ - 'Endpoints' : 'videos/index.md'
+ - 'Picovico System Provided Music' : 'musics/index.md'
+ - 'Styles Details' : 'styles/index.md'
+ - 'SDK / Libraries' : 'sdk/index.md'

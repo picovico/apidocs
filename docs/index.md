@@ -1,7 +1,4 @@
-# This page is archived and no longer udpated. 
-
-# This page is archived and no longer updated
-
+<h1 style='color:red; padding:2em; border:1px solid red'> This page is archived and no longer udpated. </h1>
 
 # Picovico 2.7
 [Picovico 2.7](http://picovico.com), the new version of Picovico, has been re-engineered and re-systematized from the core. The latter version is improved towards providing better user experience and stability.
