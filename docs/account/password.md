@@ -1,3 +1,5 @@
+# This page is archived and no longer udpated. 
+
 #Login Flow
 Picovico 2.0 API follows a simple login flow. Each account is provided with username and password which authenticates
 user with the system. Upon successful login, access_key and access_token are provided in the response.

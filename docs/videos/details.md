@@ -1,3 +1,5 @@
+# This page is archived and no longer udpated. 
+
 #Videos
 Following endpoints are valid for videos. `X-Access-Key` and `X-Access-Token` required wherever the endpoint expects 
 authorization.

@@ -1,3 +1,5 @@
+# This page is archived and no longer udpated. 
+
 Picovico provides `app` login as well as `user` login. Currently, both app login and user login provides
 `access_key` and `access_token` which is then used for all authentications.
 

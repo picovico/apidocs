@@ -1,3 +1,5 @@
+# This page is archived and no longer udpated. 
+
 ##Callback URL
 You can set your callback url in your applicatiion preferences. The data format is explained below
 and the url should comply. A mail will be sent to owner of app in case of callback failure.

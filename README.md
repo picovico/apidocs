@@ -1,4 +1,7 @@
-apidocs [Discontinued]
+# This page is archived and no longer udpated. 
+
+
+apidocs
 =======
 
 Picovico REST API v2.0 Documentation

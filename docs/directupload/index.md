@@ -1,3 +1,5 @@
+# This page is archived and no longer udpated. 
+
 We provide `signedurls` to upload directly to our s3 bucket.
 Currently this feature is supported for `videoclip` asset but
 we will be opening it for `music` and `photos` as well.
